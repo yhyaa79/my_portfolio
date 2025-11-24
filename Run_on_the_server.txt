@@ -1,0 +1,73 @@
+روی لپ‌تاپ/لوکال خودت 
+
+# 1. لاگین به داکرهاب
+docker login
+# یوزرنیم: yhyaa.79 (یا هر چی که ساختم)
+# پسورد رو وارد کن
+
+# 2. بیلد و تگ کن
+docker build -t yhyaa79/ai-talk:latest .
+
+# 3. پوش کن به داکرهاب
+docker push yhyaa79/ai-talk:latest
+
+
+
+
+ روی سرو
+
+
+# 1. برو به یه فولدر خالی (مثلاً /opt/ai-talk)
+sudo mkdir -p /opt/ai-talk
+cd /opt/ai-talk
+
+# 2. فقط این ۳ تا فایل رو لازم داری (از گیت یا دستی کپی کن)
+#    - docker-compose.yml (همونی که بالا دادم)
+#    - nginx/nginx.conf (همون قبلی)
+#    - AI_talk/static/ (فولدر استاتیک + rate_limits.json)
+
+# 3. فقط یه بار pull کن
+docker pull yhyaa79/ai-talk:latest
+
+# 4. بالا بیار
+sudo docker-compose up -d
+
+# 5. SSL بگیر (همون دستور قبلی)
+sudo certbot --nginx -d yhya.space -d www.yhya.space
+# گزینه 2 رو بزن (Redirect HTTP → HTTPS)
+
+# 6. ری‌استارت
+sudo docker-compose down
+sudo docker-compose up -d
+
+
+
+
+..................................................................................
+آپدیت: هروقت کد تغییر کرد دستورات زیر اجرا بشن
+
+
+لوکال:
+docker build -t yhyaa79/ai-talk:latest .
+docker push yhyaa79/ai-talk:latest
+
+سرور:
+cd /opt/ai-talk
+docker-compose pull
+docker-compose up -d
+
+
+
+..............
+
+نمایش ارور :
+root@yhya:/opt/ai-talk# docker pull yhyaa79/ai-talk:latest
+Error response from daemon: no matching manifest for linux/amd64 in the manifest list entries: no match for platform in manifest: not found
+
+
+ایمیج تو روی مک (یا ویندوز) با Apple Silicon (arm64) یا Docker Desktop بیلد شده،
+ولی سرور اوبونتو معمولی amd64 (x86_64) هست و ایمیج فقط برای arm64 بیلد شده (manifest list نداره).
+# ۱. ایمیج رو برای linux/amd64 هم بیلد کن (multi-platform)
+روی لوکال:
+docker buildx create --use
+docker buildx build --platform linux/amd64 -t yhyaa79/ai-talk:latest . --push
