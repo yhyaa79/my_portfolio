@@ -1,0 +1,998 @@
+* {
+    font-family: "Noto Sans Arabic", sans-serif;
+}
+
+body {
+    margin: 0;
+    background-color: #cdcfd4;
+}
+
+
+h1 {
+    color: #000000;
+    font-size: 42px;
+    font-weight: 700;
+    margin: 0;
+}
+
+h2 {
+    color: #000000;
+    font-size: 40px;
+    margin: 0;
+}
+
+h3 {
+    color: #000000;
+    font-size: 26px;
+    margin: 0;
+}
+
+h4 {
+    color: #000000;
+    font-size: 20px;
+    margin: 0;
+}
+
+p {
+    color: #000000;
+    margin: 0;
+    font-size: 18px;
+    line-height: 1.4;
+}
+
+.main-div {
+    max-width: 1400px;
+    margin: auto;
+}
+
+.upper-lower-divider {
+    align-content: center;
+    align-items: center;
+    background-color: #cdcfd4;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: 0px;
+    height: min-content;
+    justify-content: flex-start;
+    overflow: visible;
+    padding: 40px 70px 0 70px;
+    position: relative;
+}
+
+
+.upper-div-position {
+    flex: none;
+    height: auto;
+    left: 50%;
+    position: absolute;
+    top: 40px;
+    transform: translate(-50%);
+    width: auto;
+    z-index: 9;
+}
+
+.upper-div {
+    background-color: #acbac9;
+    border-radius: 12px;
+    opacity: 1;
+    align-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    height: 48px;
+    justify-content: space-between;
+    overflow: visible;
+    padding: 0 20px;
+    position: relative;
+    width: 346px;
+}
+
+
+.lower-div {
+    background-color: #fff0;
+    display: flex;
+    flex: none;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 70px;
+    height: min-content;
+    justify-content: center;
+    overflow: visible;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+
+
+.left-right-divider {
+    align-items: flex-start;
+    background-color: #fff0;
+    display: contents;
+    /* flex: 1 0 0px; */
+    /* flex-direction: row; */
+    /* flex-wrap: nowrap; */
+    /* gap: 80px; */
+    height: min-content;
+    /* justify-content: flex-start; */
+    max-width: 1140px;
+    overflow: visible;
+    padding: 0 30px;
+    position: relative;
+    width: 1px;
+}
+
+
+.left-div {
+    background-color: #858e9a40;
+    border-radius: 16px;
+    opacity: 1;
+    align-items: center;
+    display: flex;
+    flex: none;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: 40px;
+    height: min-content;
+    justify-content: center;
+    overflow: hidden;
+    padding: 0;
+    position: sticky;
+    top: 40px;
+    width: min-content;
+    will-change: transform;
+    z-index: 1;
+}
+
+.personal-information {
+    align-content: center;
+    align-items: center;
+    background-color: #fff0;
+    display: flex;
+    flex: none;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: 40px;
+    height: min-content;
+    justify-content: center;
+    overflow: hidden;
+    padding: 0;
+    position: sticky;
+    top: 40px;
+    width: min-content;
+    will-change: transform;
+    z-index: 1;
+}
+
+.upper-lower-divider-personal-information {
+    align-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: 16px;
+    height: 82vh;
+    justify-content: flex-start;
+    overflow: hidden;
+    padding: 30px 10px 10px 10px;
+    position: relative;
+    width: 285px;
+    will-change: var(--framer-will-change-override, transform);
+}
+
+.image-profile {
+    flex: none;
+    height: 340px;
+    overflow: visible;
+    position: relative;
+    width: 240px;
+}
+
+.img-profile {
+    border-radius: 16px;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-position: center center;
+    object-fit: cover;
+}
+
+.information-profile {
+    align-content: center;
+    align-items: center;
+    display: flex;
+    flex: 1 0 0px;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    height: 1px;
+    justify-content: space-between;
+    overflow: hidden;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+
+
+
+
+
+
+.first-liar-profile {
+    align-content: center;
+    align-items: center;
+    display: flex;
+    flex: none;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: 16px;
+    height: 100%;
+    justify-content: center;
+    overflow: visible;
+    padding: 0;
+    position: relative;
+    width: 100%;
+    justify-content: space-between;
+}
+
+
+.social_media-profile {
+    align-content: center;
+    align-items: center;
+    display: flex;
+    flex: none;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 16px;
+    height: min-content;
+    justify-content: center;
+    overflow: hidden;
+    padding: 0;
+    position: relative;
+    width: 100%;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0) 0%, #8d9ab25c 20%, #8d9ab25c 80%, rgba(0, 0, 0, 0) 100%);
+    padding: 12px 0px 0px 0px;
+}
+
+
+
+.second-liar-profile {
+    align-content: center;
+    align-items: center;
+    display: flex;
+    flex: none;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: 4px;
+    height: min-content;
+    justify-content: center;
+    overflow: visible;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+
+.name-profile {
+    font-size: 26px;
+    margin: 0;
+    margin-bottom: 8px;
+}
+
+.specifications-profile {
+    font-size: 16px;
+    margin: 0;
+}
+
+
+
+.btn-talk {
+    background-color: #914bf1;
+    height: 44px;
+    width: 180px;
+    border-radius: 8px;
+    border: none;
+    opacity: 1;
+}
+
+
+
+
+
+
+
+.div-right {
+    align-content: center;
+    align-items: center;
+    background-color: #fff0;
+    display: flex;
+    flex: 1 0 0px;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: 0px;
+    height: min-content;
+    justify-content: center;
+    overflow: visible;
+    padding: 0;
+    position: relative;
+    width: 1px;
+}
+
+.fourth-liar-introduction {
+    align-content: flex-start;
+    align-items: flex-start;
+    display: flex;
+    flex: none;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: 10px;
+    height: min-content;
+    justify-content: center;
+    overflow: hidden;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+
+.third-liar-introduction {
+    align-content: flex-start;
+    align-items: flex-start;
+    display: flex;
+    flex: none;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: 10px;
+    height: min-content;
+    justify-content: center;
+    overflow: hidden;
+    padding: 0;
+    position: relative;
+    width: auto;
+}
+
+.second-liar-introduction {
+    align-content: flex-start;
+    align-items: flex-start;
+    background-color: #fff0;
+    display: flex;
+    flex: none;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: 30px;
+    height: min-content;
+    justify-content: center;
+    overflow: hidden;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+
+.first-liar-introduction {
+    align-content: center;
+    align-items: center;
+    display: flex;
+    flex: none;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: 30px;
+    height: min-content;
+    justify-content: center;
+    overflow: visible;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+
+
+.number-projects-second-liar-introduction {
+    align-items: center;
+    background-color: #fff0;
+    display: flex;
+    flex: none;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 60px;
+    height: min-content;
+    justify-content: flex-start;
+    overflow: unset;
+    padding: 0;
+    position: relative;
+    width: 100%;
+    place-content: center;
+    margin-bottom: 30px;
+}
+
+.years-experience {
+    outline: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    flex-shrink: 0;
+    transform: none;
+    width: 120px;
+    background: #f0f8ff40;
+    border-radius: 20px;
+    align-items: center;
+    padding: 0px 10px 10px 10px;
+    direction: ltr;
+    box-shadow: 2px 2px 20px #3535350f;
+}
+
+.my-num-experience {
+    font-size: 42px;
+    font-weight: 600;
+    color: #414141;
+    line-height: 1.3;
+}
+
+.my-text-experience {
+    font-size: 17px;
+    font-weight: 500;
+    color: #414141;
+}
+
+.to-talk-second-liar-introduction {
+    align-items: center;
+    display: flex;
+    flex: none;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 25px;
+    height: min-content;
+    justify-content: flex-start;
+    overflow: visible;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+
+.my-work-second-liar-introduction {
+    font-size: 24px;
+}
+
+
+.section-first-liar-introduction {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    place-items: center;
+    margin: 0px;
+    padding: 10px;
+    list-style-type: none;
+    opacity: 1;
+    mask-image: linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 12.5%, rgb(0, 0, 0) 87.5%, rgba(0, 0, 0, 0) 100%);
+    overflow: hidden;
+}
+
+.ul-first-liar-introduction {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    place-items: center;
+    margin: 0px;
+    padding: 0px;
+    list-style-type: none;
+    gap: 80px;
+    position: relative;
+    flex-direction: row;
+    will-change: transform;
+    transform: translateX(0px);
+}
+
+.div-first-liar-introduction {
+    align-items: flex-start;
+    background-color: #fff0;
+    display: flex;
+    flex: none;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: 10px;
+    height: min-content;
+    justify-content: center;
+    overflow: hidden;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+
+
+
+.my-projects {
+    align-content: center;
+    align-items: center;
+    display: flex;
+    flex: none;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: 20px;
+    height: min-content;
+    justify-content: center;
+    overflow: hidden;
+    padding: 30px 0 0;
+    position: relative;
+    width: 100%;
+}
+
+.sample-my-projects {
+    height: min-content;
+    justify-content: center;
+    padding: 0;
+    position: relative;
+    width: 100%;
+    margin-bottom: 40px;
+}
+
+
+.each-one-my-projects {
+    align-self: start;
+    flex: none;
+    height: auto;
+    justify-self: start;
+    position: relative;
+    width: 100%;
+    margin-bottom: 14px;
+}
+
+
+.view-each-one-my-projects {
+    background-color: #818e9b;
+    border-radius: 16px 16px 0 0;
+    align-content: center;
+    align-items: center;
+    display: flex;
+    flex: none;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 10px;
+    height: 200px;
+    justify-content: center;
+    overflow: hidden;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+
+.img-each-one-my-projects {
+    border-radius: 16px 16px 0 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-position: center center;
+    object-fit: cover;
+}
+
+.description-each-one-my-projects {
+    background-color: #acbac9;
+    border-radius: 0 0 16px 16px;
+    align-content: flex-start;
+    align-items: flex-start;
+    display: flex;
+    flex: none;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: 10px;
+    height: min-content;
+    justify-content: center;
+    overflow: visible;
+    padding: 20px 16px;
+    position: relative;
+}
+
+.p-description-each-one-my-projects {
+    font-size: 15px;
+}
+
+.button-view-site {
+    border: none;
+    background-color: #00000000;
+}
+
+.programming-languages-and-tools {
+    align-content: center;
+    align-items: center;
+    display: flex;
+    flex: none;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: 20px;
+    height: min-content;
+    justify-content: center;
+    overflow: hidden;
+    padding: 100px 0 0;
+    position: relative;
+    width: 100%;
+}
+
+.sample-programming-languages {
+    display: grid;
+    flex: none;
+    gap: 20px;
+    grid-auto-rows: min-content;
+    grid-template-columns: repeat(2, minmax(220px, 1fr));
+    height: min-content;
+    justify-content: start;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+
+.each-one-programming-languages {
+    background-color: #acbac9;
+    border-radius: 10px;
+    align-items: center;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 16px;
+    height: min-content;
+    justify-content: flex-start;
+    overflow: hidden;
+    padding: 16px;
+    position: relative;
+    text-decoration: none;
+    will-change: var(--framer-will-change-override, transform);
+}
+
+.img-programming-languages {
+    border-radius: 20px;
+    width: 75px;
+    height: 75px;
+}
+
+
+
+.my-programming-language {
+    align-content: center;
+    align-items: center;
+    display: flex;
+    flex: none;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: 20px;
+    height: min-content;
+    justify-content: center;
+    overflow: hidden;
+    padding: 100px 0 0;
+    position: relative;
+    width: 100%;
+}
+
+
+.all-programming-language {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+
+.my-skills {
+    align-content: center;
+    align-items: center;
+    display: flex;
+    flex: none;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: 20px;
+    height: min-content;
+    justify-content: center;
+    overflow: hidden;
+    padding: 100px 0 0;
+    position: relative;
+    width: 100%;
+}
+
+.sample-my-skills {
+    display: ruby;
+    gap: inherit;
+}
+
+.each-one-my-skills {
+    background-color: #acbac9;
+    border-radius: 10px;
+    align-items: center;
+    cursor: pointer;
+    display: flex;
+    margin: 5px;
+}
+
+.description-my-skills {
+    margin: 12px;
+}
+
+.say-about-my-work {
+    align-content: center;
+    align-items: center;
+    display: flex;
+    flex: none;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: 80px;
+    height: min-content;
+    justify-content: center;
+    overflow: hidden;
+    padding: 100px 0 0;
+    position: relative;
+    width: 100%;
+}
+
+.sample-say-about-my-work {
+    background-color: #acbac9;
+    padding: 20px;
+    --border-bottom-width: 1px;
+    --border-color: rgba(255, 255, 255, 0.02);
+    --border-left-width: 1px;
+    --border-right-width: 1px;
+    --border-style: solid;
+    --border-top-width: 1px;
+    opacity: 1;
+    border-radius: 12px;
+}
+
+
+
+.img-each-one-say-about-my-work {
+    width: 65px;
+    border-radius: 50%;
+}
+
+.each-one-say-about-my-work {
+    display: flex;
+
+    gap: 17px;
+}
+
+.description-say-about-my-work {
+    align-content: center;
+}
+
+.description-p-say-about-my-work {
+    padding: 18px 0;
+}
+
+.next-previous {
+    position: absolute;
+    top: 166px;
+    right: 0px;
+    display: flex;
+    gap: 10px;
+}
+
+.btn-previous {
+    background-color: #914bf1;
+    border-radius: 50%;
+    border: none;
+    width: 45px;
+    height: 45px;
+}
+
+.btn-next {
+    background-color: #914bf1;
+    border-radius: 50%;
+    border: none;
+    width: 45px;
+    height: 45px;
+}
+
+
+
+
+.headline-senten {}
+
+.headline-word {
+    color: #914bf1;
+}
+
+
+
+.photo-stack {
+    position: relative;
+    width: 400px;
+    /* عرض کلی */
+    height: 500px;
+    /* ارتفاع کلی */
+}
+
+.photo-stack img {
+    position: absolute;
+    width: 180px;
+    height: 160px;
+    object-fit: cover;
+    border: 2px solid #fff;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+    transition: all 0.4s ease;
+}
+
+.photo-stack img:nth-child(1) {
+    top: 230px;
+    left: 40px;
+    transform: rotate(-12deg);
+    z-index: 3;
+}
+
+.photo-stack img:nth-child(2) {
+    top: 132px;
+    left: 100px;
+    transform: rotate(8deg);
+    z-index: 2;
+}
+
+.photo-stack img:nth-child(3) {
+    top: 156px;
+    left: 0;
+    transform: rotate(-5deg);
+    z-index: 1;
+}
+
+
+
+/* عنوان روی عکس‌ها (اختیاری) */
+.title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 48px;
+    font-weight: bold;
+    text-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+    z-index: 4;
+    pointer-events: none;
+    text-align: center;
+}
+
+
+
+
+/* کانتینر اصلی - کمی بزرگتر از عکس می‌کنیم تا stroke هم جا بشه */
+.circle-progress {
+    position: relative;
+    width: 90px;
+    /* 70px عکس + 10px حاشیه از هر طرف برای stroke */
+    height: 90px;
+    margin: 20px;
+    /* فقط برای نمایش بهتر */
+    border-radius: 100px;
+    margin-bottom: 8px;
+    scale: 0.9;
+}
+
+/* SVG */
+.circle-progress svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: rotate(-90deg);
+}
+
+/* دایره پس‌زمینه و پیشرفت */
+.circle-bg,
+.circle-bar {
+    fill: none;
+    stroke-width: 11;
+    /* ضخامت حلقه - می‌تونی 8 تا 12 بذاری */
+    cx: 45;
+    cy: 45;
+    r: 37;
+    /* شعاع دقیق: 45 - (stroke-width/2) = 40 */
+}
+
+/* محاسبه محیط دایره جدید: 2 × π × 40 ≈ 251.3 */
+.circle-bar {
+    stroke: #4d586d;
+    stroke-linecap: round;
+    stroke-dasharray: 251.3;
+    stroke-dashoffset: calc(251.3px * (100 - var(--percent)) / 100);
+    transition: stroke-dashoffset 1.2s ease-out;
+
+}
+
+.circle-bg {
+    stroke: #b0b0b0;
+}
+
+/* عکس وسط - حالا دقیقاً وسط و چسبیده به حلقه */
+.circle-image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: #ffffff;
+}
+
+.circle-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+.timeline-section {
+    max-width: 900px;
+    margin: 80px auto;
+    padding: 0 20px;
+}
+
+.timeline-title {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 60px;
+    color: #f8fafc;
+}
+
+.timeline {
+    position: relative;
+    padding-right: 30px;
+    border-right: 2px solid #334155;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 50px;
+    padding-right: 40px;
+}
+
+.timeline-item:last-child {
+    margin-bottom: 0;
+}
+
+.timeline-dot {
+    position: absolute;
+    right: -9px;
+    top: 6px;
+    width: 16px;
+    height: 16px;
+    background: #38bdf8;
+    border-radius: 50%;
+    border: 3px solid #0f172a;
+}
+
+.timeline-content {
+    background: #020617;
+    padding: 20px 24px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.timeline-date {
+    display: block;
+    font-size: 0.9rem;
+    color: #38bdf8;
+    margin-bottom: 8px;
+}
+
+.timeline-content h3 {
+    margin: 0 0 10px;
+    font-size: 1.1rem;
+    color: #f1f5f9;
+}
+
+.timeline-content p {
+    margin: 0;
+    line-height: 1.8;
+    color: #cbd5f5;
+}
+
+/* 📱 Responsive */
+@media (max-width: 600px) {
+    .timeline {
+        padding-right: 20px;
+    }
+
+    .timeline-item {
+        padding-right: 30px;
+    }
+
+    .timeline-title {
+        font-size: 1.6rem;
+    }
+}
