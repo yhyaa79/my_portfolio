@@ -856,7 +856,7 @@ p {
 .circle-bg,
 .circle-bar {
     fill: none;
-    stroke-width: 10px;
+    stroke-width: 7px;
     /* ضخامت حلقه - می‌تونی 8 تا 12 بذاری */
     cx: 45;
     cy: 45;
