@@ -252,6 +252,7 @@ p {
     width: 100%;
     background: linear-gradient(to right, rgba(0, 0, 0, 0) 0%, #8d9ab25c 20%, #8d9ab25c 80%, rgba(0, 0, 0, 0) 100%);
     padding: 12px 0px 0px 0px;
+    margin-bottom: 20px;
 }
 
 
@@ -874,11 +875,11 @@ p {
 .circle-bg,
 .circle-bar {
     fill: none;
-    stroke-width: 11;
+    stroke-width: 10px;
     /* ضخامت حلقه - می‌تونی 8 تا 12 بذاری */
     cx: 45;
     cy: 45;
-    r: 37;
+    r: 40;
     /* شعاع دقیق: 45 - (stroke-width/2) = 40 */
 }
 
@@ -996,3 +997,4 @@ p {
         font-size: 1.6rem;
     }
 }
+
