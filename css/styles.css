@@ -383,6 +383,22 @@ p {
     margin-bottom: 30px;
 }
 
+
+.all-experience {
+    outline: none;
+    display: flex;
+    justify-content: flex-start;
+    transform: none;
+    width: 100%;
+    background: #f0f8ff40;
+    border-radius: 12px;
+    align-items: center;
+    padding: 0px 10px 10px 10px;
+    margin: 10px;
+    box-shadow: 2px 2px 20px #3535350f;
+}
+
+
 .years-experience {
     outline: none;
     display: flex;
