@@ -875,7 +875,7 @@ p {
 }
 
 .circle-bg {
-    stroke: #b0b0b0;
+    stroke: #bebfc0;
 }
 
 /* عکس وسط - حالا دقیقاً وسط و چسبیده به حلقه */
@@ -1055,19 +1055,12 @@ a.project-link:hover {
     margin-bottom: -2.5px;
 }
 
-/* Section and outer wrapper styles moved from inline */
-.time-se-outer-100w {
-    /* corresponds to: style="width: 100%;" (kept by container) */
-}
 
 .time-se-section {
-    padding: 0 54px;
+    padding: 0 50px;
     margin-top: 40px;
 }
 
-.time-se-section {
-    /* additional specificity (if needed) */
-}
 
 .time-se-profile-wrap {
     position: relative;
@@ -1125,7 +1118,7 @@ a.project-link:hover {
 
 .time-se-num {
     position: absolute;
-    right: -108px;
+    right: -100px;
     top: 2px;
     font-size: 14px;
     font-weight: 600;
@@ -1142,4 +1135,10 @@ a.project-link:hover {
 /* Ensure the first content block has the slight negative margin on top to mimic the original spacing */
 .time-se-item:first-child .time-se-content {
     margin-top: -10px;
+}
+
+
+
+.framer-P79dX {
+    color: #000000;
 }
