@@ -1158,3 +1158,210 @@ a.project-link:hover {
 .framer-P79dX {
     color: #000000;
 }
+
+
+
+
+
+
+
+/* استایل‌های ریسپانسیو برای نمایش بهتر روی موبایل (عرض صفحه ≤ 768px) */
+
+@media (max-width: 768px) {
+    /* پدینگ کلی صفحه را کاهش بده تا محتوا فضای بیشتری داشته باشه */
+    .upper-lower-divider {
+        padding: 20px 20px 0 20px;
+    }
+
+    /* مخفی کردن سایدبار چپ (پروفایل) روی موبایل – محتوای اصلی تمام عرض را بگیرد */
+    .left-div {
+        display: none !important;
+    }
+
+    /* بخش راست (محتوای اصلی) حالا تمام عرض را اشغال می‌کنه */
+    .div-right {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    /* کاهش گپ بین بخش‌ها */
+    .lower-div {
+        gap: 30px;
+        padding: 0 10px;
+    }
+
+    /* هدرها و متن‌ها را کوچکتر کن تا خواناتر بشن */
+    .headline-sentenc {
+        font-size: 20px !important;
+        padding-left: 20px !important;
+    }
+
+    .name-profile {
+        font-size: 22px;
+    }
+
+    p {
+        font-size: 15px !important;
+        line-height: 1.6;
+    }
+
+    h3 {
+        font-size: 18px !important;
+    }
+
+    /* بخش درباره من و سایر بلاک‌ها */
+    .third-liar-introduction {
+        padding: 20px 15px;
+        border-radius: 12px;
+    }
+
+    .description-third-liar-introduction {
+        font-size: 15px !important;
+    }
+
+    /* تایم‌لاین تجربیات کاری */
+    .time-se-section {
+        padding: 0 20px;
+    }
+
+    .time-se-profile-wrap {
+        padding-right: 30px;
+        border-right: 2px solid #4e4e4e;
+    }
+
+    .time-se-dot1,
+    .time-se-dot2 {
+        right: -38px !important;
+    }
+
+    .time-se-num {
+        right: -70px !important;
+        font-size: 13px !important;
+    }
+
+    .time-se-content h3 {
+        font-size: 16px !important;
+    }
+
+    .time-se-content p {
+        font-size: 14px !important;
+    }
+
+    /* مهارت‌ها – دایره‌های پیشرفت */
+    .all-programming-language {
+        gap: 15px;
+        justify-content: center;
+    }
+
+    .years-experience {
+        width: 100px;
+    }
+
+    .circle-progress {
+        width: 80px;
+        height: 80px;
+    }
+
+    .circle-image {
+        width: 60px;
+        height: 60px;
+    }
+
+    .my-text-experience {
+        font-size: 15px;
+    }
+
+    /* لیست مهارت‌های متنی */
+    .all-experience {
+        grid-template-columns: 1fr !important;
+        text-align: center;
+        padding: 12px;
+    }
+
+    .all-experience h4 {
+        font-size: 15px;
+    }
+
+    .all-experience p {
+        font-size: 14px;
+        margin-left: 0 !important;
+    }
+
+    /* پروژه‌ها – کارت‌ها را عمودی کن */
+    .each-one-my-projects > div {
+        flex-direction: column !important;
+        gap: 15px;
+        padding: 15px;
+    }
+
+    .each-one-my-projects img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 12px;
+    }
+
+    .each-one-my-projects h3 {
+        font-size: 18px !important;
+    }
+
+    .each-one-my-projects p {
+        font-size: 14.5px !important;
+    }
+
+    /* دکمه مشاهده آنلاین */
+    a[href="https://loovi.ai"] {
+        align-self: center;
+        font-size: 15px;
+        padding: 8px 24px;
+    }
+
+    /* گیت‌هاب در انتها */
+    .headline {
+        margin: 10px 20px 0 20px;
+        padding: 2px 40px 0 40px;
+    }
+
+    .headline a {
+        font-size: 13px;
+    }
+
+    img[src="./images/github.png"] {
+        border-radius: 8px;
+        margin-top: 10px;
+    }
+
+    /* تنظیمات کلی برای اسکرول روان‌تر */
+    body {
+        -webkit-overflow-scrolling: touch;
+    }
+}
+
+/* برای صفحه‌های خیلی کوچک (≤ 480px) – تنظیمات اضافی */
+@media (max-width: 480px) {
+    .headline-sentenc {
+        font-size: 18px !important;
+        padding-left: 10px !important;
+    }
+
+    .third-liar-introduction {
+        padding: 15px 10px;
+    }
+
+    .time-se-num {
+        display: none; /* سال‌ها را مخفی کن تا فضای بیشتری بگیریم */
+    }
+
+    .time-se-dot1,
+    .time-se-dot2 {
+        right: -35px !important;
+    }
+
+    .all-programming-language {
+        gap: 10px;
+    }
+
+    .years-experience {
+        width: 90px;
+    }
+}
