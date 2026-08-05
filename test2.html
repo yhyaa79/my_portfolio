@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>یحیی اسلامی — توسعه‌دهنده بک‌اند و هوش مصنوعی</title>
+<meta name="description" content="یحیی اسلامی، توسعه‌دهنده فول‌استک با تمرکز بر بک‌اند و هوش مصنوعی.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://unpkg.com/github-calendar@latest/dist/github-calendar-responsive.css" />
+<script src="https://unpkg.com/github-calendar@latest/dist/github-calendar.min.js"></script>
+
+<style>
+  :root[data-theme="dark"]{
+    --bg:#0f1115;
+    --surface:#171a20;
+    --border:#262a32;
+    --text:#eceef2;
+    --text-muted:#8b93a1;
+    --accent:#5b8def;
+    --accent-soft:rgba(91,141,239,0.12);
+  }
+  :root[data-theme="light"]{
+    --bg:#fbfbfa;
+    --surface:#f2f3f5;
+    --border:#e3e5e9;
+    --text:#181a1f;
+    --text-muted:#636975;
+    --accent:#2f5fd1;
+    --accent-soft:rgba(47,95,209,0.08);
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Vazirmatn', sans-serif;
+    line-height:1.75;
+    -webkit-font-smoothing:antialiased;
+    transition:background .25s, color .25s;
+  }
+  a{color:inherit; text-decoration:none;}
+  img{max-width:100%; display:block;}
+  .mono{font-family:'JetBrains Mono', monospace; direction:ltr; unicode-bidi:isolate;}
+
+  .wrap{max-width:760px; margin:0 auto; padding:0 24px;}
+
+  /* ---------- Nav ---------- */
+  .nav{
+    position:sticky; top:0; z-index:20;
+    background:var(--bg);
+    border-bottom:1px solid var(--border);
+  }
+  .nav-inner{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:16px 24px; max-width:760px; margin:0 auto;
+  }
+  .nav-name{font-weight:700; font-size:15px;}
+  .theme-toggle{
+    display:flex; align-items:center; gap:6px;
+    border:1px solid var(--border); border-radius:20px; padding:5px 5px;
+    background:var(--surface); cursor:pointer;
+  }
+  .theme-toggle button{
+    border:none; background:transparent; color:var(--text-muted);
+    width:30px; height:30px; border-radius:16px; display:flex; align-items:center; justify-content:center;
+    cursor:pointer; transition:background .2s, color .2s;
+  }
+  .theme-toggle button.active{background:var(--accent); color:#fff;}
+  .theme-toggle svg{width:15px; height:15px;}
+
+  /* ---------- Sections ---------- */
+  section{padding:56px 0;}
+  .label{
+    font-family:'JetBrains Mono', monospace; font-size:12px; color:var(--accent);
+    margin-bottom:10px; direction:ltr; text-align:right;
+  }
+  h2{font-size:22px; font-weight:700; margin:0 0 22px;}
+
+  /* ---------- Hero ---------- */
+  .hero{padding:64px 0 40px; display:flex; gap:28px; align-items:center;}
+  .hero img{
+    width:88px; height:88px; border-radius:50%; object-fit:cover; border:1px solid var(--border);
+  }
+  .hero h1{font-size:26px; font-weight:800; margin:0 0 6px;}
+  .hero .role{color:var(--accent); font-size:15px; font-weight:600; margin-bottom:8px;}
+  .hero .loc{color:var(--text-muted); font-size:13.5px;}
+  @media (max-width:520px){ .hero{flex-direction:column; text-align:center;} }
+
+  .intro p{color:var(--text-muted); font-size:15.5px; margin:0 0 14px;}
+  .intro strong{color:var(--text); font-weight:700;}
+
+  .actions{display:flex; gap:10px; margin-top:20px; flex-wrap:wrap;}
+  .btn{
+    font-size:14px; font-weight:600; padding:10px 20px; border-radius:8px;
+    border:1px solid var(--border); transition:all .2s;
+  }
+  .btn-primary{background:var(--accent); color:#fff; border-color:var(--accent);}
+  .btn-primary:hover{opacity:.9;}
+  .btn-ghost:hover{border-color:var(--accent); color:var(--accent);}
+
+  hr.rule{border:none; border-top:1px solid var(--border); margin:0;}
+
+  /* ---------- Skills ---------- */
+  .skill-row{
+    display:flex; gap:16px; padding:14px 0; border-bottom:1px solid var(--border);
+  }
+  .skill-row:last-child{border-bottom:none;}
+  .skill-row .sk-name{flex:0 0 140px; font-weight:600; font-size:14.5px; color:var(--text);}
+  .skill-row .sk-tags{display:flex; flex-wrap:wrap; gap:8px; flex:1;}
+  .skill-row .sk-tags span{
+    font-family:'JetBrains Mono', monospace; font-size:12px; color:var(--text-muted);
+    background:var(--surface); border:1px solid var(--border); padding:3px 10px; border-radius:6px; direction:ltr;
+  }
+  @media (max-width:520px){ .skill-row{flex-direction:column; gap:8px;} }
+
+  /* ---------- Experience ---------- */
+  .job{padding:20px 0; border-bottom:1px solid var(--border);}
+  .job:first-child{padding-top:0;}
+  .job:last-child{border-bottom:none;}
+  .job-head{display:flex; justify-content:space-between; align-items:baseline; gap:12px; margin-bottom:6px;}
+  .job-head h3{font-size:15.5px; font-weight:700; margin:0;}
+  .job-head span{font-family:'JetBrains Mono', monospace; font-size:12.5px; color:var(--text-muted); white-space:nowrap; direction:ltr;}
+  .job p{color:var(--text-muted); font-size:14.5px; margin:0;}
+
+  /* ---------- Projects ---------- */
+  .proj{
+    display:flex; gap:16px; padding:18px 0; border-bottom:1px solid var(--border); align-items:flex-start;
+  }
+  .proj:first-child{padding-top:0;}
+  .proj:last-child{border-bottom:none;}
+  .proj img{
+    width:64px; height:64px; border-radius:8px; object-fit:cover; flex:0 0 64px; border:1px solid var(--border);
+  }
+  .proj-body h3{font-size:15px; font-weight:700; margin:0 0 5px;}
+  .proj-body p{font-size:14px; color:var(--text-muted); margin:0 0 8px;}
+  .proj-body .tags{display:flex; flex-wrap:wrap; gap:6px;}
+  .proj-body .tags span{
+    font-family:'JetBrains Mono', monospace; font-size:11px; color:var(--accent);
+    background:var(--accent-soft); padding:2px 8px; border-radius:5px; direction:ltr;
+  }
+  .proj-body a{font-size:12.5px; color:var(--accent); font-family:'JetBrains Mono', monospace; direction:ltr; display:inline-block; margin-top:6px;}
+
+  /* ---------- GitHub ---------- */
+  .gh-panel{
+    background:var(--surface); border:1px solid var(--border); border-radius:10px; padding:22px;
+  }
+  #github-calendar{direction:ltr;}
+  #github-calendar .calendar{padding:0;}
+
+  /* ---------- Footer ---------- */
+  .contact{text-align:center; padding:60px 0 40px;}
+  .contact p{color:var(--text-muted); font-size:14.5px; margin:0 0 20px;}
+  .social-row{display:flex; justify-content:center; gap:10px; margin-top:20px;}
+  .social-btn{
+    width:38px; height:38px; border-radius:8px; border:1px solid var(--border);
+    display:flex; align-items:center; justify-content:center; transition:all .2s;
+  }
+  .social-btn:hover{border-color:var(--accent); color:var(--accent);}
+  .social-btn svg{width:16px; height:16px;}
+  footer{
+    border-top:1px solid var(--border); padding:22px 0; text-align:center;
+    font-family:'JetBrains Mono', monospace; font-size:11.5px; color:var(--text-muted); direction:ltr;
+  }
+</style>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <div class="nav-name">یحیی اسلامی</div>
+      <div class="theme-toggle" role="group" aria-label="انتخاب تم">
+        <button id="btn-dark" aria-label="تم تیره">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3a9 9 0 1 0 9 9 7 7 0 0 1-9-9z"/></svg>
+        </button>
+        <button id="btn-light" aria-label="تم روشن">
+          <svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2M12 20v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M2 12h2M20 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="wrap">
+
+    <!-- Hero -->
+    <div class="hero">
+      <img src="images/photo-output.png" alt="یحیی اسلامی">
+      <div>
+        <h1>یحیی اسلامی</h1>
+        <div class="role">توسعه‌دهنده بک‌اند و هوش مصنوعی</div>
+        <div class="loc mono">Tehran, Iran</div>
+      </div>
+    </div>
+
+    <div class="intro">
+      <p>از سال ۱۴۰۲ روی <strong>یادگیری عمیق، بینایی کامپیوتر و پردازش گفتار</strong> کار می‌کنم و آن‌ها را در قالب سرویس‌های بک‌اند واقعی پیاده‌سازی می‌کنم. تمرکز اصلی‌ام روی نقطه‌ای‌ست که مدل‌های هوش مصنوعی به محصول قابل‌استفاده تبدیل می‌شوند.</p>
+      <div class="actions">
+        <a class="btn btn-primary" href="#projects">مشاهده پروژه‌ها</a>
+        <a class="btn btn-ghost" href="https://github.com/yhyaa79" target="_blank" rel="noopener">گیت‌هاب</a>
+      </div>
+    </div>
+  </div>
+
+  <hr class="rule">
+
+  <!-- Skills -->
+  <section class="wrap" id="skills">
+    <div class="label mono">SKILLS</div>
+    <h2>توانایی‌ها</h2>
+    <div class="skill-row">
+      <div class="sk-name">بینایی کامپیوتر</div>
+      <div class="sk-tags"><span>YOLOv5–v9</span><span>Object Tracking</span></div>
+    </div>
+    <div class="skill-row">
+      <div class="sk-name">یادگیری عمیق</div>
+      <div class="sk-tags"><span>Transformer</span><span>RNN</span><span>LSTM</span></div>
+    </div>
+    <div class="skill-row">
+      <div class="sk-name">گفتار و صوت</div>
+      <div class="sk-tags"><span>Whisper</span><span>Speech-to-Text</span></div>
+    </div>
+    <div class="skill-row">
+      <div class="sk-name">APIهای هوش مصنوعی</div>
+      <div class="sk-tags"><span>OpenAI</span><span>Anthropic</span><span>ElevenLabs</span><span>Groq</span></div>
+    </div>
+    <div class="skill-row">
+      <div class="sk-name">بک‌اند</div>
+      <div class="sk-tags"><span>Python</span><span>Flask</span><span>MongoDB</span><span>MySQL</span><span>Docker</span></div>
+    </div>
+    <div class="skill-row">
+      <div class="sk-name">فرانت‌اند</div>
+      <div class="sk-tags"><span>JavaScript</span><span>HTML</span><span>CSS</span></div>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <!-- Experience -->
+  <section class="wrap" id="experience">
+    <div class="label mono">EXPERIENCE</div>
+    <h2>تجربه‌های کاری</h2>
+
+    <div class="job">
+      <div class="job-head">
+        <h3>توسعه‌دهنده بک‌اند هوش مصنوعی — loovi.ai</h3>
+        <span class="mono">1404</span>
+      </div>
+      <p>یکپارچه‌سازی APIهای چند مدل هوش مصنوعی، طراحی سیستم صورتحساب بر پایه توکن و مدیریت داده در MongoDB.</p>
+    </div>
+
+    <div class="job">
+      <div class="job-head">
+        <h3>فری‌لنس هوش مصنوعی — سیستم پیشنهاد کتاب</h3>
+        <span class="mono">1403</span>
+      </div>
+      <p>ساخت دیتاست و موتور پیشنهاد کتاب مبتنی بر پردازش زبان طبیعی، از ایده تا محصول.</p>
+    </div>
+
+    <div class="job">
+      <div class="job-head">
+        <h3>تیم فنی هوش مصنوعی — تشخیص و ترجمه زبان اشاره</h3>
+        <span class="mono">1403</span>
+      </div>
+      <p>تشخیص و ردیابی دست با YOLOv8 و شناسایی علائم زبان اشاره با معماری Transformer.</p>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <!-- Projects -->
+  <section class="wrap" id="projects">
+    <div class="label mono">PROJECTS</div>
+    <h2>پروژه‌ها</h2>
+
+    <div class="proj">
+      <img src="images/loovi1.png" alt="loovi.ai">
+      <div class="proj-body">
+        <h3>loovi.ai</h3>
+        <p>پلتفرم یکپارچه پردازش متن، صوت، تصویر و ویدیو با اتصال به چند مدل هوش مصنوعی.</p>
+        <div class="tags"><span>OpenAI</span><span>MongoDB</span></div>
+        <a href="https://loovi.ai" target="_blank" rel="noopener">loovi.ai ↗</a>
+      </div>
+    </div>
+
+    <div class="proj">
+      <img src="images/BookWeb.png" alt="BookWeb">
+      <div class="proj-body">
+        <h3>BookWeb</h3>
+        <p>سیستم پیشنهاد هوشمند کتاب بر پایه پردازش زبان طبیعی و مهندسی پرامپت.</p>
+        <div class="tags"><span>NLP</span></div>
+      </div>
+    </div>
+
+    <div class="proj">
+      <img src="images/SubifyAI.png" alt="SubifyAI">
+      <div class="proj-body">
+        <h3>SubifyAI</h3>
+        <p>تولید و ترجمه خودکار زیرنویس ویدیو با Whisper، به بیش از ۱۰۰ زبان.</p>
+        <div class="tags"><span>Whisper</span></div>
+      </div>
+    </div>
+
+    <div class="proj">
+      <img src="images/AI_talk3.png" alt="AI Talk">
+      <div class="proj-body">
+        <h3>AI Talk</h3>
+        <p>گفتار-به-گفتار واقعی‌زمان با معماری STT → LLM → TTS و تأخیر پایین.</p>
+        <div class="tags"><span>Streaming</span></div>
+      </div>
+    </div>
+
+    <div class="proj">
+      <img src="images/CoinTracker.png" alt="Coin Tracker">
+      <div class="proj-body">
+        <h3>Coin Tracker</h3>
+        <p>ردیابی لحظه‌ای بازار کریپتو و پیش‌بینی قیمت با مدل LSTM/Transformer.</p>
+        <div class="tags"><span>LSTM</span></div>
+      </div>
+    </div>
+
+    <div class="proj">
+      <img src="images/AI_Web_Design.png" alt="AI Web Design">
+      <div class="proj-body">
+        <h3>AI Web Design</h3>
+        <p>تولید کد وب‌سایت از روی توصیف متنی، با پیش‌نمایش و اصلاح هوشمند.</p>
+        <div class="tags"><span>Code Gen</span></div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <!-- GitHub -->
+  <section class="wrap" id="github">
+    <div class="label mono">GITHUB</div>
+    <h2>فعالیت گیت‌هاب</h2>
+    <div class="gh-panel">
+      <div id="github-calendar">در حال بارگذاری…</div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="contact wrap">
+    <p>برای همکاری یا گفت‌وگوی فنی، از طریق گیت‌هاب در دسترسم.</p>
+    <a class="btn btn-primary" href="https://github.com/yhyaa79" target="_blank" rel="noopener">تماس با من</a>
+    <div class="social-row">
+      <a class="social-btn" href="https://github.com/yhyaa79" target="_blank" rel="noopener" aria-label="GitHub">
+        <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+      </a>
+      <a class="social-btn" href="https://github.com/yhyaa79" target="_blank" rel="noopener" aria-label="LinkedIn">
+        <svg viewBox="0 0 448 512" fill="currentColor"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <footer>© <span id="year"></span> Yahya Eslami</footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const root = document.documentElement;
+    const btnDark = document.getElementById('btn-dark');
+    const btnLight = document.getElementById('btn-light');
+
+    function setTheme(theme){
+      root.setAttribute('data-theme', theme);
+      btnDark.classList.toggle('active', theme === 'dark');
+      btnLight.classList.toggle('active', theme === 'light');
+      try{ localStorage.setItem('theme', theme); }catch(e){}
+    }
+
+    let saved = 'dark';
+    try{ saved = localStorage.getItem('theme') || 'dark'; }catch(e){}
+    setTheme(saved);
+
+    btnDark.addEventListener('click', () => setTheme('dark'));
+    btnLight.addEventListener('click', () => setTheme('light'));
+
+    if (window.GitHubCalendar) {
+      GitHubCalendar("#github-calendar", "yhyaa79", { responsive: true });
+    }
+  </script>
+</body>
+</html>

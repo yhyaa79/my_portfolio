@@ -1,0 +1,1964 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="fa">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>پورت‌فولیو | [نام طراح] - طراحی و دوخت لباس</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap"
+    rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    :root {
+      --bg-primary: #F5F0EB;
+      --bg-secondary: #E8E0D9;
+      --bg-card: #FAFAFA;
+      --bg-card-alt: #F0EBE5;
+      --text-primary: #2C2C2C;
+      --text-secondary: #5A5A5A;
+      --text-muted: #888888;
+      --accent-gold: #C9A96E;
+      --accent-gold-light: #D4BC8B;
+      --accent-gold-dark: #B8944F;
+      --accent-burgundy: #8B2F3E;
+      --accent-burgundy-light: #A04555;
+      --border: #D5CFC8;
+      --border-light: #E8E2DB;
+      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
+      --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.10);
+      --shadow-lg: 0 8px 40px rgba(0, 0, 0, 0.14);
+      --shadow-gold: 0 4px 20px rgba(201, 169, 110, 0.25);
+      --white: #FFFFFF;
+      --black-soft: #1A1A1A;
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+      --transition-fast: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      --transition-smooth: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      --font-heading: 'Playfair Display', 'Cormorant Garamond', serif;
+      --font-body: 'Inter', 'Nunito', sans-serif;
+      --progress: 0%;
+      --nav-height: 75px;
+    }
+
+    body.dark {
+      --bg-primary: #1A1A1A;
+      --bg-secondary: #222222;
+      --bg-card: #252525;
+      --bg-card-alt: #2A2A2A;
+      --text-primary: #E0E0E0;
+      --text-secondary: #B0B0B0;
+      --text-muted: #777777;
+      --border: #3A3A3A;
+      --border-light: #333333;
+      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.30);
+      --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.40);
+      --shadow-lg: 0 8px 40px rgba(0, 0, 0, 0.50);
+      --shadow-gold: 0 4px 20px rgba(201, 169, 110, 0.18);
+      --white: #1E1E1E;
+      --black-soft: #F0F0F0;
+      --accent-gold-light: #B8944F;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: var(--nav-height);
+    }
+
+    body {
+      font-family: var(--font-body);
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.75;
+      transition: background-color var(--transition-smooth), color var(--transition-smooth);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* ==================== PROGRESS BAR ==================== */
+    #progress-bar {
+      position: fixed;
+      top: 0;
+      right: 0;
+      height: 3.5px;
+      width: var(--progress);
+      background: linear-gradient(90deg, var(--accent-gold), var(--accent-burgundy));
+      z-index: 10000;
+      border-radius: 0 0 3px 0;
+      transition: width 0.1s linear;
+      box-shadow: 0 0 10px rgba(201, 169, 110, 0.5);
+    }
+
+    /* ==================== NAVBAR ==================== */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 9999;
+      background-color: rgba(245, 240, 235, 0.92);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--border-light);
+      transition: all var(--transition-smooth);
+      height: var(--nav-height);
+      display: flex;
+      align-items: center;
+    }
+
+    body.dark .navbar {
+      background-color: rgba(26, 26, 26, 0.92);
+    }
+
+    .navbar.scrolled {
+      box-shadow: var(--shadow-md);
+      background-color: rgba(245, 240, 235, 0.97);
+    }
+
+    body.dark .navbar.scrolled {
+      background-color: rgba(26, 26, 26, 0.97);
+    }
+
+    .nav-container {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 0 30px;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .nav-logo {
+      font-family: var(--font-heading);
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      text-decoration: none;
+      letter-spacing: 1px;
+      white-space: nowrap;
+      transition: color var(--transition-fast);
+    }
+
+    .nav-logo:hover {
+      color: var(--accent-gold-dark);
+    }
+
+    .nav-logo .logo-accent {
+      color: var(--accent-gold);
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 8px;
+      align-items: center;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      font-weight: 500;
+      padding: 8px 14px;
+      border-radius: 25px;
+      transition: all var(--transition-fast);
+      position: relative;
+      white-space: nowrap;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--accent-gold-dark);
+      background-color: rgba(201, 169, 110, 0.08);
+    }
+
+    .nav-order-btn {
+      background: var(--accent-gold) !important;
+      color: #fff !important;
+      font-weight: 600 !important;
+      padding: 10px 22px !important;
+      border-radius: 30px !important;
+      box-shadow: var(--shadow-gold);
+      transition: all var(--transition-fast) !important;
+    }
+
+    .nav-order-btn:hover {
+      background: var(--accent-gold-dark) !important;
+      box-shadow: 0 6px 24px rgba(201, 169, 110, 0.35) !important;
+      transform: translateY(-2px);
+    }
+
+    .theme-toggle {
+      background: none;
+      border: 2px solid var(--border);
+      color: var(--text-primary);
+      font-size: 1.1rem;
+      cursor: pointer;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all var(--transition-fast);
+      flex-shrink: 0;
+    }
+
+    .theme-toggle:hover {
+      border-color: var(--accent-gold);
+      color: var(--accent-gold);
+      background-color: rgba(201, 169, 110, 0.06);
+    }
+
+    .hamburger {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 1.5rem;
+      color: var(--text-primary);
+      padding: 6px;
+    }
+
+    /* ==================== HERO ==================== */
+    .hero {
+      min-height: 90vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(160deg, var(--bg-primary) 40%, var(--bg-secondary) 100%);
+      padding: 60px 0;
+    }
+
+    .hero-container {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 0 30px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center;
+      width: 100%;
+    }
+
+    .hero-content {
+      z-index: 2;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: rgba(201, 169, 110, 0.12);
+      color: var(--accent-gold-dark);
+      padding: 6px 16px;
+      border-radius: 25px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 20px;
+      letter-spacing: 0.5px;
+    }
+
+    .hero-title {
+      font-family: var(--font-heading);
+      font-size: 3rem;
+      font-weight: 700;
+      line-height: 1.3;
+      margin-bottom: 20px;
+      color: var(--text-primary);
+    }
+
+    .hero-title .highlight {
+      color: var(--accent-gold);
+      position: relative;
+    }
+
+    .hero-subtitle {
+      font-size: 1.15rem;
+      color: var(--text-secondary);
+      margin-bottom: 35px;
+      max-width: 480px;
+      line-height: 1.9;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 30px;
+      border-radius: 35px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all var(--transition-fast);
+      border: none;
+      letter-spacing: 0.3px;
+      font-family: var(--font-body);
+    }
+
+    .btn-primary {
+      background: var(--accent-gold);
+      color: #fff;
+      box-shadow: var(--shadow-gold);
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-gold-dark);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 28px rgba(201, 169, 110, 0.40);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--text-primary);
+      border: 2px solid var(--border);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--accent-gold);
+      color: var(--accent-gold);
+      background: rgba(201, 169, 110, 0.04);
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 30px;
+      margin-top: 40px;
+      flex-wrap: wrap;
+    }
+
+    .hero-stat {
+      text-align: center;
+    }
+
+    .hero-stat-number {
+      font-family: var(--font-heading);
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--accent-gold);
+      display: block;
+    }
+
+    .hero-stat-label {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .hero-image-wrapper {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-image-placeholder {
+      width: 100%;
+      max-width: 500px;
+      aspect-ratio: 3/4;
+      background: linear-gradient(135deg, #D5CFC8 0%, #C9A96E 30%, #E8E0D9 60%, #BFA980 100%);
+      border-radius: var(--radius-lg);
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-family: var(--font-heading);
+      font-size: 1.4rem;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .hero-image-placeholder::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.08'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      pointer-events: none;
+    }
+
+    /* انیمیشن نخ و سوزن (موجود) */
+    .thread-animation {
+      position: absolute;
+      top: 8%;
+      left: 5%;
+      width: 180px;
+      height: 180px;
+      z-index: 3;
+      pointer-events: none;
+      opacity: 0.7;
+    }
+
+    .thread-animation svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    .thread-path {
+      fill: none;
+      stroke: var(--accent-gold);
+      stroke-width: 1.8;
+      stroke-dasharray: 300;
+      stroke-dashoffset: 300;
+      animation: threadDraw 3.5s ease-in-out infinite;
+      stroke-linecap: round;
+    }
+
+    @keyframes threadDraw {
+      0% {
+        stroke-dashoffset: 300;
+      }
+
+      45% {
+        stroke-dashoffset: 0;
+      }
+
+      65% {
+        stroke-dashoffset: 0;
+        opacity: 1;
+      }
+
+      80% {
+        stroke-dashoffset: -300;
+        opacity: 0.3;
+      }
+
+      100% {
+        stroke-dashoffset: -300;
+        opacity: 0.3;
+      }
+    }
+
+    .needle-dot {
+      fill: var(--accent-burgundy);
+      animation: needleGlow 3.5s ease-in-out infinite;
+    }
+
+    @keyframes needleGlow {
+
+      0%,
+      45% {
+        opacity: 0;
+        r: 3;
+      }
+
+      50%,
+      65% {
+        opacity: 1;
+        r: 5;
+      }
+
+      80%,
+      100% {
+        opacity: 0;
+        r: 3;
+      }
+    }
+
+    /* 🆕 انیمیشن طراحی اسکچ مانکن (طراحی لباس) */
+    .sketch-mannquin {
+      position: absolute;
+      bottom: 10%;
+      right: 8%;
+      width: 150px;
+      height: 200px;
+      z-index: 2;
+      pointer-events: none;
+      opacity: 0.5;
+      transform: rotate(-5deg);
+    }
+
+    .sketch-path {
+      fill: none;
+      stroke: var(--accent-burgundy);
+      stroke-width: 1.8;
+      stroke-dasharray: 600;
+      stroke-dashoffset: 600;
+      animation: sketchDraw 5s ease-in-out infinite;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    @keyframes sketchDraw {
+      0% {
+        stroke-dashoffset: 600;
+      }
+
+      45% {
+        stroke-dashoffset: 0;
+      }
+
+      65% {
+        stroke-dashoffset: 0;
+        opacity: 1;
+      }
+
+      80% {
+        stroke-dashoffset: -600;
+        opacity: 0.2;
+      }
+
+      100% {
+        stroke-dashoffset: -600;
+        opacity: 0.2;
+      }
+    }
+
+    /* ==================== SECTION COMMONS ==================== */
+    .section {
+      padding: 80px 30px;
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 55px;
+    }
+
+    .section-label {
+      display: inline-block;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--accent-gold);
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-family: var(--font-heading);
+      font-size: 2.4rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 10px;
+    }
+
+    .section-divider {
+      width: 60px;
+      height: 3px;
+      background: var(--accent-gold);
+      margin: 16px auto;
+      border-radius: 2px;
+    }
+
+    /* ==================== PORTFOLIO ==================== */
+    .portfolio-filters {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 40px;
+    }
+
+    .filter-btn {
+      padding: 10px 22px;
+      border-radius: 30px;
+      border: 2px solid var(--border);
+      background: transparent;
+      cursor: pointer;
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      transition: all var(--transition-fast);
+    }
+
+    .filter-btn:hover,
+    .filter-btn.active {
+      border-color: var(--accent-gold);
+      color: var(--accent-gold-dark);
+      background: rgba(201, 169, 110, 0.07);
+    }
+
+    .filter-btn.active {
+      background: var(--accent-gold);
+      color: #fff;
+      border-color: var(--accent-gold);
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 24px;
+    }
+
+    .portfolio-item {
+      position: relative;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      cursor: pointer;
+      background: var(--bg-card);
+      box-shadow: var(--shadow-sm);
+      transition: all var(--transition-smooth);
+      aspect-ratio: 3/4;
+    }
+
+    .portfolio-item.featured {
+      grid-column: span 2;
+      grid-row: span 1;
+      aspect-ratio: auto;
+    }
+
+    @media (max-width: 768px) {
+      .portfolio-item.featured {
+        grid-column: span 1;
+        aspect-ratio: 3/4;
+      }
+    }
+
+    .portfolio-item:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .portfolio-item-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.6s ease;
+    }
+
+    .portfolio-item:hover .portfolio-item-img {
+      transform: scale(1.06);
+    }
+
+    .portfolio-item-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 20%, rgba(0, 0, 0, 0.05) 60%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 22px;
+      opacity: 0;
+      transition: opacity var(--transition-smooth);
+    }
+
+    .portfolio-item:hover .portfolio-item-overlay {
+      opacity: 1;
+    }
+
+    .portfolio-item-title {
+      color: #fff;
+      font-family: var(--font-heading);
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .portfolio-item-tags {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .portfolio-item-tag {
+      background: rgba(201, 169, 110, 0.8);
+      color: #fff;
+      padding: 3px 12px;
+      border-radius: 15px;
+      font-size: 0.75rem;
+      font-weight: 500;
+    }
+
+    /* 🆕 دوخت متحرک دور کارت نمونه‌کار در هاور */
+    .portfolio-item::after {
+      content: '';
+      position: absolute;
+      top: 8px;
+      left: 8px;
+      right: 8px;
+      bottom: 8px;
+      border: 2px dashed transparent;
+      border-radius: calc(var(--radius-md) - 4px);
+      pointer-events: none;
+      transition: border-color 0.3s;
+      background: repeating-linear-gradient(0deg, transparent, transparent 5px, var(--accent-gold) 5px, var(--accent-gold) 7px) padding-box;
+      -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+      mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      animation: stitchMove 0.5s linear infinite paused;
+    }
+
+    .portfolio-item:hover::after {
+      animation-play-state: running;
+      border-color: var(--accent-gold);
+    }
+
+    @keyframes stitchMove {
+      0% {
+        background-position: 0 0;
+      }
+
+      100% {
+        background-position: 0 12px;
+      }
+    }
+
+    /* Featured Carousel */
+    .featured-carousel {
+      position: relative;
+      margin-bottom: 40px;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      background: var(--bg-card);
+    }
+
+    .carousel-track {
+      display: flex;
+      transition: transform 0.5s ease;
+    }
+
+    .carousel-slide {
+      min-width: 100%;
+      aspect-ratio: 16/7;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--bg-card-alt);
+    }
+
+    .carousel-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255, 255, 255, 0.85);
+      border: none;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 1.2rem;
+      z-index: 5;
+      transition: all var(--transition-fast);
+      color: var(--text-primary);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .carousel-btn:hover {
+      background: #fff;
+      box-shadow: var(--shadow-md);
+    }
+
+    .carousel-btn.prev {
+      right: 16px;
+    }
+
+    .carousel-btn.next {
+      left: 16px;
+    }
+
+    /* ==================== LIGHTBOX MODAL ==================== */
+    .lightbox-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.85);
+      z-index: 20000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity var(--transition-smooth);
+      padding: 30px;
+    }
+
+    .lightbox-overlay.active {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .lightbox-content {
+      background: var(--bg-primary);
+      border-radius: var(--radius-lg);
+      max-width: 800px;
+      width: 100%;
+      max-height: 85vh;
+      overflow-y: auto;
+      padding: 35px;
+      position: relative;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      box-shadow: var(--shadow-lg);
+    }
+
+    @media (max-width: 700px) {
+      .lightbox-content {
+        grid-template-columns: 1fr;
+        padding: 20px;
+      }
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 12px;
+      left: 16px;
+      background: none;
+      border: none;
+      font-size: 1.8rem;
+      cursor: pointer;
+      color: var(--text-primary);
+      z-index: 5;
+      transition: color var(--transition-fast);
+    }
+
+    .lightbox-close:hover {
+      color: var(--accent-burgundy);
+    }
+
+    .lightbox-img {
+      width: 100%;
+      border-radius: var(--radius-md);
+      aspect-ratio: 3/4;
+      object-fit: cover;
+      background: var(--bg-card-alt);
+    }
+
+    .lightbox-details h3 {
+      font-family: var(--font-heading);
+      font-size: 1.6rem;
+      margin-bottom: 10px;
+    }
+
+    .lightbox-details .detail-row {
+      margin: 8px 0;
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+    }
+
+    .lightbox-details .detail-row strong {
+      color: var(--text-primary);
+      margin-left: 4px;
+    }
+
+    /* ==================== SERVICES ==================== */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+    }
+
+    .service-card {
+      background: var(--bg-card);
+      border-radius: var(--radius-md);
+      padding: 35px 28px;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+      transition: all var(--transition-smooth);
+      border: 1px solid transparent;
+      cursor: default;
+      position: relative;
+    }
+
+    .service-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--accent-gold-light);
+    }
+
+    .service-icon {
+      font-size: 2.6rem;
+      color: var(--accent-gold);
+      margin-bottom: 18px;
+    }
+
+    .service-card h3 {
+      font-family: var(--font-heading);
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+      color: var(--text-primary);
+    }
+
+    .service-card p {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    .service-link {
+      display: inline-block;
+      margin-top: 14px;
+      color: var(--accent-gold-dark);
+      font-weight: 600;
+      font-size: 0.85rem;
+      text-decoration: none;
+      transition: color var(--transition-fast);
+    }
+
+    .service-link:hover {
+      color: var(--accent-burgundy);
+    }
+
+    /* ==================== ABOUT ==================== */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.3fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    @media (max-width: 768px) {
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+    }
+
+    .about-image {
+      width: 100%;
+      aspect-ratio: 3/4;
+      border-radius: var(--radius-lg);
+      background: var(--bg-card-alt);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      color: var(--accent-gold);
+      box-shadow: var(--shadow-md);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .about-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* 🆕 قرقره نخ چرخان کنار تصویر */
+    .spool-animation {
+      position: absolute;
+      bottom: 15px;
+      left: 15px;
+      width: 60px;
+      height: 60px;
+      z-index: 2;
+      animation: spoolSpin 8s linear infinite;
+      opacity: 0.8;
+    }
+
+    @keyframes spoolSpin {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    .about-text h2 {
+      font-family: var(--font-heading);
+      font-size: 2rem;
+      margin-bottom: 16px;
+    }
+
+    .about-text p {
+      color: var(--text-secondary);
+      margin-bottom: 14px;
+      line-height: 1.9;
+    }
+
+    .about-highlight {
+      font-style: italic;
+      border-right: 3px solid var(--accent-gold);
+      padding-right: 16px;
+      color: var(--accent-gold-dark) !important;
+      font-family: var(--font-heading);
+      font-size: 1.1rem;
+    }
+
+    /* ==================== PROCESS ==================== */
+    .process-wrapper {
+      position: relative;
+      padding: 20px 0;
+    }
+
+    /* 🆕 نوار متر خیاطی متحرک در پس‌زمینه مراحل */
+    .measuring-tape {
+      position: absolute;
+      top: 50%;
+      right: 0;
+      left: 0;
+      height: 20px;
+      transform: translateY(-50%);
+      background: repeating-linear-gradient(90deg, #F5E6C8 0px, #F5E6C8 18px, #2C2C2C 18px, #2C2C2C 22px, #F5E6C8 22px, #F5E6C8 40px);
+      background-size: 40px 100%;
+      animation: tapeMove 2s linear infinite;
+      border-radius: 10px;
+      opacity: 0.3;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    @keyframes tapeMove {
+      0% {
+        background-position: 0 0;
+      }
+
+      100% {
+        background-position: 40px 0;
+      }
+    }
+
+    .process-timeline {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .process-step {
+      text-align: center;
+      padding: 30px 20px;
+      background: var(--bg-card);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-sm);
+      transition: all var(--transition-smooth);
+      position: relative;
+    }
+
+    .process-step:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .process-number {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: var(--accent-gold);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1.2rem;
+      margin: 0 auto 16px;
+    }
+
+    .process-step h3 {
+      font-family: var(--font-heading);
+      font-size: 1.05rem;
+      margin-bottom: 8px;
+      color: var(--text-primary);
+    }
+
+    .process-step p {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    /* ==================== TESTIMONIALS ==================== */
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+    }
+
+    .testimonial-card {
+      background: var(--bg-card);
+      border-radius: var(--radius-md);
+      padding: 30px;
+      box-shadow: var(--shadow-sm);
+      transition: all var(--transition-smooth);
+      border: 1px solid transparent;
+    }
+
+    .testimonial-card:hover {
+      border-color: var(--accent-gold-light);
+      box-shadow: var(--shadow-md);
+    }
+
+    .testimonial-stars {
+      color: var(--accent-gold);
+      margin-bottom: 12px;
+      font-size: 0.9rem;
+    }
+
+    .testimonial-text {
+      font-style: italic;
+      color: var(--text-secondary);
+      margin-bottom: 16px;
+      line-height: 1.8;
+      font-size: 0.95rem;
+    }
+
+    .testimonial-author {
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    .testimonial-city {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    /* ==================== CONTACT ==================== */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+    }
+
+    @media (max-width: 768px) {
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .contact-form input,
+    .contact-form select,
+    .contact-form textarea {
+      width: 100%;
+      padding: 14px 18px;
+      border-radius: var(--radius-sm);
+      border: 2px solid var(--border);
+      background: var(--bg-card);
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      color: var(--text-primary);
+      transition: all var(--transition-fast);
+      resize: vertical;
+    }
+
+    .contact-form input:focus,
+    .contact-form select:focus,
+    .contact-form textarea:focus {
+      outline: none;
+      border-color: var(--accent-gold);
+      box-shadow: 0 0 0 4px rgba(201, 169, 110, 0.08);
+    }
+
+    .contact-form textarea {
+      min-height: 130px;
+    }
+
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      justify-content: center;
+    }
+
+    .contact-info-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+    }
+
+    .contact-info-item i {
+      color: var(--accent-gold);
+      font-size: 1.3rem;
+      width: 36px;
+      text-align: center;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 14px;
+      margin-top: 8px;
+    }
+
+    .social-links a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      border: 2px solid var(--border);
+      color: var(--text-secondary);
+      font-size: 1.1rem;
+      transition: all var(--transition-fast);
+      text-decoration: none;
+    }
+
+    .social-links a:hover {
+      border-color: var(--accent-gold);
+      color: var(--accent-gold);
+      background: rgba(201, 169, 110, 0.06);
+    }
+
+    .map-placeholder {
+      width: 100%;
+      height: 200px;
+      border-radius: var(--radius-md);
+      background: var(--bg-card-alt);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-top: 10px;
+      border: 2px dashed var(--border);
+    }
+
+    /* ==================== FOOTER ==================== */
+    .footer {
+      background: var(--bg-secondary);
+      padding: 50px 30px 30px;
+      text-align: center;
+      border-top: 1px solid var(--border-light);
+    }
+
+    .footer-logo {
+      font-family: var(--font-heading);
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: var(--text-primary);
+    }
+
+    .footer-tagline {
+      color: var(--text-muted);
+      margin-bottom: 20px;
+      font-size: 0.9rem;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+
+    .footer-links a {
+      text-decoration: none;
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      transition: color var(--transition-fast);
+    }
+
+    .footer-links a:hover {
+      color: var(--accent-gold);
+    }
+
+    .footer-copy {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .back-to-top {
+      display: inline-block;
+      margin-top: 16px;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: var(--accent-gold);
+      color: #fff;
+      line-height: 42px;
+      text-align: center;
+      cursor: pointer;
+      transition: all var(--transition-fast);
+      text-decoration: none;
+      font-size: 1.1rem;
+    }
+
+    .back-to-top:hover {
+      background: var(--accent-gold-dark);
+      transform: translateY(-3px);
+    }
+
+    /* ==================== FADE-UP ANIMATION ==================== */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ==================== RESPONSIVE ==================== */
+    @media (max-width: 1024px) {
+      .hero-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .hero-subtitle {
+        max-width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .hero-buttons {
+        justify-content: center;
+      }
+
+      .hero-stats {
+        justify-content: center;
+      }
+
+      .hero-image-wrapper {
+        order: -1;
+      }
+
+      .hero-image-placeholder {
+        max-width: 350px;
+        aspect-ratio: 3/4;
+      }
+
+      .hero-title {
+        font-size: 2.2rem;
+      }
+
+      .thread-animation {
+        width: 120px;
+        height: 120px;
+        top: 5%;
+        left: 3%;
+      }
+
+      .sketch-mannquin {
+        width: 100px;
+        height: 140px;
+        bottom: 5%;
+        right: 5%;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: var(--nav-height);
+        right: 0;
+        left: 0;
+        background: var(--bg-primary);
+        flex-direction: column;
+        padding: 20px;
+        gap: 6px;
+        border-bottom: 1px solid var(--border);
+        box-shadow: var(--shadow-md);
+        z-index: 9998;
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .hamburger {
+        display: block;
+      }
+
+      .section-title {
+        font-size: 1.7rem;
+      }
+
+      .hero-title {
+        font-size: 1.8rem;
+      }
+
+      .portfolio-grid {
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+        gap: 14px;
+      }
+
+      .carousel-slide {
+        aspect-ratio: 16/9;
+      }
+
+      .lightbox-content {
+        padding: 20px;
+        gap: 16px;
+      }
+
+      .measuring-tape {
+        height: 12px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .section {
+        padding: 50px 16px;
+      }
+
+      .hero {
+        min-height: auto;
+        padding: 40px 0;
+      }
+
+      .hero-title {
+        font-size: 1.5rem;
+      }
+
+      .hero-stats {
+        gap: 16px;
+      }
+
+      .hero-stat-number {
+        font-size: 1.5rem;
+      }
+
+      .btn {
+        padding: 12px 22px;
+        font-size: 0.85rem;
+      }
+
+      .portfolio-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+      }
+
+      .portfolio-item {
+        aspect-ratio: 3/4.5;
+      }
+
+      .testimonials-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .process-timeline {
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+      }
+
+      .thread-animation {
+        width: 80px;
+        height: 80px;
+        top: 2%;
+        left: 1%;
+      }
+
+      .sketch-mannquin {
+        width: 70px;
+        height: 100px;
+        bottom: 2%;
+        right: 2%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="progress-bar"></div>
+
+  <!-- ==================== نوار ناوبری ==================== -->
+  <header class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#hero" class="nav-logo"><span class="logo-accent">✦</span> [نام طراح]</a>
+      <button class="hamburger" id="hamburger" aria-label="منو"><i class="fa-solid fa-bars"></i></button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#portfolio">نمونه‌کارها</a></li>
+        <li><a href="#services">خدمات</a></li>
+        <li><a href="#about">درباره‌ی من</a></li>
+        <li><a href="#process">فرآیند کار</a></li>
+        <li><a href="#testimonials">نظرات</a></li>
+        <li><a href="#contact">تماس</a></li>
+        <li><a href="#contact" class="nav-order-btn">سفارش طراحی</a></li>
+      </ul>
+      <button class="theme-toggle" id="themeToggle" aria-label="تغییر تم"><i class="fa-solid fa-moon"
+          id="themeIcon"></i></button>
+    </div>
+  </header>
+
+  <!-- ==================== بخش قهرمان ==================== -->
+  <section class="hero" id="hero">
+    <div class="hero-container">
+      <div class="hero-content fade-up">
+        <span class="hero-badge">✦ طراحی و دوخت حرفه‌ای</span>
+        <h1 class="hero-title">هر پارچه‌ای <span class="highlight">داستانی</span> دارد؛<br>من آن را روی تن شما روایت
+          می‌کنم.</h1>
+        <p class="hero-subtitle">طراحی لباس‌های عروس، مجلسی و روزمره با دوخت بی‌نقص و استفاده از مرغوب‌ترین پارچه‌ها.
+        </p>
+        <div class="hero-buttons">
+          <a href="#portfolio" class="btn btn-primary">مشاهده نمونه‌کارها</a>
+          <a href="#contact" class="btn btn-outline">درخواست مشاوره رایگان</a>
+        </div>
+        <div class="hero-stats">
+          <div class="hero-stat"><span class="hero-stat-number">۱۵۰+</span><span class="hero-stat-label">پروژه</span>
+          </div>
+          <div class="hero-stat"><span class="hero-stat-number">۱۲+</span><span class="hero-stat-label">سال تجربه</span>
+          </div>
+          <div class="hero-stat"><span class="hero-stat-number">۹۸٪</span><span class="hero-stat-label">رضایت</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero-image-wrapper fade-up">
+        <div class="hero-image-placeholder">تصویر نمونه‌کار شاخص<br><small>(جایگزین با تصویر واقعی)</small></div>
+        <div class="thread-animation">
+          <svg viewBox="0 0 150 150">
+            <path class="thread-path" d="M20,130 C50,100 70,50 100,30 C115,20 125,15 130,12" />
+            <circle class="needle-dot" cx="130" cy="12" r="4" /></svg>
+        </div>
+        <!-- 🆕 اسکچ مانکن طراحی لباس -->
+        <div class="sketch-mannquin">
+          <svg viewBox="0 0 100 140" fill="none">
+            <path class="sketch-path"
+              d="M50 10 L50 25 M35 22 L50 15 L65 22 M50 25 L50 55 M30 40 L50 35 L70 40 M50 55 L30 80 L35 95 M50 55 L70 80 L65 95 M50 55 L50 100 M35 95 L25 115 M40 95 L38 115 M50 100 L50 130 M65 95 L75 115 M60 95 L62 115"
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== بخش نمونه‌کارها ==================== -->
+  <section class="section" id="portfolio">
+    <div class="section-header fade-up"><span class="section-label">Portfolio</span>
+      <h2 class="section-title">نمونه‌کارهای من</h2>
+      <div class="section-divider"></div>
+    </div>
+    <div class="featured-carousel fade-up" id="featuredCarousel">
+      <div class="carousel-track" id="carouselTrack">
+        <div class="carousel-slide"><img src="https://placehold.co/1200x500/E8E0D9/C9A96E?text=مجموعه+بهار+۱۴۰۴"
+            alt="مجموعه بهار"></div>
+        <div class="carousel-slide"><img src="https://placehold.co/1200x500/D5CFC8/8B2F3E?text=مجموعه+عروس+کلاسیک"
+            alt="عروس"></div>
+        <div class="carousel-slide"><img src="https://placehold.co/1200x500/E0D8CE/C9A96E?text=مجموعه+مجلسی+شب"
+            alt="مجلسی"></div>
+      </div>
+      <button class="carousel-btn prev" id="carouselPrev"><i class="fa-solid fa-chevron-right"></i></button>
+      <button class="carousel-btn next" id="carouselNext"><i class="fa-solid fa-chevron-left"></i></button>
+    </div>
+    <div class="portfolio-filters fade-up" id="portfolioFilters">
+      <button class="filter-btn active" data-filter="all">همه</button>
+      <button class="filter-btn" data-filter="عروس">عروس</button>
+      <button class="filter-btn" data-filter="مجلسی">مجلسی</button>
+      <button class="filter-btn" data-filter="روزمره">روزمره</button>
+      <button class="filter-btn" data-filter="مانتو">مانتو</button>
+    </div>
+    <div class="portfolio-grid fade-up" id="portfolioGrid">
+      <div class="portfolio-item featured" data-category="مجلسی" data-title="لباس مجلسی شب یلدا"
+        data-desc="ابریشم طبیعی، گلدوزی دستی با نخ طلا. جزئیات مرواریددوزی." data-fabric="ابریشم طبیعی"
+        data-time="۳ هفته" data-img="https://placehold.co/600x750/2C2C2C/C9A96E?text=لباس+مجلسی+شب+یلدا">
+        <img class="portfolio-item-img" src="https://placehold.co/600x750/2C2C2C/C9A96E?text=لباس+مجلسی+شب+یلدا"
+          alt="یلدا" loading="lazy">
+        <div class="portfolio-item-overlay"><span class="portfolio-item-title">لباس مجلسی شب یلدا</span>
+          <div class="portfolio-item-tags"><span class="portfolio-item-tag">#مجلسی</span><span
+              class="portfolio-item-tag">#گلدوزی</span></div>
+        </div>
+      </div>
+      <div class="portfolio-item" data-category="عروس" data-title="لباس عروس کلاسیک"
+        data-desc="تور فرانسوی، گیپور ظریف و مرواریددوزی." data-fabric="تور فرانسوی" data-time="۶ هفته"
+        data-img="https://placehold.co/400x550/F5F0EB/C9A96E?text=لباس+عروس+کلاسیک">
+        <img class="portfolio-item-img" src="https://placehold.co/400x550/F5F0EB/C9A96E?text=لباس+عروس+کلاسیک"
+          alt="عروس" loading="lazy">
+        <div class="portfolio-item-overlay"><span class="portfolio-item-title">لباس عروس کلاسیک</span>
+          <div class="portfolio-item-tags"><span class="portfolio-item-tag">#عروس</span></div>
+        </div>
+      </div>
+      <div class="portfolio-item" data-category="روزمره" data-title="مانتو بهاره"
+        data-desc="نخ پنبه‌ای مرغوب، طراحی مینیمال." data-fabric="نخ پنبه" data-time="۱ هفته"
+        data-img="https://placehold.co/400x550/E8E0D9/5A5A5A?text=مانتو+بهاره">
+        <img class="portfolio-item-img" src="https://placehold.co/400x550/E8E0D9/5A5A5A?text=مانتو+بهاره" alt="مانتو"
+          loading="lazy">
+        <div class="portfolio-item-overlay"><span class="portfolio-item-title">مانتو بهاره</span>
+          <div class="portfolio-item-tags"><span class="portfolio-item-tag">#روزمره</span></div>
+        </div>
+      </div>
+      <div class="portfolio-item" data-category="مجلسی" data-title="لباس مهمانی شب"
+        data-desc="ساتن ایتالیایی، برش‌های مدرن." data-fabric="ساتن" data-time="۲ هفته"
+        data-img="https://placehold.co/400x550/1A1A1A/C9A96E?text=لباس+مهمانی+شب">
+        <img class="portfolio-item-img" src="https://placehold.co/400x550/1A1A1A/C9A96E?text=لباس+مهمانی+شب"
+          alt="مهمانی" loading="lazy">
+        <div class="portfolio-item-overlay"><span class="portfolio-item-title">لباس مهمانی شب</span>
+          <div class="portfolio-item-tags"><span class="portfolio-item-tag">#مجلسی</span></div>
+        </div>
+      </div>
+      <div class="portfolio-item" data-category="عروس" data-title="لباس نامزدی" data-desc="کرپ و گیپور گلدار."
+        data-fabric="کرپ" data-time="۴ هفته" data-img="https://placehold.co/400x550/FAFAFA/C9A96E?text=لباس+نامزدی">
+        <img class="portfolio-item-img" src="https://placehold.co/400x550/FAFAFA/C9A96E?text=لباس+نامزدی" alt="نامزدی"
+          loading="lazy">
+        <div class="portfolio-item-overlay"><span class="portfolio-item-title">لباس نامزدی</span>
+          <div class="portfolio-item-tags"><span class="portfolio-item-tag">#عروس</span></div>
+        </div>
+      </div>
+      <div class="portfolio-item" data-category="مانتو" data-title="مانتو مجلسی پاییزه" data-desc="فوتر ترک، یقه خاص."
+        data-fabric="فوتر" data-time="۲ هفته" data-img="https://placehold.co/400x550/8B7D6B/E8E0D9?text=مانتو+مجلسی">
+        <img class="portfolio-item-img" src="https://placehold.co/400x550/8B7D6B/E8E0D9?text=مانتو+مجلسی"
+          alt="مانتو مجلسی" loading="lazy">
+        <div class="portfolio-item-overlay"><span class="portfolio-item-title">مانتو مجلسی</span>
+          <div class="portfolio-item-tags"><span class="portfolio-item-tag">#مانتو</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== لایت‌باکس ==================== -->
+  <div class="lightbox-overlay" id="lightboxOverlay">
+    <div class="lightbox-content"><button class="lightbox-close" id="lightboxClose">&times;</button><img
+        class="lightbox-img" id="lightboxImg" src="" alt="">
+      <div class="lightbox-details">
+        <h3 id="lightboxTitle"></h3>
+        <p id="lightboxDesc"></p>
+        <div class="detail-row"><strong>جنس پارچه:</strong> <span id="lightboxFabric"></span></div>
+        <div class="detail-row"><strong>زمان اجرا:</strong> <span id="lightboxTime"></span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== بخش خدمات ==================== -->
+  <section class="section" id="services">
+    <div class="section-header fade-up"><span class="section-label">Services</span>
+      <h2 class="section-title">خدمات من</h2>
+      <div class="section-divider"></div>
+    </div>
+    <div class="services-grid fade-up">
+      <div class="service-card">
+        <div class="service-icon"><i class="fa-solid fa-pen-ruler"></i></div>
+        <h3>طراحی اختصاصی</h3>
+        <p>مشاوره، اسکیس و انتخاب پارچه.</p><a href="#contact" class="service-link">بیشتر بدانید ←</a>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><i class="fa-solid fa-heart"></i></div>
+        <h3>دوخت لباس عروس</h3>
+        <p>جزئیات توری و مروارید.</p><a href="#contact" class="service-link">بیشتر بدانید ←</a>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><i class="fa-solid fa-star"></i></div>
+        <h3>لباس مجلسی</h3>
+        <p>مدل‌های شیک و مدرن.</p><a href="#contact" class="service-link">بیشتر بدانید ←</a>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><i class="fa-solid fa-scissors"></i></div>
+        <h3>بازطراحی و تعمیر</h3>
+        <p>به‌روزرسانی لباس‌های قدیمی.</p><a href="#contact" class="service-link">بیشتر بدانید ←</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== بخش درباره‌ی من ==================== -->
+  <section class="section" id="about">
+    <div class="section-header fade-up"><span class="section-label">About</span>
+      <h2 class="section-title">درباره‌ی من</h2>
+      <div class="section-divider"></div>
+    </div>
+    <div class="about-grid fade-up">
+      <div class="about-image">
+        <img src="https://placehold.co/500x650/E8E0D9/8B2F3E?text=تصویر+طراح" alt="[نام طراح]" loading="lazy">
+        <!-- 🆕 قرقره نخ چرخان -->
+        <div class="spool-animation">
+          <svg viewBox="0 0 40 40" width="40" height="40">
+            <circle cx="20" cy="20" r="18" fill="none" stroke="var(--accent-gold)" stroke-width="3"
+              stroke-dasharray="8 8" />
+            <circle cx="20" cy="20" r="6" fill="var(--accent-burgundy)" /></svg>
+        </div>
+      </div>
+      <div class="about-text">
+        <h2>سلام، من [نام طراح] هستم</h2>
+        <p>فارغ‌التحصیل رشته طراحی لباس با بیش از ۱۲ سال تجربه. عشق به پارچه و فرم‌های زیبا مرا به این حرفه کشاند.</p>
+        <p class="about-highlight">«هر لباس باید شخصیت و راحتی را همزمان داشته باشد.»</p>
+        <p>استفاده از مرغوب‌ترین پارچه‌ها و دقت در دوخت، اولویت من است.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== بخش فرآیند کار ==================== -->
+  <section class="section" id="process">
+    <div class="section-header fade-up"><span class="section-label">Process</span>
+      <h2 class="section-title">فرآیند کار</h2>
+      <div class="section-divider"></div>
+    </div>
+    <div class="process-wrapper fade-up">
+      <!-- 🆕 نوار متر خیاطی متحرک -->
+      <div class="measuring-tape"></div>
+      <div class="process-timeline">
+        <div class="process-step">
+          <div class="process-number">۱</div>
+          <h3>مشاوره و ایده‌پردازی</h3>
+          <p>جلسه حضوری/آنلاین</p>
+        </div>
+        <div class="process-step">
+          <div class="process-number">۲</div>
+          <h3>طراحی اسکیس و انتخاب پارچه</h3>
+          <p>ارسال نمونه‌ها</p>
+        </div>
+        <div class="process-step">
+          <div class="process-number">۳</div>
+          <h3>دوخت اولیه و فیتینگ</h3>
+          <p>تنظیم روی اندام</p>
+        </div>
+        <div class="process-step">
+          <div class="process-number">۴</div>
+          <h3>دوخت نهایی و تحویل</h3>
+          <p>بسته‌بندی اختصاصی</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== بخش نظرات مشتریان ==================== -->
+  <section class="section" id="testimonials">
+    <div class="section-header fade-up"><span class="section-label">Testimonials</span>
+      <h2 class="section-title">نظرات مشتریان</h2>
+      <div class="section-divider"></div>
+    </div>
+    <div class="testimonials-grid fade-up">
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">«لباس عروسم دقیقاً همان چیزی شد که همیشه تصور می‌کردم. دوخت بی‌نقص و جزئیات
+          خیره‌کننده.»</p>
+        <p class="testimonial-author">[نام مشتری ۱]</p>
+        <p class="testimonial-city">تهران</p>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">«سرعت تحویل عالی بود و کیفیت پارچه‌ها فوق‌العاده.»</p>
+        <p class="testimonial-author">[نام مشتری ۲]</p>
+        <p class="testimonial-city">شیراز</p>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">«بازطراحی لباس قدیمی‌ام فوق‌العاده بود، انگار یک لباس نو خریدم.»</p>
+        <p class="testimonial-author">[نام مشتری ۳]</p>
+        <p class="testimonial-city">اصفهان</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== بخش تماس ==================== -->
+  <section class="section" id="contact">
+    <div class="section-header fade-up"><span class="section-label">Contact</span>
+      <h2 class="section-title">تماس با من</h2>
+      <div class="section-divider"></div>
+    </div>
+    <div class="contact-grid fade-up">
+      <form class="contact-form" id="contactForm">
+        <input type="text" placeholder="نام و نام خانوادگی" required>
+        <input type="email" placeholder="آدرس ایمیل" required>
+        <input type="tel" placeholder="شماره تماس">
+        <select required>
+          <option value="">نوع درخواست...</option>
+          <option>طراحی جدید</option>
+          <option>دوخت</option>
+          <option>مشاوره</option>
+          <option>بازطراحی</option>
+        </select>
+        <textarea placeholder="توضیحات درخواست شما..." rows="4"></textarea>
+        <button type="submit" class="btn btn-primary">ارسال پیام</button>
+      </form>
+      <div class="contact-info">
+        <div class="contact-info-item"><i class="fa-solid fa-location-dot"></i><span>آدرس: [شهر، خیابان]</span></div>
+        <div class="contact-info-item"><i class="fa-solid fa-phone"></i><span>تلفن: [شماره تماس]</span></div>
+        <div class="contact-info-item"><i class="fa-solid fa-envelope"></i><span>ایمیل: [آدرس ایمیل]</span></div>
+        <div class="social-links">
+          <a href="[لینک اینستاگرام]" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+          <a href="[لینک پینترست]" target="_blank"><i class="fa-brands fa-pinterest"></i></a>
+          <a href="[لینک واتساپ]" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+        </div>
+        <div class="map-placeholder">📍 نقشه گوگل در اینجا قرار می‌گیرد</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== پاورقی ==================== -->
+  <footer class="footer">
+    <div class="footer-logo">✦ [نام طراح]</div>
+    <p class="footer-tagline">طراحی لباس‌هایی که خاطره‌سازند</p>
+    <div class="footer-links"><a href="#portfolio">نمونه‌کارها</a><a href="#services">خدمات</a><a
+        href="#about">درباره</a><a href="#contact">تماس</a></div>
+    <p class="footer-copy">© ۲۰۲۵ تمامی حقوق محفوظ است</p>
+    <a href="#hero" class="back-to-top"><i class="fa-solid fa-arrow-up"></i></a>
+  </footer>
+
+  <script>
+    (function () {
+      const progressBar = document.getElementById('progress-bar');
+      const navbar = document.getElementById('navbar');
+      const hamburger = document.getElementById('hamburger');
+      const navLinks = document.getElementById('navLinks');
+      const themeToggle = document.getElementById('themeToggle');
+      const themeIcon = document.getElementById('themeIcon');
+      const body = document.body;
+      const portfolioGrid = document.getElementById('portfolioGrid');
+      const filterBtns = document.querySelectorAll('.filter-btn');
+      const lightboxOverlay = document.getElementById('lightboxOverlay');
+      const lightboxClose = document.getElementById('lightboxClose');
+      const lightboxImg = document.getElementById('lightboxImg');
+      const lightboxTitle = document.getElementById('lightboxTitle');
+      const lightboxDesc = document.getElementById('lightboxDesc');
+      const lightboxFabric = document.getElementById('lightboxFabric');
+      const lightboxTime = document.getElementById('lightboxTime');
+      const carouselTrack = document.getElementById('carouselTrack');
+      const carouselPrev = document.getElementById('carouselPrev');
+      const carouselNext = document.getElementById('carouselNext');
+      const contactForm = document.getElementById('contactForm');
+      const allFadeUps = document.querySelectorAll('.fade-up');
+      const allNavLinks = document.querySelectorAll('.nav-links a');
+
+      function updateProgress() {
+        const scrollTop = window.scrollY;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+        document.documentElement.style.setProperty('--progress', progress + '%');
+      }
+
+      function updateNavShadow() {
+        navbar.classList.toggle('scrolled', window.scrollY > 10);
+      }
+
+      function updateActiveNav() {
+        const sections = document.querySelectorAll('section[id]');
+        let current = '';
+        sections.forEach(s => {
+          if (window.scrollY >= s.offsetTop - 120) current = s.id;
+        });
+        allNavLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + current));
+      }
+      window.addEventListener('scroll', () => {
+        updateProgress();
+        updateNavShadow();
+        updateActiveNav();
+      }, {
+        passive: true
+      });
+
+      hamburger.addEventListener('click', () => navLinks.classList.toggle('open'));
+      navLinks.querySelectorAll('a').forEach(l => l.addEventListener('click', () => navLinks.classList.remove(
+        'open')));
+      document.addEventListener('click', (e) => {
+        if (!navbar.contains(e.target) && navLinks.classList.contains('open')) navLinks.classList.remove('open');
+      });
+
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'dark') {
+        body.classList.add('dark');
+        themeIcon.classList.replace('fa-moon', 'fa-sun');
+      }
+      themeToggle.addEventListener('click', () => {
+        body.classList.toggle('dark');
+        const isDark = body.classList.contains('dark');
+        themeIcon.classList.toggle('fa-moon', !isDark);
+        themeIcon.classList.toggle('fa-sun', isDark);
+        localStorage.setItem('theme', isDark ? 'dark' : 'light');
+      });
+
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          filterBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          const filter = btn.dataset.filter;
+          portfolioGrid.querySelectorAll('.portfolio-item').forEach(item => {
+            const show = filter === 'all' || item.dataset.category === filter;
+            item.style.display = show ? '' : 'none';
+          });
+        });
+      });
+
+      portfolioGrid.addEventListener('click', (e) => {
+        const item = e.target.closest('.portfolio-item');
+        if (!item) return;
+        lightboxImg.src = item.dataset.img;
+        lightboxTitle.textContent = item.dataset.title;
+        lightboxDesc.textContent = item.dataset.desc;
+        lightboxFabric.textContent = item.dataset.fabric;
+        lightboxTime.textContent = item.dataset.time;
+        lightboxOverlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      });
+      lightboxClose.addEventListener('click', () => {
+        lightboxOverlay.classList.remove('active');
+        document.body.style.overflow = '';
+      });
+      lightboxOverlay.addEventListener('click', (e) => {
+        if (e.target === lightboxOverlay) {
+          lightboxOverlay.classList.remove('active');
+          document.body.style.overflow = '';
+        }
+      });
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          lightboxOverlay.classList.remove('active');
+          document.body.style.overflow = '';
+        }
+      });
+
+      let carouselIndex = 0;
+      const slides = carouselTrack.querySelectorAll('.carousel-slide');
+      const totalSlides = slides.length;
+
+      function goToSlide(i) {
+        carouselIndex = (i + totalSlides) % totalSlides;
+        carouselTrack.style.transform = `translateX(${carouselIndex * 100}%)`;
+      }
+      carouselPrev.addEventListener('click', () => goToSlide(carouselIndex - 1));
+      carouselNext.addEventListener('click', () => goToSlide(carouselIndex + 1));
+      let autoSlide = setInterval(() => goToSlide(carouselIndex + 1), 4500);
+      carouselTrack.parentElement.addEventListener('mouseenter', () => clearInterval(autoSlide));
+      carouselTrack.parentElement.addEventListener('mouseleave', () => autoSlide = setInterval(() => goToSlide(
+        carouselIndex + 1), 4500));
+
+      contactForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        alert('✅ پیام شما با موفقیت ارسال شد! (شبیه‌سازی)\nدر نسخه نهایی به ایمیل واقعی متصل می‌شود.');
+        contactForm.reset();
+      });
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.12
+      });
+      allFadeUps.forEach(el => observer.observe(el));
+
+      updateProgress();
+      updateNavShadow();
+      updateActiveNav();
+    })();
+  </script>
+</body>
+
+</html>

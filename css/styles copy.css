@@ -1,6 +1,5 @@
 * {
     font-family: "Noto Sans Arabic", sans-serif;
-    line-height: 23px;
 }
 
 body {
@@ -11,50 +10,34 @@ body {
 
 h1 {
     color: #000000;
-    font-size: 15px;
+    font-size: 42px;
     font-weight: 700;
     margin: 0;
 }
 
 h2 {
     color: #000000;
-    font-size: 14px;
+    font-size: 40px;
     margin: 0;
 }
 
 h3 {
     color: #000000;
-    font-size: 13px;
+    font-size: 26px;
     margin: 0;
 }
 
 h4 {
     color: #000000;
-    font-size: 12px;
+    font-size: 20px;
     margin: 0;
 }
 
 p {
     color: #000000;
     margin: 0;
-    font-size: 13px;
-    line-height: 1.5;
-}
-
-.content {
-    display: flex;
-    gap: 10px;
-    margin-top: 10px;
-}
-
-.content-right {
-    padding: 10px;
-    width: 65%;
-}
-
-.content-left {
-    padding: 10px;
-    width: 35%;
+    font-size: 18px;
+    line-height: 1.4;
 }
 
 .main-div {
@@ -73,7 +56,7 @@ p {
     height: min-content;
     justify-content: flex-start;
     overflow: visible;
-    padding: 20px;
+    padding: 40px 70px 0 70px;
     position: relative;
 }
 
@@ -113,7 +96,7 @@ p {
     flex: none;
     flex-direction: row;
     flex-wrap: nowrap;
-    gap: 20px;
+    gap: 70px;
     height: min-content;
     justify-content: center;
     overflow: visible;
@@ -143,7 +126,7 @@ p {
 
 .left-div {
     background-color: #858e9a40;
-    border-radius: 5px;
+    border-radius: 16px;
     opacity: 1;
     align-items: center;
     display: flex;
@@ -156,6 +139,7 @@ p {
     overflow: hidden;
     padding: 0;
     position: sticky;
+    top: 40px;
     width: min-content;
     will-change: transform;
     z-index: 1;
@@ -169,11 +153,12 @@ p {
     flex-direction: column;
     flex-wrap: nowrap;
     gap: 16px;
-    height: 87vh;
+    height: 82vh;
     justify-content: flex-start;
     overflow: hidden;
-    padding: 30px 20px 30px 20px;
+    padding: 30px 10px 10px 10px;
     position: relative;
+    width: 285px;
     will-change: var(--framer-will-change-override, transform);
 }
 
@@ -186,7 +171,7 @@ p {
 }
 
 .img-profile {
-    border-radius: 15px;
+    border-radius: 16px;
     display: block;
     width: 100%;
     height: 100%;
@@ -247,7 +232,8 @@ p {
     position: relative;
     width: 100%;
     background: linear-gradient(to right, rgba(0, 0, 0, 0) 0%, #8d9ab25c 20%, #8d9ab25c 80%, rgba(0, 0, 0, 0) 100%);
-    padding: 8px 0px 0px 0px;
+    padding: 12px 0px 0px 0px;
+    margin-bottom: 20px;
 }
 
 
@@ -259,7 +245,7 @@ p {
     flex: none;
     flex-direction: column;
     flex-wrap: nowrap;
-    gap: 8px;
+    gap: 4px;
     height: min-content;
     justify-content: center;
     overflow: visible;
@@ -269,13 +255,13 @@ p {
 }
 
 .name-profile {
-    font-size: 18px;
+    font-size: 26px;
     margin: 0;
     margin-bottom: 8px;
 }
 
 .specifications-profile {
-    font-size: 13px;
+    font-size: 16px;
     margin: 0;
 }
 
@@ -336,7 +322,7 @@ p {
     flex: none;
     flex-direction: column;
     flex-wrap: nowrap;
-    gap: 11px;
+    gap: 10px;
     height: min-content;
     justify-content: center;
     overflow: hidden;
@@ -363,12 +349,13 @@ p {
 }
 
 .first-liar-introduction {
-
-
+    align-content: center;
+    align-items: center;
     display: flex;
     flex: none;
     flex-direction: column;
     flex-wrap: nowrap;
+    gap: 30px;
     height: min-content;
     justify-content: center;
     overflow: visible;
@@ -396,11 +383,6 @@ p {
     margin-bottom: 30px;
 }
 
-.all-programming-language-div {
-    margin-top: 5px;
-    width: 100%;
-    background: #ffffff00;
-}
 
 .all-experience {
     outline: none;
@@ -409,9 +391,9 @@ p {
     transform: none;
     /* width: 100%; */
     background: #f0f8ff40;
-    border-radius: 6px;
+    border-radius: 12px;
     align-items: center;
-    padding: 3px 10px;
+    padding: 10px 10px 10px 10px;
     margin: 7px;
     box-shadow: 2px 2px 20px #3535350f;
 }
@@ -422,6 +404,15 @@ p {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    flex-shrink: 0;
+    transform: none;
+    width: 120px;
+    background: #f0f8ff40;
+    border-radius: 20px;
+    align-items: center;
+    padding: 10px 10px 10px 10px;
+    direction: ltr;
+    box-shadow: 2px 2px 20px #3535350f;
 }
 
 .my-num-experience {
@@ -432,7 +423,7 @@ p {
 }
 
 .my-text-experience {
-    font-size: 12px;
+    font-size: 17px;
     font-weight: 500;
     color: #414141;
 }
@@ -453,7 +444,7 @@ p {
 }
 
 .my-work-second-liar-introduction {
-    font-size: 14px;
+    font-size: 24px;
 }
 
 
@@ -508,15 +499,17 @@ p {
 
 
 .my-projects {
+    align-content: center;
     align-items: center;
     display: flex;
     flex: none;
     flex-direction: column;
     flex-wrap: nowrap;
+    gap: 20px;
     height: min-content;
     justify-content: center;
     overflow: hidden;
-    padding: 20px 0 0;
+    padding: 30px 0 0;
     position: relative;
     width: 100%;
 }
@@ -524,10 +517,10 @@ p {
 .sample-my-projects {
     height: min-content;
     justify-content: center;
-    padding-top: 5px;
+    padding: 0;
     position: relative;
     width: 100%;
-    margin-right: 10px;
+    margin-bottom: 40px;
 }
 
 
@@ -538,6 +531,7 @@ p {
     justify-self: start;
     position: relative;
     width: 100%;
+    margin-bottom: 14px;
 }
 
 
@@ -660,6 +654,7 @@ p {
     height: min-content;
     justify-content: center;
     overflow: hidden;
+    padding: 100px 0 0;
     position: relative;
     width: 100%;
 }
@@ -853,9 +848,11 @@ p {
 /* کانتینر اصلی - کمی بزرگتر از عکس می‌کنیم تا stroke هم جا بشه */
 .circle-progress {
     position: relative;
-    width: 58px;
-    height: 58px;
-
+    width: 90px;
+    /* 70px عکس + 10px حاشیه از هر طرف برای stroke */
+    height: 90px;
+    margin: 20px;
+    /* فقط برای نمایش بهتر */
     border-radius: 100px;
     margin-bottom: 8px;
     scale: 0.9;
@@ -903,8 +900,8 @@ p {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 45px;
-    height: 45px;
+    width: 70px;
+    height: 70px;
     border-radius: 50%;
     overflow: hidden;
     background: #ffffff;
@@ -1008,7 +1005,9 @@ p {
 }
 
 /* Skills / programming languages area */
-
+.my-programming-language {
+    padding: 20px 0;
+}
 
 .all-programming-language {
     display: flex;
@@ -1024,13 +1023,7 @@ p {
 
 /* Project card (simplified) */
 .each-one-my-projects {
-    margin: 5px 0;
-    display: flex;
-    gap: 3px;
-}
-
-.each-one-my-projects h3 {
-    white-space: nowrap;
+    margin: 16px 0;
 }
 
 /* General button style (inline styles moved to CSS) */
@@ -1073,59 +1066,62 @@ a.project-link:hover {
 .headline-sentenc {
     border-bottom: 2px solid #00000099;
     width: fit-content;
-    font-size: 14px;
+    font-size: 24px;
     padding-left: 40px;
     margin-bottom: -2.5px;
 }
 
 
 .time-se-section {
-    padding: 0 12px;
-    margin-top: 10px;
+    padding: 0 50px;
+    margin-top: 40px;
 }
 
 
 .time-se-profile-wrap {
     position: relative;
-    padding-right: 10.8px;
-    border-right: 1.7px solid #4e4e4e;
+    padding-right: 49.8px;
+    border-right: 3px solid #4e4e4e;
 }
 
 .time-se-item {
     position: relative;
-    margin-bottom: 8px;
+    margin-bottom: 6px;
 }
 
 .time-se-content {
+    padding: 0px 0px 20px 0px;
     border-radius: 12px;
 }
 
 .time-se-content h3 {
-    font-size: 12px;
+    margin-bottom: 2px;
+    font-size: 16px;
 }
 
 .time-se-content p {
     margin: 0;
     color: #374151;
+    font-size: 16px;
 }
 
 /* Dot and number badges used for each item */
 .time-se-dot {
     position: absolute;
-    width: 6px;
-    height: 6px;
+    width: 12px;
+    height: 12px;
     background: #ced7e3;
     border-radius: 50%;
-    border: 2px solid #4e4e4e;
+    border: 3px solid #4e4e4e;
 }
 
 .time-se-dot1 {
-    right: -17px;
+    right: -60px;
     top: 7px;
 }
 
 .time-se-dot2 {
-    right: -17px;
+    right: -60px;
     top: 12px;
     margin-top: -5px;
 }
@@ -1172,7 +1168,6 @@ a.project-link:hover {
 /* استایل‌های موبایل - اضافه کنید به انتهای فایل CSS */
 
 @media (max-width: 768px) {
-
     /* تنظیمات کلی */
     body {
         font-size: 14px;
@@ -1440,6 +1435,7 @@ a.project-link:hover {
 
     /* Projects section */
     .my-projects {
+        gap: 15px;
         padding: 20px 0;
     }
 
@@ -1448,23 +1444,23 @@ a.project-link:hover {
     }
 
     .each-one-my-projects {
-        margin-bottom: 5px;
+        margin-bottom: 20px;
     }
 
     /* Project cards - stack vertically */
-    .each-one-my-projects>div {
+    .each-one-my-projects > div {
         flex-direction: column !important;
         gap: 12px !important;
         padding: 12px !important;
     }
 
-    .each-one-my-projects>div>div:first-child {
+    .each-one-my-projects > div > div:first-child {
         flex: 0 0 auto !important;
         width: 100% !important;
         height: 180px !important;
     }
 
-    .each-one-my-projects>div>div:last-child {
+    .each-one-my-projects > div > div:last-child {
         width: 100%;
     }
 
@@ -1495,7 +1491,7 @@ a.project-link:hover {
         font-size: 12px !important;
     }
 
-    .headline+img {
+    .headline + img {
         border-radius: 8px;
     }
 
