@@ -189,13 +189,12 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-weight: 800;
-      font-size: 16px;
       color: var(--signal);
       margin-bottom: 34px;
       transition: transform .3s, border-color .3s;
     }
 
+    .rail-logo svg { width: 22px; height: 22px; }
     .rail-logo:hover { transform: rotate(-8deg); border-color: var(--signal); }
 
     .rail-nav {
@@ -375,10 +374,6 @@
       .main { margin-right: 0; }
     }
 
-    @media (max-width: 900px) {
-      .rail { display: flex !important; }
-    }
-
     .main {
       margin-right: 84px;
       position: relative;
@@ -386,6 +381,7 @@
     }
 
     .wrap {
+      max-width: 980px;
       margin: 0 auto;
       padding: 26px 40px;
     }
@@ -580,110 +576,38 @@
       transform: translateY(-2px);
     }
 
-    .status-board { padding: 0; overflow: hidden; }
-
-    .status-head {
+    .scroll-cue {
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      padding: 14px 18px;
-      border-bottom: 1px solid var(--border-soft);
-    }
-
-    .status-head .dots { display: flex; gap: 6px; }
-
-    .status-head .dots span {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: var(--border);
-    }
-
-    .status-head .title {
+      gap: 10px;
+      margin-top: 64px;
       font-family: 'JetBrains Mono', monospace;
-      font-size: 11.5px;
-      color: var(--faint);
-    }
-
-    .status-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1px;
-      background: var(--border-soft);
-    }
-
-    .status-cell { background: var(--panel); padding: 18px 20px; }
-
-    .status-cell .k {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 10.5px;
-      color: var(--faint);
-      margin-bottom: 8px;
-      letter-spacing: .03em;
-    }
-
-    .status-cell .v {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 19px;
-      font-weight: 700;
-    }
-
-    .status-cell .v.accent { color: var(--signal); }
-    .status-cell .v.data { color: var(--data); }
-
-    .status-models {
-      padding: 18px 20px;
-      border-top: 1px solid var(--border-soft);
-    }
-
-    .status-models .k {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 10.5px;
-      color: var(--faint);
-      margin-bottom: 12px;
-    }
-
-    .model-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 7px 0;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 12.5px;
-      color: var(--muted);
-      border-top: 1px dashed var(--border-soft);
-    }
-
-    .model-row:first-of-type { border-top: none; }
-
-    .model-row .ok-tag {
-      color: var(--ok);
-      display: flex;
-      align-items: center;
-      gap: 6px;
       font-size: 11px;
+      color: var(--faint);
     }
 
-    .model-row .ok-tag i {
-      width: 5px;
-      height: 5px;
-      border-radius: 50%;
-      background: var(--ok);
+    .scroll-cue .ln {
+      width: 36px;
+      height: 1px;
+      background: var(--border);
+      position: relative;
+      overflow: hidden;
     }
 
-    .spark {
-      padding: 16px 20px 20px;
-      border-top: 1px solid var(--border-soft);
+    .scroll-cue .ln::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 10px;
+      height: 1px;
+      background: var(--signal);
+      animation: scan 2s linear infinite;
     }
 
-    .spark svg { width: 100%; height: 44px; display: block; }
-
-    .spark polyline {
-      fill: none;
-      stroke: var(--data);
-      stroke-width: 1.6;
-      stroke-linecap: round;
-      stroke-linejoin: round;
+    @keyframes scan {
+      0% { right: 0; }
+      100% { right: 100%; }
     }
 
     .hero-grid {
@@ -756,38 +680,130 @@
       animation: pulse 2s ease-in-out infinite;
     }
 
-    .scroll-cue {
+    /* ================= PROFILE SUMMARY CARD ================= */
+    .pf-card { padding: 0; overflow: hidden; }
+
+    .pf-head {
       display: flex;
       align-items: center;
-      gap: 10px;
-      margin-top: 64px;
+      justify-content: space-between;
+      padding: 14px 18px;
+      border-bottom: 1px solid var(--border-soft);
+    }
+
+    .pf-dots { display: flex; gap: 6px; }
+    .pf-dots span { width: 8px; height: 8px; border-radius: 50%; background: var(--border); }
+
+    .pf-title {
       font-family: 'JetBrains Mono', monospace;
-      font-size: 11px;
+      font-size: 11.5px;
       color: var(--faint);
     }
 
-    .scroll-cue .ln {
-      width: 36px;
-      height: 1px;
-      background: var(--border);
-      position: relative;
-      overflow: hidden;
+    .pf-live {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      color: var(--ok);
     }
 
-    .scroll-cue .ln::after {
-      content: '';
+    .pf-live i {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--ok);
+      box-shadow: 0 0 7px var(--ok);
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    .pf-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--border-soft);
+    }
+
+    .pf-stat { background: var(--panel); padding: 18px 20px; }
+
+    .pf-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10.5px;
+      color: var(--faint);
+      margin-bottom: 8px;
+      letter-spacing: .03em;
+    }
+
+    .pf-value {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--text);
+      direction: ltr;
+      text-align: left;
+      line-height: 1.2;
+    }
+
+    .pf-value.accent { color: var(--signal); }
+    .pf-value.data { color: var(--data); }
+
+    .pf-sub { font-size: 11.5px; color: var(--muted); margin-top: 4px; }
+
+    .pf-typing,
+    .pf-timeline {
+      padding: 16px 20px 18px;
+      border-top: 1px solid var(--border-soft);
+    }
+
+    .pf-line {
+      font-family: 'Vazirmatn', sans-serif;
+      font-size: 13.5px;
+      color: var(--text);
+      direction: rtl;
+      text-align: right;
+      min-height: 1.8em;
+    }
+
+    .pf-line::after {
+      content: '▌';
+      margin-right: 3px;
+      color: var(--signal);
+      animation: blink 1s steps(2, start) infinite;
+    }
+
+    @keyframes blink { 50% { opacity: 0; } }
+
+    .pf-track {
+      position: relative;
+      height: 2px;
+      background: var(--border-soft);
+      margin: 16px 6px 0;
+    }
+
+    .pf-fill {
       position: absolute;
       top: 0;
       right: 0;
-      width: 10px;
-      height: 1px;
-      background: var(--signal);
-      animation: scan 2s linear infinite;
+      height: 2px;
+      width: 0;
+      background: linear-gradient(270deg, var(--signal), var(--data));
+      border-radius: 2px;
+      transition: width 1.6s cubic-bezier(.16, 1, .3, 1);
     }
 
-    @keyframes scan {
-      0% { right: 0; }
-      100% { right: 100%; }
+    .pf-years {
+      display: flex;
+      justify-content: space-between;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10.5px;
+      color: var(--faint);
+      direction: ltr;
+      margin-top: 10px;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .pf-line::after, .pf-live i { animation: none; }
     }
 
     /* ================= ABOUT ================= */
@@ -1380,14 +1396,13 @@
       }
 
       .grid-overlay, .cursor-dot, .cursor-ring, .rail, .topbar,
-      .no-print, .hero-actions, .scroll-cue, .status-board,
+      .no-print, .hero-actions, .scroll-cue, .pf-card,
       .work-thumb, .gh-panel, .slider, .gh-note, footer,
       .hero-side, .stack-strip, .btn, .placeholder-note {
         display: none !important;
       }
 
       .main { margin-right: 0 !important; }
-
       .wrap { max-width: 100%; padding: 0; }
 
       [data-reveal], [data-reveal-group]>* {
@@ -1423,9 +1438,6 @@
       .hero p.lede { font-size: 11pt; margin-bottom: 10px; }
       .hero-top { margin-bottom: 14px; }
       .hero-grid { display: block; }
-
-      .id-badge { display: flex; border: none !important; padding: 0; margin-bottom: 12px; }
-      .id-badge-photo { width: 64px; height: 80px; }
 
       .skills-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
       .skill-card { padding: 12px 14px; }
@@ -1467,7 +1479,14 @@
   <div class="cursor-ring" id="cursorRing"></div>
 
   <aside class="rail">
-    <a href="#hero" class="rail-logo">ی</a>
+    <a href="#hero" class="rail-logo" aria-label="بازگشت به بالا">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
+        <path d="M12 7.2 6.8 14.8M12 7.2l5.2 7.6M7.7 17h8.6" />
+        <circle cx="12" cy="5" r="2.2" fill="currentColor" stroke="none" />
+        <circle cx="5.5" cy="17" r="2.2" fill="currentColor" stroke="none" />
+        <circle cx="18.5" cy="17" r="2.2" fill="currentColor" stroke="none" />
+      </svg>
+    </a>
     <nav class="rail-nav">
       <a href="#about" data-nav><span class="mono">01</span><span class="tip">درباره من</span></a>
       <a href="#skills" data-nav><span class="mono">02</span><span class="tip">تخصص</span></a>
@@ -1495,6 +1514,11 @@
           <svg viewBox="0 0 16 16" fill="currentColor">
             <path
               d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" />
+          </svg>
+        </a>
+        <a href="https://t.me/username" target="_blank" rel="noopener" aria-label="Telegram">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M9.04 15.3 8.9 19.2c.45 0 .65-.2.88-.44l2.12-2.03 4.39 3.21c.8.44 1.37.21 1.58-.74l2.86-13.4c.29-1.2-.44-1.74-1.2-1.4L1.7 10.1c-1.17.46-1.15 1.12-.2 1.41l4.7 1.47L16.4 6.9c.5-.33.96-.15.58.18L9.04 15.3z" />
           </svg>
         </a>
         <a href="mailto:example@email.com" aria-label="Email">
@@ -1554,40 +1578,44 @@
             </div>
           </div>
 
-          <div class="status-board bracket">
-            <div class="status-head">
-              <div class="dots"><span></span><span></span><span></span></div>
-              <div class="title mono">system.status</div>
+          <div class="pf-card bracket">
+            <div class="pf-head">
+              <div class="pf-dots"><span></span><span></span><span></span></div>
+              <div class="pf-live"><i></i>ONLINE · TEHRAN</div>
             </div>
-            <div class="status-grid">
-              <div class="status-cell">
-                <div class="k mono">UPTIME</div>
-                <div class="v accent mono" id="uptimeVal">—</div>
+
+            <div class="pf-stats">
+              <div class="pf-stat">
+                <div class="pf-label">EXPERIENCE</div>
+                <div class="pf-value accent"><span data-count="3" data-suffix="+">0</span></div>
+                <div class="pf-sub">سابقهٔ فعالیت حرفه‌ای از ۱۴۰۲</div>
               </div>
-              <div class="status-cell">
-                <div class="k mono">REQ/SEC</div>
-                <div class="v data mono" id="reqVal">0</div>
+              <div class="pf-stat">
+                <div class="pf-label">PROJECTS</div>
+                <div class="pf-value"><span data-count="9">0</span></div>
+                <div class="pf-sub">پروژهٔ طراحی‌شده و توسعه‌یافته</div>
+              </div>
+              <div class="pf-stat">
+                <div class="pf-label">ROLES</div>
+                <div class="pf-value data"><span data-count="4">0</span></div>
+                <div class="pf-sub">سابقهٔ کاری تیمی و مستقل</div>
+              </div>
+              <div class="pf-stat">
+                <div class="pf-label">AI SERVICES</div>
+                <div class="pf-value"><span data-count="5">0</span></div>
+                <div class="pf-sub">مدل و سرویس هوش مصنوعی یکپارچه‌شده</div>
               </div>
             </div>
-            <div class="status-models">
-              <div class="k mono">ACTIVE MODELS</div>
-              <div class="model-row"><span>YOLOv8 · vision</span><span class="ok-tag mono"><i></i>ready</span></div>
-              <div class="model-row"><span>Whisper · speech</span><span class="ok-tag mono"><i></i>ready</span></div>
-              <div class="model-row"><span>LLM API · text</span><span class="ok-tag mono"><i></i>ready</span></div>
+
+            <div class="pf-typing">
+              <div class="pf-label">CURRENT FOCUS</div>
+              <div class="pf-line" id="pfLine"></div>
             </div>
-            <div class="spark">
-              <svg viewBox="0 0 300 44" preserveAspectRatio="none">
-                <defs>
-                  <linearGradient id="areaGrad" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stop-color="var(--signal)" stop-opacity="0.25" />
-                    <stop offset="100%" stop-color="var(--signal)" stop-opacity="0.02" />
-                  </linearGradient>
-                </defs>
-                <path id="sparkArea" d="" fill="url(#areaGrad)" />
-                <polyline id="sparkline" points="" stroke="var(--signal)" stroke-width="1.8" fill="none"
-                  stroke-linecap="round" stroke-linejoin="round" />
-                <circle id="sparkDot" r="3" fill="var(--signal)" cx="0" cy="0" />
-              </svg>
+
+            <div class="pf-timeline">
+              <div class="pf-label">JOURNEY</div>
+              <div class="pf-track"><i class="pf-fill" id="pfFill"></i></div>
+              <div class="pf-years"><span>1402</span><span>1403</span><span>1404</span><span>1405</span></div>
             </div>
           </div>
         </div>
@@ -1762,7 +1790,7 @@
           </div>
         </div>
 
-<!--         <div class="commit data" data-reveal>
+        <div class="commit data" data-reveal>
           <span class="commit-dot"></span>
           <div class="commit-card bracket">
             <div class="commit-meta"><span class="commit-hash mono">#e7d3f2</span><span
@@ -1777,7 +1805,7 @@
               <li>پیاده‌سازی مسیر پرداخت و انتقال خودکار وجوه به حساب فروشنده، به‌همراه مدیریت کامل سفارش‌ها.</li>
             </ul>
           </div>
-        </div> -->
+        </div>
       </div>
     </section>
 
@@ -1832,7 +1860,6 @@
                 دامنهٔ مستقل بود. همکاری نزدیک با متخصص هوش مصنوعی و هدایت یک توسعه‌دهنده از دیگر مسئولیت‌های این پروژه
                 بوده است.</p>
               <div class="work-tags"><span>Django</span><span>AI Integration</span><span>DevOps</span></div>
-              <a class="work-link" href="https://ariuos.ir/" target="_blank" rel="noopener">ariuos.ir ↗</a>
             </div>
           </div>
         </div>
@@ -2007,7 +2034,7 @@
           <div class="contact-icon">
             <svg viewBox="0 0 16 16" fill="currentColor">
               <path
-                d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.530-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" />
+                d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" />
             </svg>
           </div>
           <span class="contact-label">GITHUB</span>
@@ -2110,16 +2137,13 @@
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('in');
-          if (entry.target.classList.contains('skills-grid')) {
-            entry.target.querySelectorAll('.gauge i').forEach(g => { g.style.width = g.dataset.fill + '%'; });
-          }
           revealObserver.unobserve(entry.target);
         }
       });
     }, { threshold: 0.12 });
     revealEls.forEach(el => revealObserver.observe(el));
 
-    /* skills gauges: fill when grid is revealed */
+    /* skills gauges: fill when grid is visible */
     const skillsGrid = document.querySelector('.skills-grid');
     const gaugeObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -2160,59 +2184,63 @@
       heading.appendChild(frag);
     }
 
-    /* uptime since the start of the AI/backend journey (1402 → 2023-03-21) */
-    const startDate = new Date('2023-03-21T00:00:00Z').getTime();
-    const uptimeEl = document.getElementById('uptimeVal');
+    /* profile summary: count-up, typing, timeline */
+    const pfCard = document.querySelector('.pf-card');
 
-    function updateUptime() {
-      const diff = Math.max(0, Date.now() - startDate);
-      const days = Math.floor(diff / 86400000);
-      const hrs = Math.floor((diff % 86400000) / 3600000);
-      const mins = Math.floor((diff % 3600000) / 60000);
-      uptimeEl.textContent = `${days}d ${String(hrs).padStart(2, '0')}h ${String(mins).padStart(2, '0')}m`;
-    }
-    updateUptime();
-    setInterval(updateUptime, 30000);
-
-    /* requests/sec indicator */
-    const reqEl = document.getElementById('reqVal');
-
-    function tickReq() {
-      const base = 12 + Math.round(Math.sin(Date.now() / 4000) * 4);
-      const jitter = Math.round(Math.random() * 3);
-      reqEl.textContent = String(base + jitter);
-    }
-    tickReq();
-    if (!reduced) setInterval(tickReq, 1400);
-    else reqEl.textContent = '14';
-
-    /* sparkline */
-    const sparkline = document.getElementById('sparkline');
-    const sparkArea = document.getElementById('sparkArea');
-    const sparkDot = document.getElementById('sparkDot');
-    const NUM_POINTS = 30;
-    let phase = 0;
-
-    function updateSpark() {
-      phase += 0.15;
-      const pts = [];
-      for (let i = 0; i < NUM_POINTS; i++) {
-        const x = i / (NUM_POINTS - 1);
-        const y = 22 + 12 * Math.sin(x * 6 + phase) + 4 * Math.sin(x * 12 + phase * 1.7) + (Math.random() - 0.5) * 2;
-        pts.push(Math.max(6, Math.min(38, y)));
+    function countUp(el) {
+      const target = Number(el.dataset.count);
+      const suffix = el.dataset.suffix || '';
+      if (reduced) { el.textContent = target + suffix; return; }
+      const duration = 1400;
+      const start = performance.now();
+      function frame(now) {
+        const t = Math.min(1, (now - start) / duration);
+        const eased = 1 - Math.pow(1 - t, 3);
+        el.textContent = Math.round(target * eased) + suffix;
+        if (t < 1) requestAnimationFrame(frame);
       }
-      const step = 300 / (NUM_POINTS - 1);
-      const pointsStr = pts.map((y, i) => `${i * step},${y.toFixed(1)}`).join(' ');
-      sparkline.setAttribute('points', pointsStr);
-      sparkArea.setAttribute('d', `M ${pointsStr} 300,44 0,44 Z`);
-      sparkDot.setAttribute('cx', 300);
-      sparkDot.setAttribute('cy', pts[pts.length - 1].toFixed(1));
+      requestAnimationFrame(frame);
     }
-    if (!reduced) setInterval(updateSpark, 300);
-    else {
-      sparkline.setAttribute('points', '0,22 300,22');
-      sparkArea.setAttribute('d', 'M 0,22 300,22 300,44 0,44 Z');
+
+    const typeLines = [
+      'سامانهٔ ساخت فروشگاه برای پیج‌های اینستاگرام',
+      'یکپارچه‌سازی سرویس‌های هوش مصنوعی در بک‌اند',
+      'پردازش گفتار و مسیر STT → LLM → TTS',
+      'طراحی زیرساخت، استقرار و پایداری سامانه‌ها'
+    ];
+    const typeEl = document.getElementById('pfLine');
+
+    function typeLoop(lineIdx = 0, charIdx = 0, deleting = false) {
+      const current = typeLines[lineIdx];
+      if (!deleting) {
+        typeEl.textContent = current.slice(0, charIdx + 1);
+        if (charIdx + 1 === current.length) {
+          return setTimeout(() => typeLoop(lineIdx, charIdx + 1, true), 2200);
+        }
+        return setTimeout(() => typeLoop(lineIdx, charIdx + 1, false), 55);
+      } else {
+        typeEl.textContent = current.slice(0, charIdx - 1);
+        if (charIdx - 1 === 0) {
+          return setTimeout(() => typeLoop((lineIdx + 1) % typeLines.length, 0, false), 400);
+        }
+        return setTimeout(() => typeLoop(lineIdx, charIdx - 1, true), 28);
+      }
     }
+
+    const pfObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.querySelectorAll('[data-count]').forEach(countUp);
+        document.getElementById('pfFill').style.width = '100%';
+        pfObserver.unobserve(entry.target);
+      });
+    }, { threshold: 0.3 });
+    if (pfCard) pfObserver.observe(pfCard);
+
+    if (reduced) typeEl.textContent = typeLines[0];
+    else typeLoop();
+
+    /* sparkline-free hero: nothing else to animate here */
 
     /* experience timeline progress */
     const gitlog = document.getElementById('gitlog');
