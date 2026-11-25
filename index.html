@@ -412,20 +412,17 @@
     /* ================= MOBILE TOP BAR ================= */
     .topbar {
       display: none;
-      position: sticky;
-      top: 0;
-      z-index: 60;
-      background: color-mix(in srgb, var(--bg) 90%, transparent);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--border-soft);
+      margin-top: 28px;
+      border-top: 1px solid var(--border-soft);
+      padding-top: 20px;
     }
 
     .topbar-inner {
       display: flex;
+      flex-wrap: wrap;
       align-items: center;
-      gap: 14px;
-      padding: 12px 16px;
-      overflow-x: auto;
+      justify-content: center;
+      gap: 8px;
     }
 
     .topbar-inner a {
@@ -433,9 +430,10 @@
       font-family: 'JetBrains Mono', monospace;
       font-size: 12px;
       color: var(--muted);
-      padding: 8px 12px;
+      padding: 6px 14px;
       border: 1px solid var(--border);
       border-radius: 20px;
+      transition: all 0.2s;
     }
 
     .topbar-inner a.active {
@@ -443,13 +441,89 @@
       border-color: var(--signal);
     }
 
-    @media (max-width:900px) {
+    @media (max-width: 900px) {
       .topbar {
         display: block;
       }
     }
 
     /* ================= MAIN ================= */
+    @media (max-width: 900px) {
+      .rail {
+        display: flex !important;
+        flex-direction: row;
+        position: sticky;
+        top: 0;
+        width: 100%;
+        height: auto;
+        padding: 8px 12px;
+        border-left: none;
+        border-bottom: 1px solid var(--border-soft);
+        background: var(--bg);
+        backdrop-filter: blur(10px);
+        justify-content: space-between;
+        align-items: center;
+        z-index: 70;
+      }
+
+      .rail-logo {
+        margin-bottom: 0;
+        width: 34px;
+        height: 34px;
+        display: none;
+      }
+
+      .topbar-inner a {
+        padding: 4px 8px;
+        font-size: 10px;
+      }
+
+      .rail-nav {
+        flex-direction: row;
+        gap: 4px;
+        flex: none;
+      }
+
+      .rail-nav a {
+        width: 30px;
+        height: 30px;
+        font-size: 12px;
+      }
+
+      .rail-nav a .tip {
+        display: none;
+      }
+
+      .rail-progress {
+        display: none;
+      }
+
+      .rail-bottom {
+        flex-direction: row;
+        gap: 10px;
+      }
+
+      .rail-theme {
+        flex-direction: row;
+        border-radius: 8px;
+      }
+
+      .rail-theme button {
+        width: 30px;
+        height: 30px;
+      }
+
+      .rail-social {
+        flex-direction: row;
+        gap: 4px;
+      }
+
+      .rail-social a {
+        width: 30px;
+        height: 30px;
+      }
+    }
+
     .main {
       margin-right: 84px;
       position: relative;
@@ -470,7 +544,7 @@
 
     @media (max-width:640px) {
       .wrap {
-        padding: 0 20px;
+        padding: 14px 20px;
       }
     }
 
@@ -511,7 +585,6 @@
 
     section,
     header.hero {
-      padding: 96px 0;
       position: relative;
     }
 
@@ -1440,9 +1513,7 @@
       flex: 1;
     }
 
-    .work-tags-link {
-      
-    }
+    .work-tags-link {}
 
     .work-tags {
       display: flex;
@@ -1840,7 +1911,8 @@
         <div>
           <h1 id="heroHeading">مدل‌های هوش مصنوعی را به سرویس‌هایی تبدیل می‌کنم که <span class="hl">واقعاً کار
               می‌کنند</span></h1>
-          <p class="lede">توسعه‌دهندهٔ فول‌استک با تمرکز بر بک‌اند و هوش مصنوعی. از درک عمیق معماری‌های یادگیری عمیق تا پیاده‌سازی APIهای پایدار، مقیاس‌پذیر و آمادهٔ تولید — همهٔ مسیر را برای تحویل یک محصول هوشمند طی می‌کنم.</p>
+          <p class="lede">توسعه‌دهندهٔ فول‌استک با تمرکز بر بک‌اند و هوش مصنوعی. از درک عمیق معماری‌های یادگیری عمیق تا
+            پیاده‌سازی APIهای پایدار، مقیاس‌پذیر و آمادهٔ تولید — همهٔ مسیر را برای تحویل یک محصول هوشمند طی می‌کنم.</p>
           <div class="hero-actions">
             <a class="btn btn-primary" href="#work">دیدن نمونه‌کارها</a>
             <a class="btn btn-ghost" href="https://github.com/yhyaa79" target="_blank" rel="noopener">گیت‌هاب من</a>
@@ -1852,7 +1924,7 @@
         <div class="hero-side">
           <div class="id-badge bracket">
             <div class="id-badge-photo">
-              <img src="images/photo-output.png" alt="یحیی اسلامی">
+              <img src="/images/photo-output.png" alt="یحیی اسلامی">
             </div>
             <div class="id-badge-info">
               <div class="id-badge-name">یحیی اسلامی</div>
@@ -1884,8 +1956,16 @@
             </div>
             <div class="spark">
               <svg viewBox="0 0 300 44" preserveAspectRatio="none">
-                <polyline id="sparkline"
-                  points="0,30 30,26 60,32 90,20 120,24 150,14 180,22 210,12 240,18 270,10 300,16"></polyline>
+                <defs>
+                  <linearGradient id="areaGrad" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="var(--signal)" stop-opacity="0.25" />
+                    <stop offset="100%" stop-color="var(--signal)" stop-opacity="0.02" />
+                  </linearGradient>
+                </defs>
+                <path id="sparkArea" d="" fill="url(#areaGrad)" />
+                <polyline id="sparkline" points="" stroke="var(--signal)" stroke-width="1.8" fill="none"
+                  stroke-linecap="round" stroke-linejoin="round" />
+                <circle id="sparkDot" r="3" fill="var(--signal)" cx="0" cy="0" />
               </svg>
             </div>
           </div>
@@ -1902,11 +1982,20 @@
           <div class="file"><i></i>about.md</div>
         </div>
         <div class="readme-body">
-          <div class="readme-gutter mono">01<br>02<br>03<br>04<br>05<br>06<br>07<br>08<br>09<br>10<br>11<br><br>12<br>13</div>
+          <div class="readme-gutter mono">01<br>02<br>03<br>04<br>05<br>06<br>07<br>08<br>09<br>10<br>11<br><br>12<br>13
+          </div>
           <div class="readme-text">
-            <p>از سال <strong>۱۴۰۲</strong> با مطالعهٔ عمیق و آموزش منظم تئوری در حوزهٔ یادگیری عمیق، وارد دنیای برنامه‌نویسی و هوش مصنوعی شدم. در این مسیر، <strong>بینایی کامپیوتر، پردازش زبان طبیعی، پردازش گفتار و توسعهٔ بک‌اند</strong> را به‌صورت عملی و پروژه‌محور فرا گرفتم و همواره بر خلق راه‌حل‌های کاربردی متمرکز بوده‌ام.</p>
-            <p>بیشتر پروژه‌هایی که ساخته‌ام، حاصل تلفیق دو توانمندی کلیدی است: <strong>درک عمیق از مدل‌های هوش مصنوعی</strong> و <strong>توانایی تبدیل آن‌ها به سرویس‌های قابل‌اتکا و مقیاس‌پذیر</strong> — از تشخیص دست در ویدیو تا موتور پیشنهاد کتاب و پلتفرم‌های یکپارچه‌سازی چندمدله. هر پروژه برایم فرصتی است برای نزدیک‌تر شدن به فاصلهٔ میان تحقیق و تولید.</p>
-            <p>هدف نهایی من رسیدن به جایگاه یک <strong>Full-Stack AI Engineer</strong> است؛ کسی که هم مدل را می‌فهمد و هم می‌داند چگونه آن را در بستر واقعی و با ترافیک بالا سرپا نگه دارد. به همین دلیل، همواره لایه‌های مختلف یک سیستم — از دیتاست تا دیتابیس، از آموزش تا استقرار — را با دقت دنبال می‌کنم.</p>
+            <p>از سال <strong>۱۴۰۲</strong> با مطالعهٔ عمیق و آموزش منظم تئوری در حوزهٔ یادگیری عمیق، وارد دنیای
+              برنامه‌نویسی و هوش مصنوعی شدم. در این مسیر، <strong>بینایی کامپیوتر، پردازش زبان طبیعی، پردازش گفتار و
+                توسعهٔ بک‌اند</strong> را به‌صورت عملی و پروژه‌محور فرا گرفتم و همواره بر خلق راه‌حل‌های کاربردی متمرکز
+              بوده‌ام.</p>
+            <p>بیشتر پروژه‌هایی که ساخته‌ام، حاصل تلفیق دو توانمندی کلیدی است: <strong>درک عمیق از مدل‌های هوش
+                مصنوعی</strong> و <strong>توانایی تبدیل آن‌ها به سرویس‌های قابل‌اتکا و مقیاس‌پذیر</strong> — از تشخیص
+              دست در ویدیو تا موتور پیشنهاد کتاب و پلتفرم‌های یکپارچه‌سازی چندمدله. هر پروژه برایم فرصتی است برای
+              نزدیک‌تر شدن به فاصلهٔ میان تحقیق و تولید.</p>
+            <p>هدف نهایی من رسیدن به جایگاه یک <strong>Full-Stack AI Engineer</strong> است؛ کسی که هم مدل را می‌فهمد و
+              هم می‌داند چگونه آن را در بستر واقعی و با ترافیک بالا سرپا نگه دارد. به همین دلیل، همواره لایه‌های مختلف
+              یک سیستم — از دیتاست تا دیتابیس، از آموزش تا استقرار — را با دقت دنبال می‌کنم.</p>
           </div>
         </div>
       </div>
@@ -1916,61 +2005,71 @@
     <section id="skills" class="wrap">
       <div class="panel-tag mono" data-reveal><i></i>SYS.02 / EXPERTISE</div>
       <h2 class="panel-title" data-reveal>جایی که مدل‌سازی و مهندسی به هم می‌رسند</h2>
-      <p class="panel-lede" data-reveal>هر بخش زیر، یک لایه از خط‌لوله‌ای است که برای رساندن یک مدل هوش مصنوعی از دفترچهٔ تحقیق به دست کاربر واقعی طی می‌کنم. آشنایی کامل با هر مرحله، امکان عیب‌یابی و بهینه‌سازی کل سیستم را برایم فراهم می‌کند.</p>
+      <p class="panel-lede" data-reveal>هر بخش زیر، یک لایه از خط‌لوله‌ای است که برای رساندن یک مدل هوش مصنوعی از
+        دفترچهٔ تحقیق به دست کاربر واقعی طی می‌کنم. آشنایی کامل با هر مرحله، امکان عیب‌یابی و بهینه‌سازی کل سیستم را
+        برایم فراهم می‌کند.</p>
 
       <div class="skills-grid" data-reveal-group>
         <div class="skill-card bracket">
           <div class="skill-code mono">SYS.02.1</div>
           <h3>بینایی کامپیوتر</h3>
-          <p>تشخیص، ردیابی و طبقه‌بندی اشیاء در تصویر و ویدیو با معماری‌های نسل جدید YOLO. پیاده‌سازی پیش‌پردازش‌های مناسب برای افزایش دقت در شرایط نوری و زاویه‌های مختلف.</p>
+          <p>تشخیص، ردیابی و طبقه‌بندی اشیاء در تصویر و ویدیو با معماری‌های نسل جدید YOLO. پیاده‌سازی پیش‌پردازش‌های
+            مناسب برای افزایش دقت در شرایط نوری و زاویه‌های مختلف.</p>
           <div class="gauge"><i data-fill="88"></i></div>
           <div class="gauge-label"><span>core skill</span><span>YOLOv5–v9</span></div>
         </div>
         <div class="skill-card bracket">
           <div class="skill-code mono">SYS.02.2</div>
           <h3>یادگیری عمیق و دنباله‌ها</h3>
-          <p>آموزش معماری‌های Transformer، RNN و LSTM برای داده‌های دنباله‌ای مانند متن، صدا و سری‌های زمانی. تسلط بر مفاهیم Attention و Self-Attention برای مدل‌های زبانی بزرگ.</p>
+          <p>آموزش معماری‌های Transformer، RNN و LSTM برای داده‌های دنباله‌ای مانند متن، صدا و سری‌های زمانی. تسلط بر
+            مفاهیم Attention و Self-Attention برای مدل‌های زبانی بزرگ.</p>
           <div class="gauge"><i data-fill="80"></i></div>
           <div class="gauge-label"><span>core skill</span><span>Transformer</span></div>
         </div>
         <div class="skill-card bracket">
           <div class="skill-code mono">SYS.02.3</div>
           <h3>گفتار و صوت</h3>
-          <p>پیاده‌سازی آفلاین و آنلاین Whisper برای تبدیل گفتار به متن در پروژه‌های چندزبانه. بهینه‌سازی تأخیر و دقت برای کاربردهای هم‌زمان و ناهم‌زمان.</p>
+          <p>پیاده‌سازی آفلاین و آنلاین Whisper برای تبدیل گفتار به متن در پروژه‌های چندزبانه. بهینه‌سازی تأخیر و دقت
+            برای کاربردهای هم‌زمان و ناهم‌زمان.</p>
           <div class="gauge"><i data-fill="82"></i></div>
           <div class="gauge-label"><span>core skill</span><span>Whisper</span></div>
         </div>
         <div class="skill-card bracket">
           <div class="skill-code mono">SYS.02.4</div>
           <h3>یکپارچه‌سازی هوش مصنوعی</h3>
-          <p>اتصال و بهینه‌سازی APIهای مدل‌های متن، صوت و تصویر از چند ارائه‌دهنده هم‌زمان. مدیریت خطا، retry و کش کردن برای کاهش هزینه و افزایش پایداری.</p>
+          <p>اتصال و بهینه‌سازی APIهای مدل‌های متن، صوت و تصویر از چند ارائه‌دهنده هم‌زمان. مدیریت خطا، retry و کش کردن
+            برای کاهش هزینه و افزایش پایداری.</p>
           <div class="gauge"><i data-fill="90"></i></div>
           <div class="gauge-label"><span>daily use</span><span>OpenAI / Anthropic</span></div>
         </div>
         <div class="skill-card bracket">
           <div class="skill-code mono">SYS.02.5</div>
           <h3>بک‌اند و زیرساخت</h3>
-          <p>ساخت APIهای RESTful، مدیریت دیتابیس‌های رابط‌ای و غیررابط‌ای، پیاده‌سازی سیستم صورتحساب مبتنی بر مصرف توکن و استقرار روی سرورهای لینوکسی با Docker و Nginx.</p>
+          <p>ساخت APIهای RESTful، مدیریت دیتابیس‌های رابط‌ای و غیررابط‌ای، پیاده‌سازی سیستم صورتحساب مبتنی بر مصرف توکن
+            و استقرار روی سرورهای لینوکسی با Docker و Nginx.</p>
           <div class="gauge"><i data-fill="92"></i></div>
           <div class="gauge-label"><span>daily use</span><span>Flask / Django / MongoDB</span></div>
         </div>
         <div class="skill-card bracket">
           <div class="skill-code mono">SYS.02.6</div>
           <h3>ربات و اتوماسیون</h3>
-          <p>طراحی ربات‌های تلگرامی حرفه‌ای با مدیریت حالت مکالمه، ذخیره‌سازی پیشینه و اتصال به سرویس‌های خارجی. اتوماسیون فرایندهای تکراری با اسکریپت‌های پایتون.</p>
+          <p>طراحی ربات‌های تلگرامی حرفه‌ای با مدیریت حالت مکالمه، ذخیره‌سازی پیشینه و اتصال به سرویس‌های خارجی.
+            اتوماسیون فرایندهای تکراری با اسکریپت‌های پایتون.</p>
           <div class="gauge"><i data-fill="75"></i></div>
           <div class="gauge-label"><span>working</span><span>Python</span></div>
         </div>
       </div>
 
       <div class="stack-strip" data-reveal>
-        <div class="stack-chip"><img src="images/ptyhon.jpg" alt="Python"><span>Python</span></div>
-        <div class="stack-chip"><img src="images/JavaScript.jpg" alt="JavaScript"><span>JavaScript</span></div>
-        <div class="stack-chip"><img src="images/html.jpg" alt="HTML"><span>HTML</span></div>
-        <div class="stack-chip"><img src="images/css.jpg" alt="CSS"><span>CSS</span></div>
-        <div class="stack-chip"><img src="images/MongoDB.jpg" alt="MongoDB"><span>MongoDB</span></div>
-        <div class="stack-chip"><img src="images/MySQL.jpg" alt="MySQL"><span>MySQL</span></div>
-        <div class="stack-chip"><img src="images/docker.jpg" alt="Docker"><span>Docker</span></div>
+        <div class="stack-chip"><img src="/images/ptyhon.jpg" alt="Python"><span>Python</span></div>
+        <div class="stack-chip"><img src="/images/JavaScript.jpg" alt="JavaScript"><span>JavaScript</span></div>
+        <div class="stack-chip"><img src="/images/html.jpg" alt="HTML"><span>HTML</span></div>
+        <div class="stack-chip"><img src="/images/css.jpg" alt="CSS"><span>CSS</span></div>
+        <div class="stack-chip"><img src="/images/MongoDB.jpg" alt="MongoDB"><span>MongoDB</span></div>
+        <div class="stack-chip"><img src="/images/MySQL.jpg" alt="MySQL"><span>MySQL</span></div>
+        <div class="stack-chip"><img src="/images/docker.jpg" alt="Docker"><span>Docker</span></div>
+        <div class="stack-chip"><img src="images/django-icon.svg" alt="Django"><span>Django</span></div>
+        <div class="stack-chip"><img src="images/flask.png" alt="Flask"><span>Flask</span></div>
       </div>
     </section>
 
@@ -1978,7 +2077,8 @@
     <section id="log" class="wrap">
       <div class="panel-tag mono" data-reveal><i></i>SYS.03 / EXPERIENCE</div>
       <h2 class="panel-title" data-reveal>لاگ مسیر شغلی</h2>
-      <p class="panel-lede" data-reveal>از پروژه‌های تحقیقاتی هوش مصنوعی شروع کردم و به سمت ساخت زیرساخت واقعی برای اجرای مدل‌ها حرکت کردم. هر جایگاه، فرصتی برای عمیق‌تر شدن در یکی از لایه‌های توسعهٔ هوش مصنوعی بوده است.</p>
+      <p class="panel-lede" data-reveal>از پروژه‌های تحقیقاتی هوش مصنوعی شروع کردم و به سمت ساخت زیرساخت واقعی برای
+        اجرای مدل‌ها حرکت کردم. هر جایگاه، فرصتی برای عمیق‌تر شدن در یکی از لایه‌های توسعهٔ هوش مصنوعی بوده است.</p>
 
       <div class="gitlog" id="gitlog">
         <div class="commit" data-reveal>
@@ -1988,8 +2088,10 @@
                 class="commit-year mono">1403</span></div>
             <h3>عضو تیم فنی هوش مصنوعی — تشخیص و ترجمه زبان اشاره</h3>
             <ul>
-              <li>پیاده‌سازی تشخیص و ردیابی دقیق دست‌ها در ویدیو با استفاده از YOLOv8 و بهینه‌سازی برای فریم‌های متوالی.</li>
-              <li>پردازش دنباله‌ای فریم‌ها با معماری Transformer به منظور شناسایی علائم زبان اشاره ایرانی و تبدیل به متن.</li>
+              <li>پیاده‌سازی تشخیص و ردیابی دقیق دست‌ها در ویدیو با استفاده از YOLOv8 و بهینه‌سازی برای فریم‌های متوالی.
+              </li>
+              <li>پردازش دنباله‌ای فریم‌ها با معماری Transformer به منظور شناسایی علائم زبان اشاره ایرانی و تبدیل به
+                متن.</li>
               <li>تمرکز بر کاربرد هوش مصنوعی در حوزهٔ سلامت و دسترسی‌پذیری برای افراد ناشنوا و کم‌شنوا.</li>
             </ul>
           </div>
@@ -2016,7 +2118,8 @@
                 class="commit-year mono">1404</span></div>
             <h3>توسعه‌دهنده بک‌اند هوش مصنوعی — پلتفرم loovi.ai</h3>
             <ul>
-              <li>یکپارچه‌سازی و بهینه‌سازی APIهای مدل‌های متن، صوت، تصویر و ویدیو از OpenAI، Anthropic و ElevenLabs در یک پلتفرم واحد.</li>
+              <li>یکپارچه‌سازی و بهینه‌سازی APIهای مدل‌های متن، صوت، تصویر و ویدیو از OpenAI، Anthropic و ElevenLabs در
+                یک پلتفرم واحد.</li>
               <li>پیاده‌سازی سیستم صورتحساب مبتنی بر مصرف توکن با قابلیت گزارش‌گیری و مشاهدهٔ لحظه‌ای.</li>
               <li>کار با MongoDB برای ذخیره‌سازی لاگ‌ها، تاریخچهٔ مکالمات و متادیتای کاربران.</li>
               <li>مشارکت در توسعه و پایداری زیرساخت بک‌اند، عیب‌یابی و بهبود کارایی.</li>
@@ -2086,18 +2189,21 @@
     <section id="work" class="wrap">
       <div class="panel-tag mono" data-reveal><i></i>SYS.05 / SELECTED WORK</div>
       <h2 class="panel-title" data-reveal>نمونه‌کارها</h2>
-      <p class="panel-lede" data-reveal>پروژه‌هایی که از ایده تا اجرا، طراحی و توسعه داده‌ام. هر کدام نمایندهٔ یکی از مهارت‌های کلیدی من در حوزهٔ هوش مصنوعی و بک‌اند هستند.</p>
+      <p class="panel-lede" data-reveal>پروژه‌هایی که از ایده تا اجرا، طراحی و توسعه داده‌ام. هر کدام نمایندهٔ یکی از
+        مهارت‌های کلیدی من در حوزهٔ هوش مصنوعی و بک‌اند هستند.</p>
 
       <div class="work-grid" data-reveal-group>
         <div class="work-card bracket">
           <div class="work-inner">
-            <div class="work-thumb"><img src="images/loovi1.png" alt="loovi.ai">
+            <div class="work-thumb"><img src="/images/loovi1.png" alt="loovi.ai">
               <div class="scanline"></div>
             </div>
             <div class="work-body">
               <div class="work-index mono">CASE.01</div>
               <h3>loovi.ai — پلتفرم یکپارچه هوش مصنوعی برای پردازش چندرسانه‌ای</h3>
-              <p>پلتفرمی که خدمات پردازش متن، صوت، تصویر و ویدیو را با اتصال به مدل‌های OpenAI، Anthropic و ElevenLabs یکپارچه ارائه می‌دهد؛ همراه با سیستم محاسبه هزینه مبتنی بر توکن، مدیریت کاربران و گزارش‌گیری پیشرفته.</p>
+              <p>پلتفرمی که خدمات پردازش متن، صوت، تصویر و ویدیو را با اتصال به مدل‌های OpenAI، Anthropic و ElevenLabs
+                یکپارچه ارائه می‌دهد؛ همراه با سیستم محاسبه هزینه مبتنی بر توکن، مدیریت کاربران و گزارش‌گیری پیشرفته.
+              </p>
               <div class="work-tags-link">
                 <div class="work-tags">
                   <span>OpenAI</span><span>Anthropic</span><span>ElevenLabs</span><span>MongoDB</span></div>
@@ -2108,87 +2214,96 @@
         </div>
 
         <div class="work-card bracket">
-          <div class="work-thumb"><img src="images/BookWeb.png" alt="BookWeb">
+          <div class="work-thumb"><img src="/images/BookWeb.png" alt="BookWeb">
             <div class="scanline"></div>
           </div>
           <div class="work-body">
             <div class="work-index mono">CASE.02</div>
             <h3>BookWeb — سیستم هوشمند پیشنهاددهنده کتاب</h3>
-            <p>پیشنهاد کتاب مبتنی بر پردازش زبان طبیعی، با دیتابیس جامع از کتاب‌های پرطرفدار و مهندسی پرامپت پیشرفته برای شخصی‌سازی نتایج. طراحی شده برای وب‌سایت‌های فروش کتاب و کتابخانه‌های دیجیتال.</p>
+            <p>پیشنهاد کتاب مبتنی بر پردازش زبان طبیعی، با دیتابیس جامع از کتاب‌های پرطرفدار و مهندسی پرامپت پیشرفته
+              برای شخصی‌سازی نتایج. طراحی شده برای وب‌سایت‌های فروش کتاب و کتابخانه‌های دیجیتال.</p>
             <div class="work-tags"><span>NLP</span><span>Prompt Engineering</span></div>
           </div>
         </div>
 
         <div class="work-card bracket">
-          <div class="work-thumb"><img src="images/SubifyAI.png" alt="SubifyAI">
+          <div class="work-thumb"><img src="/images/SubifyAI.png" alt="SubifyAI">
             <div class="scanline"></div>
           </div>
           <div class="work-body">
             <div class="work-index mono">CASE.03</div>
             <h3>SubifyAI — تولید و ترجمه خودکار زیرنویس ویدیو</h3>
-            <p>استخراج زیرنویس دقیق از هر زبان و لهجه با مدل Whisper و ترجمه فوری به بیش از ۱۰۰ زبان همراه با ویرایشگر حرفه‌ای زمان‌بندی و استایل. مناسب برای تولیدکنندگان محتوا و پلتفرم‌های آموزشی.</p>
+            <p>استخراج زیرنویس دقیق از هر زبان و لهجه با مدل Whisper و ترجمه فوری به بیش از ۱۰۰ زبان همراه با ویرایشگر
+              حرفه‌ای زمان‌بندی و استایل. مناسب برای تولیدکنندگان محتوا و پلتفرم‌های آموزشی.</p>
             <div class="work-tags"><span>Whisper</span><span>STT</span></div>
           </div>
         </div>
 
         <div class="work-card bracket">
-          <div class="work-thumb"><img src="images/AI_talk3.png" alt="AI Talk">
+          <div class="work-thumb"><img src="/images/AI_talk3.png" alt="AI Talk">
             <div class="scanline"></div>
           </div>
           <div class="work-body">
             <div class="work-index mono">CASE.04</div>
             <h3>AI Talk — گفتار-به-گفتار در زمان واقعی</h3>
-            <p>مکالمه طبیعی و کم‌تأخیر بین زبان‌های مختلف با ترکیب Streaming در مسیر STT → LLM → TTS. پیاده‌سازی شده برای مشاوره‌های آنلاین و مترجم‌های هوشمند.</p>
+            <p>مکالمه طبیعی و کم‌تأخیر بین زبان‌های مختلف با ترکیب Streaming در مسیر STT → LLM → TTS. پیاده‌سازی شده
+              برای مشاوره‌های آنلاین و مترجم‌های هوشمند.</p>
             <div class="work-tags"><span>Streaming</span><span>LLM</span><span>TTS</span></div>
           </div>
         </div>
 
         <div class="work-card bracket">
-          <div class="work-thumb"><img src="images/CoinTracker.png" alt="Coin Tracker">
+          <div class="work-thumb"><img src="/images/CoinTracker.png" alt="Coin Tracker">
             <div class="scanline"></div>
           </div>
           <div class="work-body">
             <div class="work-index mono">CASE.05</div>
             <h3>Coin Tracker — ردیابی و پیش‌بینی قیمت کریپتوکارنسی</h3>
-            <p>نمایش لحظه‌ای بازار از CoinGecko، Binance و Coinglass به همراه مدل پیش‌بینی مبتنی بر LSTM/Transformer برای قیمت بیت‌کوین. ابزاری برای معامله‌گران و تحلیل‌گران بازار.</p>
+            <p>نمایش لحظه‌ای بازار از CoinGecko، Binance و Coinglass به همراه مدل پیش‌بینی مبتنی بر LSTM/Transformer
+              برای قیمت بیت‌کوین. ابزاری برای معامله‌گران و تحلیل‌گران بازار.</p>
             <div class="work-tags"><span>LSTM</span><span>MySQL</span></div>
           </div>
         </div>
 
         <div class="work-card bracket">
-          <div class="work-thumb"><img src="images/AI_Web_Design.png" alt="AI Web Design">
+          <div class="work-thumb"><img src="/images/AI_Web_Design.png" alt="AI Web Design">
             <div class="scanline"></div>
           </div>
           <div class="work-body">
             <div class="work-index mono">CASE.06</div>
             <h3>AI Web Design — تولید وب‌سایت با هوش مصنوعی</h3>
-            <p>تولید کد HTML، CSS و JavaScript از روی توصیف متنی، با پیش‌نمایش لحظه‌ای و امکان اصلاح هوشمند از طریق گفت‌وگو. کاهش چشمگیر زمان طراحی رابط‌های کاربری.</p>
+            <p>تولید کد HTML، CSS و JavaScript از روی توصیف متنی، با پیش‌نمایش لحظه‌ای و امکان اصلاح هوشمند از طریق
+              گفت‌وگو. کاهش چشمگیر زمان طراحی رابط‌های کاربری.</p>
             <div class="work-tags"><span>Code Generation</span><span>LLM</span></div>
           </div>
         </div>
 
         <!-- ===== NEW WORK CARD 07 ===== -->
         <div class="work-card bracket">
-          <div class="work-thumb"><img src="images/web_advertising.png" alt="Web Advertising">
+          <div class="work-thumb"><img src="/images/web_advertising.png" alt="Web Advertising">
             <div class="scanline"></div>
           </div>
           <div class="work-body">
             <div class="work-index mono">CASE.07</div>
             <h3>Web Advertising — پلتفرم تبلیغات دیجیتال برای استارتاپ‌ها</h3>
-            <p>سایت جامع برای معرفی و فروش استارتاپ‌ها، پلتفرم‌ها و محصولات دیجیتال. تمام بخش‌های پروژه از جمله طراحی پایگاه داده، پیاده‌سازی جنگو، تنظیمات سرور و اتصال دامنه به عهدهٔ من بوده است. امکان ثبت آگهی، جستجوی پیشرفته و سیستم پیام‌رسانی داخلی از قابلیت‌های اصلی آن هستند.</p>
+            <p>سایت جامع برای معرفی و فروش استارتاپ‌ها، پلتفرم‌ها و محصولات دیجیتال. تمام بخش‌های پروژه از جمله طراحی
+              پایگاه داده، پیاده‌سازی جنگو، تنظیمات سرور و اتصال دامنه به عهدهٔ من بوده است. امکان ثبت آگهی، جستجوی
+              پیشرفته و سیستم پیام‌رسانی داخلی از قابلیت‌های اصلی آن هستند.</p>
             <div class="work-tags"><span>Django</span><span>PostgreSQL</span><span>Bootstrap</span></div>
           </div>
         </div>
 
         <!-- ===== NEW WORK CARD 08 ===== -->
         <div class="work-card bracket">
-          <div class="work-thumb"><img src="images/ariuos.png" alt="Arius">
+          <div class="work-thumb"><img src="/images/ariuos.png" alt="Arius">
             <div class="scanline"></div>
           </div>
           <div class="work-body">
             <div class="work-index mono">CASE.08</div>
             <h3>پروژه اریوس — پلتفرم هوشمند با معماری فول‌استک</h3>
-            <p>پروژه‌ای که در نقش برنامه‌نویس ارشد فول‌استک آن را مدیریت کردم. با جنگو توسعه داده شد و شامل یکپارچه‌سازی با مدل‌های هوش مصنوعی سفارشی، مدیریت پنل‌های سرویس، استقرار روی سرور لینوکسی و اتصال دو دامنهٔ مستقل بود. همکاری نزدیک با متخصص هوش مصنوعی و هدایت یک نیروی توسعه‌دهنده از دیگر مسئولیت‌های این پروژه بود.</p>
+            <p>پروژه‌ای که در نقش برنامه‌نویس ارشد فول‌استک آن را مدیریت کردم. با جنگو توسعه داده شد و شامل یکپارچه‌سازی
+              با مدل‌های هوش مصنوعی سفارشی، مدیریت پنل‌های سرویس، استقرار روی سرور لینوکسی و اتصال دو دامنهٔ مستقل بود.
+              همکاری نزدیک با متخصص هوش مصنوعی و هدایت یک نیروی توسعه‌دهنده از دیگر مسئولیت‌های این پروژه بود.</p>
             <div class="work-tags"><span>Django</span><span>AI Integration</span><span>DevOps</span></div>
           </div>
         </div>
@@ -2256,12 +2371,14 @@
     <section id="contact" class="wrap">
       <div class="panel-tag mono" data-reveal><i></i>SYS.08 / CONTACT</div>
       <h2 class="panel-title" data-reveal>بیایید یک پروژه هوش مصنوعی بسازیم</h2>
-      <p class="panel-lede" data-reveal>برای همکاری، سوال دربارهٔ پروژه‌ها یا صرفاً یک گفت‌وگوی فنی، فرم زیر را پر کنید یا مستقیم پیام دهید. مشتاقم ایده‌های جدید را بشنوم و به محصولی کاربردی تبدیل کنم.</p>
+      <p class="panel-lede" data-reveal>برای همکاری، سوال دربارهٔ پروژه‌ها یا صرفاً یک گفت‌وگوی فنی، فرم زیر را پر کنید
+        یا مستقیم پیام دهید. مشتاقم ایده‌های جدید را بشنوم و به محصولی کاربردی تبدیل کنم.</p>
 
       <div class="contact-grid">
         <div class="contact-info bracket" data-reveal>
           <div class="avail"><i></i>آماده برای همکاری جدید</div>
-          <p>پاسخ‌گویی معمولاً در کمتر از ۴۸ ساعت انجام می‌شود. ترجیحاً از طریق ایمیل یا پیام‌رسان‌های اجتماعی با من در تماس باشید.</p>
+          <p>پاسخ‌گویی معمولاً در کمتر از ۴۸ ساعت انجام می‌شود. ترجیحاً از طریق ایمیل یا پیام‌رسان‌های اجتماعی با من در
+            تماس باشید.</p>
           <div class="contact-email mono">example@email.com</div>
           <div class="social-row">
             <a class="social-btn" href="https://github.com/yhyaa79" target="_blank" rel="noopener" aria-label="GitHub">
@@ -2480,16 +2597,48 @@
     }
     if (!reduced) setInterval(randSpark, 2200);
 
+    const sparkline = document.getElementById('sparkline');
+    const sparkArea = document.getElementById('sparkArea');
+    const sparkDot = document.getElementById('sparkDot');
+    const NUM_POINTS = 30;
+    let phase = 0;
+
+    function updateSpark() {
+      phase += 0.15;
+      const pts = [];
+      for (let i = 0; i < NUM_POINTS; i++) {
+        const x = i / (NUM_POINTS - 1);
+        const y = 22 + 12 * Math.sin(x * 6 + phase) + 4 * Math.sin(x * 12 + phase * 1.7) + (Math.random() - 0.5) * 2;
+        pts.push(Math.max(6, Math.min(38, y)));
+      }
+      const step = 300 / (NUM_POINTS - 1);
+      let pointsStr = pts.map((y, i) => `${i * step},${y.toFixed(1)}`).join(' ');
+      sparkline.setAttribute('points', pointsStr);
+      // مساحت زیر نمودار (area)
+      let areaPts = pointsStr + ` ${300},44 0,44`;
+      sparkArea.setAttribute('d', `M ${areaPts} Z`);
+      // نقطه‌ی انتهایی (نشانگر آخرین مقدار)
+      sparkDot.setAttribute('cx', 300);
+      sparkDot.setAttribute('cy', pts[pts.length - 1].toFixed(1));
+    }
+    if (!reduced) setInterval(updateSpark, 300);
+    else {
+      // در حالت reduced یک خط ثابت نشان دهید
+      sparkline.setAttribute('points', '0,22 300,22');
+      sparkArea.setAttribute('d', 'M 0,22 300,22 300,44 0,44 Z');
+    }
+
     /* gitlog scroll progress */
     const gitlog = document.getElementById('gitlog');
 
     function updateGitlog() {
       if (!gitlog) return;
       const rect = gitlog.getBoundingClientRect();
-      const vh = window.innerHeight;
-      const visible = Math.min(vh * 0.7, vh - rect.top);
-      const pct = Math.min(1, Math.max(0, visible / rect.height));
-      gitlog.style.setProperty('--log-progress', (pct * 100) + '%');
+      const total = rect.height;
+      const windowHeight = window.innerHeight;
+      // درصد پیشرفت: ۰٪ وقتی بالای عنصر تازه وارد viewport می‌شود، ۱۰۰٪ وقتی انتهای عنصر به بالای viewport می‌رسد
+      const progress = Math.min(1, Math.max(0, (windowHeight - rect.top) / (total + windowHeight)));
+      gitlog.style.setProperty('--log-progress', (progress * 100) + '%');
     }
     document.addEventListener('scroll', updateGitlog, {
       passive: true
