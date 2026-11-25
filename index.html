@@ -4,18 +4,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>یحیی اسلامی — مهندس بک‌اند و هوش مصنوعی</title>
+  <title>یحیی اسلامی | مهندس بک‌اند و هوش مصنوعی</title>
   <meta name="description"
-    content="یحیی اسلامی، توسعه‌دهنده فول‌استک با تمرکز بر بک‌اند و هوش مصنوعی. طراحی خط‌لوله‌های بینایی کامپیوتر، پردازش گفتار و یکپارچه‌سازی APIهای هوش مصنوعی.">
+    content="یحیی اسلامی، توسعه‌دهندهٔ فول‌استک با تمرکز بر بک‌اند و هوش مصنوعی. طراحی خط‌لوله‌های بینایی کامپیوتر، پردازش گفتار و یکپارچه‌سازی APIهای هوش مصنوعی.">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
     href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
     rel="stylesheet">
-
-  <link rel="stylesheet" href="https://unpkg.com/github-calendar@latest/dist/github-calendar-responsive.css" />
-  <script src="https://unpkg.com/github-calendar@latest/dist/github-calendar.min.js"></script>
 
   <style>
     :root[data-theme="dark"] {
@@ -58,39 +55,25 @@
       --shadow: 0 24px 50px -28px rgba(30, 30, 20, 0.2);
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
-    html {
-      scroll-behavior: smooth;
-    }
+    html { scroll-behavior: smooth; }
 
     body {
       margin: 0;
       background: var(--bg);
       color: var(--text);
       font-family: 'Vazirmatn', sans-serif;
-      line-height: 1.75;
+      line-height: 1.85;
       -webkit-font-smoothing: antialiased;
       transition: background .3s, color .3s;
       overflow-x: hidden;
     }
 
-    ::selection {
-      background: var(--signal);
-      color: var(--on-signal);
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    img {
-      max-width: 100%;
-      display: block;
-    }
+    ::selection { background: var(--signal); color: var(--on-signal); }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    button { font-family: inherit; }
 
     .mono {
       font-family: 'JetBrains Mono', monospace;
@@ -98,9 +81,7 @@
       unicode-bidi: isolate;
     }
 
-    button {
-      font-family: inherit;
-    }
+    .is-hidden { display: none !important; }
 
     .grid-overlay {
       position: fixed;
@@ -133,11 +114,7 @@
       will-change: transform;
     }
 
-    .cursor-dot {
-      width: 6px;
-      height: 6px;
-      background: var(--signal);
-    }
+    .cursor-dot { width: 6px; height: 6px; background: var(--signal); }
 
     .cursor-ring {
       width: 32px;
@@ -155,9 +132,7 @@
     }
 
     body.no-fine-cursor .cursor-dot,
-    body.no-fine-cursor .cursor-ring {
-      display: none;
-    }
+    body.no-fine-cursor .cursor-ring { display: none; }
 
     [data-reveal] {
       opacity: 0;
@@ -165,10 +140,7 @@
       transition: opacity .7s cubic-bezier(.16, 1, .3, 1), transform .7s cubic-bezier(.16, 1, .3, 1);
     }
 
-    [data-reveal].in {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    [data-reveal].in { opacity: 1; transform: translateY(0); }
 
     [data-reveal-group]>* {
       opacity: 0;
@@ -176,46 +148,23 @@
       transition: opacity .55s cubic-bezier(.16, 1, .3, 1), transform .55s cubic-bezier(.16, 1, .3, 1);
     }
 
-    [data-reveal-group].in>* {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    [data-reveal-group].in>*:nth-child(1) {
-      transition-delay: .02s;
-    }
-
-    [data-reveal-group].in>*:nth-child(2) {
-      transition-delay: .07s;
-    }
-
-    [data-reveal-group].in>*:nth-child(3) {
-      transition-delay: .12s;
-    }
-
-    [data-reveal-group].in>*:nth-child(4) {
-      transition-delay: .17s;
-    }
-
-    [data-reveal-group].in>*:nth-child(5) {
-      transition-delay: .22s;
-    }
-
-    [data-reveal-group].in>*:nth-child(6) {
-      transition-delay: .27s;
-    }
+    [data-reveal-group].in>* { opacity: 1; transform: translateY(0); }
+    [data-reveal-group].in>*:nth-child(1) { transition-delay: .02s; }
+    [data-reveal-group].in>*:nth-child(2) { transition-delay: .07s; }
+    [data-reveal-group].in>*:nth-child(3) { transition-delay: .12s; }
+    [data-reveal-group].in>*:nth-child(4) { transition-delay: .17s; }
+    [data-reveal-group].in>*:nth-child(5) { transition-delay: .22s; }
+    [data-reveal-group].in>*:nth-child(6) { transition-delay: .27s; }
 
     @media (prefers-reduced-motion: reduce) {
-
-      [data-reveal],
-      [data-reveal-group]>* {
+      [data-reveal], [data-reveal-group]>* {
         opacity: 1 !important;
         transform: none !important;
         transition: none !important;
       }
     }
 
-    /* ================= RAIL (right, RTL start side) ================= */
+    /* ================= RAIL ================= */
     .rail {
       position: fixed;
       top: 0;
@@ -247,10 +196,7 @@
       transition: transform .3s, border-color .3s;
     }
 
-    .rail-logo:hover {
-      transform: rotate(-8deg);
-      border-color: var(--signal);
-    }
+    .rail-logo:hover { transform: rotate(-8deg); border-color: var(--signal); }
 
     .rail-nav {
       display: flex;
@@ -274,14 +220,8 @@
       transition: color .2s, background .2s;
     }
 
-    .rail-nav a:hover {
-      color: var(--text);
-      background: var(--panel-2);
-    }
-
-    .rail-nav a.active {
-      color: var(--signal);
-    }
+    .rail-nav a:hover { color: var(--text); background: var(--panel-2); }
+    .rail-nav a.active { color: var(--signal); }
 
     .rail-nav a.active::before {
       content: '';
@@ -312,10 +252,7 @@
       box-shadow: var(--shadow);
     }
 
-    .rail-nav a:hover .tip {
-      opacity: 1;
-      transform: translateY(-50%) translateX(0);
-    }
+    .rail-nav a:hover .tip { opacity: 1; transform: translateY(-50%) translateX(0); }
 
     .rail-progress {
       width: 2px;
@@ -365,21 +302,10 @@
       transition: background .2s, color .2s;
     }
 
-    .rail-theme button.active {
-      background: var(--signal);
-      color: var(--on-signal);
-    }
+    .rail-theme button.active { background: var(--signal); color: var(--on-signal); }
+    .rail-theme svg { width: 13px; height: 13px; }
 
-    .rail-theme svg {
-      width: 13px;
-      height: 13px;
-    }
-
-    .rail-social {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
+    .rail-social { display: flex; flex-direction: column; gap: 8px; }
 
     .rail-social a {
       width: 32px;
@@ -393,29 +319,11 @@
       transition: all .2s;
     }
 
-    .rail-social a:hover {
-      color: var(--signal);
-      border-color: var(--signal);
-    }
+    .rail-social a:hover { color: var(--signal); border-color: var(--signal); }
+    .rail-social svg { width: 14px; height: 14px; }
 
-    .rail-social svg {
-      width: 14px;
-      height: 14px;
-    }
-
-    @media (max-width:900px) {
-      .rail {
-        display: none;
-      }
-    }
-
-    /* ================= MOBILE TOP BAR ================= */
-    .topbar {
-      display: none;
-      margin-top: 28px;
-      border-top: 1px solid var(--border-soft);
-      padding-top: 20px;
-    }
+    /* ================= MOBILE NAV ================= */
+    .topbar { display: none; }
 
     .topbar-inner {
       display: flex;
@@ -436,18 +344,8 @@
       transition: all 0.2s;
     }
 
-    .topbar-inner a.active {
-      color: var(--signal);
-      border-color: var(--signal);
-    }
+    .topbar-inner a.active { color: var(--signal); border-color: var(--signal); }
 
-    @media (max-width: 900px) {
-      .topbar {
-        display: block;
-      }
-    }
-
-    /* ================= MAIN ================= */
     @media (max-width: 900px) {
       .rail {
         display: flex !important;
@@ -460,68 +358,25 @@
         border-left: none;
         border-bottom: 1px solid var(--border-soft);
         background: var(--bg);
-        backdrop-filter: blur(10px);
         justify-content: space-between;
         align-items: center;
         z-index: 70;
       }
 
-      .rail-logo {
-        margin-bottom: 0;
-        width: 34px;
-        height: 34px;
-        display: none;
-      }
+      .rail-logo, .rail-progress { display: none; }
+      .rail-nav { flex-direction: row; gap: 4px; flex: none; }
+      .rail-nav a { width: 30px; height: 30px; font-size: 12px; }
+      .rail-nav a .tip { display: none; }
+      .rail-bottom { flex-direction: row; gap: 10px; }
+      .rail-theme { flex-direction: row; border-radius: 8px; }
+      .rail-theme button { width: 30px; height: 30px; }
+      .rail-social { flex-direction: row; gap: 4px; }
+      .rail-social a { width: 30px; height: 30px; }
+      .main { margin-right: 0; }
+    }
 
-      .topbar-inner a {
-        padding: 4px 8px;
-        font-size: 10px;
-      }
-
-      .rail-nav {
-        flex-direction: row;
-        gap: 4px;
-        flex: none;
-      }
-
-      .rail-nav a {
-        width: 30px;
-        height: 30px;
-        font-size: 12px;
-      }
-
-      .rail-nav a .tip {
-        display: none;
-      }
-
-      .rail-progress {
-        display: none;
-      }
-
-      .rail-bottom {
-        flex-direction: row;
-        gap: 10px;
-      }
-
-      .rail-theme {
-        flex-direction: row;
-        border-radius: 8px;
-      }
-
-      .rail-theme button {
-        width: 30px;
-        height: 30px;
-      }
-
-      .rail-social {
-        flex-direction: row;
-        gap: 4px;
-      }
-
-      .rail-social a {
-        width: 30px;
-        height: 30px;
-      }
+    @media (max-width: 900px) {
+      .rail { display: flex !important; }
     }
 
     .main {
@@ -530,22 +385,15 @@
       z-index: 1;
     }
 
-    @media (max-width:900px) {
-      .main {
-        margin-right: 0;
-      }
-    }
-
     .wrap {
-      max-width: 960px;
+      max-width: 980px;
       margin: 0 auto;
       padding: 26px 40px;
     }
 
-    @media (max-width:640px) {
-      .wrap {
-        padding: 14px 20px;
-      }
+    @media (max-width: 640px) {
+      .wrap { padding: 14px 20px; }
+      .topbar-inner a { padding: 4px 8px; font-size: 10px; }
     }
 
     .panel-tag {
@@ -579,20 +427,14 @@
     .panel-lede {
       color: var(--muted);
       font-size: 15.5px;
-      max-width: 600px;
+      max-width: 640px;
       margin: 0 0 46px;
     }
 
-    section,
-    header.hero {
-      position: relative;
-    }
+    section { position: relative; }
 
-    section+section {
-      border-top: 1px solid var(--border-soft);
-    }
+    section + section { border-top: 1px solid var(--border-soft); }
 
-    /* corner brackets for framed panels */
     .bracket {
       position: relative;
       border: 1px solid var(--border);
@@ -627,9 +469,7 @@
     }
 
     /* ================= HERO ================= */
-    .hero {
-      padding-top: 64px;
-    }
+    .hero { padding-top: 64px; }
 
     .hero-top {
       display: flex;
@@ -660,15 +500,8 @@
     }
 
     @keyframes pulse {
-
-      0%,
-      100% {
-        opacity: 1;
-      }
-
-      50% {
-        opacity: .35;
-      }
+      0%, 100% { opacity: 1; }
+      50% { opacity: .35; }
     }
 
     .hero-loc {
@@ -678,18 +511,15 @@
     }
 
     .hero h1 {
-      font-size: clamp(32px, 4.6vw, 52px);
+      font-size: clamp(32px, 4.6vw, 50px);
       font-weight: 900;
-      line-height: 1.28;
+      line-height: 1.35;
       margin: 0 0 24px;
       letter-spacing: -.01em;
       max-width: 820px;
     }
 
-    .hero h1 .hl {
-      color: var(--signal);
-      position: relative;
-    }
+    .hero h1 .hl { color: var(--signal); }
 
     .hero h1 .word {
       display: inline-block;
@@ -699,24 +529,17 @@
     }
 
     @keyframes word-in {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     @media (prefers-reduced-motion: reduce) {
-      .hero h1 .word {
-        opacity: 1;
-        transform: none;
-        animation: none;
-      }
+      .hero h1 .word { opacity: 1; transform: none; animation: none; }
     }
 
     .hero p.lede {
       font-size: 17px;
       color: var(--muted);
-      max-width: 560px;
+      max-width: 580px;
       margin: 0 0 34px;
     }
 
@@ -735,13 +558,11 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
+      cursor: pointer;
       transition: all .25s cubic-bezier(.16, 1, .3, 1);
     }
 
-    .btn-primary {
-      background: var(--signal);
-      color: var(--on-signal);
-    }
+    .btn-primary { background: var(--signal); color: var(--on-signal); border: none; }
 
     .btn-primary:hover {
       transform: translateY(-2px);
@@ -751,6 +572,7 @@
     .btn-ghost {
       border: 1px solid var(--border);
       color: var(--text);
+      background: transparent;
     }
 
     .btn-ghost:hover {
@@ -759,11 +581,7 @@
       transform: translateY(-2px);
     }
 
-    /* live status dashboard - signature element */
-    .status-board {
-      padding: 0;
-      overflow: hidden;
-    }
+    .status-board { padding: 0; overflow: hidden; }
 
     .status-head {
       display: flex;
@@ -773,10 +591,7 @@
       border-bottom: 1px solid var(--border-soft);
     }
 
-    .status-head .dots {
-      display: flex;
-      gap: 6px;
-    }
+    .status-head .dots { display: flex; gap: 6px; }
 
     .status-head .dots span {
       width: 8px;
@@ -798,10 +613,7 @@
       background: var(--border-soft);
     }
 
-    .status-cell {
-      background: var(--panel);
-      padding: 18px 20px;
-    }
+    .status-cell { background: var(--panel); padding: 18px 20px; }
 
     .status-cell .k {
       font-family: 'JetBrains Mono', monospace;
@@ -815,16 +627,10 @@
       font-family: 'JetBrains Mono', monospace;
       font-size: 19px;
       font-weight: 700;
-      color: var(--text);
     }
 
-    .status-cell .v.accent {
-      color: var(--signal);
-    }
-
-    .status-cell .v.data {
-      color: var(--data);
-    }
+    .status-cell .v.accent { color: var(--signal); }
+    .status-cell .v.data { color: var(--data); }
 
     .status-models {
       padding: 18px 20px;
@@ -849,9 +655,7 @@
       border-top: 1px dashed var(--border-soft);
     }
 
-    .model-row:first-of-type {
-      border-top: none;
-    }
+    .model-row:first-of-type { border-top: none; }
 
     .model-row .ok-tag {
       color: var(--ok);
@@ -873,11 +677,7 @@
       border-top: 1px solid var(--border-soft);
     }
 
-    .spark svg {
-      width: 100%;
-      height: 44px;
-      display: block;
-    }
+    .spark svg { width: 100%; height: 44px; display: block; }
 
     .spark polyline {
       fill: none;
@@ -885,7 +685,6 @@
       stroke-width: 1.6;
       stroke-linecap: round;
       stroke-linejoin: round;
-      transition: points .9s ease;
     }
 
     .hero-grid {
@@ -895,19 +694,12 @@
       align-items: start;
     }
 
-    @media (max-width:900px) {
-      .hero-grid {
-        grid-template-columns: 1fr;
-      }
+    @media (max-width: 900px) {
+      .hero-grid { grid-template-columns: 1fr; }
     }
 
-    .hero-side {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
+    .hero-side { display: flex; flex-direction: column; gap: 16px; }
 
-    /* operator ID badge (photo) */
     .id-badge {
       display: flex;
       align-items: center;
@@ -935,28 +727,11 @@
       filter: grayscale(.15);
     }
 
-    .id-badge:hover .id-badge-photo img {
-      transform: scale(1.08);
-      filter: grayscale(0);
-    }
+    .id-badge:hover .id-badge-photo img { transform: scale(1.08); filter: grayscale(0); }
 
-    .id-badge-photo::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      border-radius: 12px;
-      box-shadow: inset 0 0 0 1px var(--signal-soft);
-    }
+    .id-badge-info { min-width: 0; }
 
-    .id-badge-info {
-      min-width: 0;
-    }
-
-    .id-badge-name {
-      font-size: 15.5px;
-      font-weight: 800;
-      margin-bottom: 4px;
-    }
+    .id-badge-name { font-size: 15.5px; font-weight: 800; margin-bottom: 4px; }
 
     .id-badge-role {
       font-size: 10.5px;
@@ -980,12 +755,6 @@
       background: var(--ok);
       box-shadow: 0 0 7px var(--ok);
       animation: pulse 2s ease-in-out infinite;
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      .id-badge-status i {
-        animation: none;
-      }
     }
 
     .scroll-cue {
@@ -1018,25 +787,12 @@
     }
 
     @keyframes scan {
-      0% {
-        right: 0;
-      }
-
-      100% {
-        right: 100%;
-      }
+      0% { right: 0; }
+      100% { right: 100%; }
     }
 
-    @media (prefers-reduced-motion: reduce) {
-      .scroll-cue .ln::after {
-        animation: none;
-      }
-    }
-
-    /* ================= ABOUT (readme panel) ================= */
-    .readme {
-      overflow: hidden;
-    }
+    /* ================= ABOUT ================= */
+    .readme { overflow: hidden; }
 
     .readme-tab {
       display: flex;
@@ -1044,9 +800,6 @@
       gap: 8px;
       padding: 12px 18px;
       border-bottom: 1px solid var(--border-soft);
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 12px;
-      color: var(--muted);
     }
 
     .readme-tab .file {
@@ -1057,6 +810,9 @@
       border: 1px solid var(--border-soft);
       border-radius: 6px;
       padding: 5px 11px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      color: var(--muted);
     }
 
     .readme-tab .file i {
@@ -1090,61 +846,30 @@
       line-height: 2.05;
     }
 
-    .readme-text p:last-child {
-      margin-bottom: 0;
+    .readme-text p:last-child { margin-bottom: 0; }
+    .readme-text strong { color: var(--text); font-weight: 700; }
+
+    @media (max-width: 640px) {
+      .readme-gutter { display: none; }
+      .readme-body { grid-template-columns: 1fr; }
     }
 
-    .readme-text strong {
-      color: var(--text);
-      font-weight: 700;
-    }
-
-    @media (max-width:640px) {
-      .readme-gutter {
-        display: none;
-      }
-
-      .readme-body {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    /* ================= SKILLS (bento gauges) ================= */
+    /* ================= SKILLS ================= */
     .skills-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 16px;
     }
 
-    @media (max-width:820px) {
-      .skills-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-    }
-
-    @media (max-width:560px) {
-      .skills-grid {
-        grid-template-columns: 1fr;
-      }
-    }
+    @media (max-width: 820px) { .skills-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 560px) { .skills-grid { grid-template-columns: 1fr; } }
 
     .skill-card {
       padding: 24px 22px;
       transition: transform .25s, border-color .25s;
     }
 
-    .skill-card:hover {
-      transform: translateY(-3px);
-      border-color: var(--signal-dim);
-    }
-
-    .skill-head {
-      display: flex;
-      align-items: center;
-      justify-content: between;
-      gap: 10px;
-      margin-bottom: 14px;
-    }
+    .skill-card:hover { transform: translateY(-3px); border-color: var(--signal-dim); }
 
     .skill-code {
       font-family: 'JetBrains Mono', monospace;
@@ -1152,11 +877,7 @@
       color: var(--faint);
     }
 
-    .skill-card h3 {
-      font-size: 15.5px;
-      margin: 6px 0 10px;
-      font-weight: 700;
-    }
+    .skill-card h3 { font-size: 15.5px; margin: 6px 0 10px; font-weight: 700; }
 
     .skill-card p {
       font-size: 13.5px;
@@ -1189,23 +910,6 @@
       color: var(--faint);
     }
 
-    .skill-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-top: 14px;
-    }
-
-    .skill-tags span {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 10.5px;
-      color: var(--muted);
-      border: 1px solid var(--border);
-      padding: 3px 8px;
-      border-radius: 5px;
-      direction: ltr;
-    }
-
     .stack-strip {
       margin-top: 40px;
       display: flex;
@@ -1224,10 +928,7 @@
       transition: transform .2s, border-color .2s;
     }
 
-    .stack-chip:hover {
-      transform: translateY(-2px);
-      border-color: var(--signal-dim);
-    }
+    .stack-chip:hover { transform: translateY(-2px); border-color: var(--signal-dim); }
 
     .stack-chip img {
       width: 22px;
@@ -1243,11 +944,8 @@
       direction: ltr;
     }
 
-    /* ================= LOG (experience as commit graph) ================= */
-    .gitlog {
-      position: relative;
-      padding-right: 30px;
-    }
+    /* ================= EXPERIENCE ================= */
+    .gitlog { position: relative; padding-right: 30px; }
 
     .gitlog::before {
       content: '';
@@ -1270,14 +968,8 @@
       transition: height .15s linear;
     }
 
-    .commit {
-      position: relative;
-      padding-bottom: 44px;
-    }
-
-    .commit:last-child {
-      padding-bottom: 0;
-    }
+    .commit { position: relative; padding-bottom: 44px; }
+    .commit:last-child { padding-bottom: 0; }
 
     .commit-dot {
       position: absolute;
@@ -1291,13 +983,9 @@
       z-index: 1;
     }
 
-    .commit.data .commit-dot {
-      border-color: var(--data);
-    }
+    .commit.data .commit-dot { border-color: var(--data); }
 
-    .commit-card {
-      padding: 20px 22px;
-    }
+    .commit-card { padding: 20px 22px; }
 
     .commit-meta {
       display: flex;
@@ -1316,10 +1004,7 @@
       padding: 2px 8px;
     }
 
-    .commit.data .commit-hash {
-      color: var(--data);
-      background: var(--data-soft);
-    }
+    .commit.data .commit-hash { color: var(--data); background: var(--data-soft); }
 
     .commit-year {
       font-family: 'JetBrains Mono', monospace;
@@ -1327,11 +1012,7 @@
       color: var(--faint);
     }
 
-    .commit-card h3 {
-      font-size: 17.5px;
-      margin: 0 0 12px;
-      font-weight: 700;
-    }
+    .commit-card h3 { font-size: 17.5px; margin: 0 0 12px; font-weight: 700; }
 
     .commit-card ul {
       margin: 0;
@@ -1357,91 +1038,14 @@
       font-weight: 700;
     }
 
-    /* ================= EDUCATION ================= */
-    .edu-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 14px;
-    }
-
-    @media (max-width:640px) {
-      .edu-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    .edu-card {
-      padding: 22px;
-      display: flex;
-      gap: 16px;
-      align-items: flex-start;
-      transition: transform .2s, border-color .2s;
-    }
-
-    .edu-card:hover {
-      transform: translateY(-2px);
-      border-color: var(--data-dim);
-    }
-
-    .edu-mark {
-      width: 38px;
-      height: 38px;
-      border-radius: 9px;
-      background: var(--data-soft);
-      border: 1px solid var(--data-dim);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--data);
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 11px;
-      flex: 0 0 auto;
-    }
-
-    .edu-card h3 {
-      font-size: 15.5px;
-      font-weight: 700;
-      margin: 0 0 6px;
-    }
-
-    .edu-card .edu-org {
-      font-size: 13.5px;
-      color: var(--muted);
-      margin: 0;
-    }
-
-    .edu-card .edu-year {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 11px;
-      color: var(--faint);
-      display: block;
-      margin-top: 8px;
-    }
-
-    .placeholder-note {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 11.5px;
-      color: var(--signal);
-      background: var(--signal-soft);
-      border: 1px dashed var(--signal-dim);
-      padding: 12px 16px;
-      border-radius: 8px;
-      margin-bottom: 26px;
-      direction: rtl;
-    }
-
-    /* ================= WORK (projects) ================= */
+    /* ================= WORK ================= */
     .work-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 18px;
     }
 
-    @media (max-width:820px) {
-      .work-grid {
-        grid-template-columns: 1fr;
-      }
-    }
+    @media (max-width: 820px) { .work-grid { grid-template-columns: 1fr; } }
 
     .work-card {
       overflow: hidden;
@@ -1451,10 +1055,7 @@
       position: relative;
     }
 
-    .work-card:hover {
-      transform: translateY(-4px);
-      border-color: var(--signal-dim);
-    }
+    .work-card:hover { transform: translateY(-4px); border-color: var(--signal-dim); }
 
     .work-thumb {
       aspect-ratio: 16/10;
@@ -1470,9 +1071,7 @@
       transition: transform .5s cubic-bezier(.16, 1, .3, 1);
     }
 
-    .work-card:hover .work-thumb img {
-      transform: scale(1.05);
-    }
+    .work-card:hover .work-thumb img { transform: scale(1.05); }
 
     .scanline {
       position: absolute;
@@ -1482,9 +1081,7 @@
       transition: transform .7s ease;
     }
 
-    .work-card:hover .scanline {
-      transform: translateY(100%);
-    }
+    .work-card:hover .scanline { transform: translateY(100%); }
 
     .work-body {
       padding: 22px 22px 24px;
@@ -1500,11 +1097,7 @@
       margin-bottom: 10px;
     }
 
-    .work-body h3 {
-      font-size: 16.5px;
-      margin: 0 0 10px;
-      font-weight: 700;
-    }
+    .work-body h3 { font-size: 16.5px; margin: 0 0 10px; font-weight: 700; }
 
     .work-body p {
       font-size: 13.5px;
@@ -1512,8 +1105,6 @@
       margin: 0 0 16px;
       flex: 1;
     }
-
-    .work-tags-link {}
 
     .work-tags {
       display: flex;
@@ -1532,33 +1123,16 @@
       direction: ltr;
     }
 
-    .work-card.featured {
-      grid-column: 1/-1;
-    }
+    .work-card.featured { grid-column: 1 / -1; }
 
     .work-card.featured .work-inner {
       display: grid;
       grid-template-columns: 1.15fr 1fr;
     }
 
-    .work-card.featured .work-thumb {
-      aspect-ratio: auto;
-      height: 100%;
-    }
-
-    .work-card.featured .work-body {
-      justify-content: center;
-    }
-
-    .work-card.featured h3 {
-      font-size: 19px;
-    }
-
-    @media (max-width:820px) {
-      .work-card.featured .work-inner {
-        grid-template-columns: 1fr;
-      }
-    }
+    .work-card.featured .work-thumb { aspect-ratio: auto; min-height: 100%; }
+    .work-card.featured .work-body { justify-content: center; padding: 30px 30px 30px; }
+    .work-card.featured h3 { font-size: 20px; }
 
     .work-link {
       margin-top: 16px;
@@ -1573,80 +1147,14 @@
       transition: gap .2s;
     }
 
-    .work-link:hover {
-      gap: 10px;
+    .work-link:hover { gap: 10px; }
+
+    @media (max-width: 820px) {
+      .work-card.featured .work-inner { grid-template-columns: 1fr; }
     }
 
-    /* ================= TESTIMONIALS ================= */
-    .testi-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
-    }
-
-    @media (max-width:820px) {
-      .testi-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    .testi-card {
-      padding: 22px;
-      transition: transform .2s, border-color .2s;
-    }
-
-    .testi-card:hover {
-      transform: translateY(-3px);
-      border-color: var(--data-dim);
-    }
-
-    .testi-prompt {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 11px;
-      color: var(--data);
-      margin-bottom: 10px;
-    }
-
-    .testi-quote {
-      font-size: 13.5px;
-      color: var(--muted);
-      margin: 0 0 18px;
-    }
-
-    .testi-person {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .testi-avatar {
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      background: var(--panel-2);
-      border: 1px solid var(--border);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 11px;
-      color: var(--faint);
-    }
-
-    .testi-person .t-name {
-      font-size: 13px;
-      font-weight: 700;
-    }
-
-    .testi-person .t-role {
-      font-size: 11.5px;
-      color: var(--faint);
-    }
-
-    /* ================= GITHUB ================= */
-    .gh-panel {
-      padding: 28px;
-    }
+    /* ================= GITHUB (screenshot slider) ================= */
+    .gh-panel { padding: 28px; }
 
     .gh-head {
       display: flex;
@@ -1657,6 +1165,12 @@
       gap: 12px;
     }
 
+    .gh-head span {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12.5px;
+      color: var(--muted);
+    }
+
     .gh-head a {
       font-family: 'JetBrains Mono', monospace;
       font-size: 13px;
@@ -1664,152 +1178,153 @@
       direction: ltr;
     }
 
-    #github-calendar {
-      direction: ltr;
+    .slider {
+      position: relative;
+      border: 1px solid var(--border-soft);
+      border-radius: 10px;
+      overflow: hidden;
+      background: var(--panel-2);
     }
 
-    #github-calendar .calendar {
-      padding: 0;
+    .slider-track {
+      position: relative;
+      aspect-ratio: 16 / 7;
     }
 
-    /* ================= CONTACT ================= */
-    .contact-grid {
-      display: grid;
-      grid-template-columns: .85fr 1.15fr;
-      gap: 20px;
-      align-items: stretch;
+    .slide {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: opacity .5s ease;
+      pointer-events: none;
     }
 
-    @media (max-width:820px) {
-      .contact-grid {
-        grid-template-columns: 1fr;
-      }
+    .slide.active { opacity: 1; pointer-events: auto; }
+
+    .slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      background: var(--panel-2);
     }
 
-    .contact-info {
-      padding: 26px;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .contact-info .avail {
-      display: flex;
-      align-items: center;
-      gap: 9px;
+    .slider-year {
+      position: absolute;
+      top: 12px;
+      left: 14px;
       font-family: 'JetBrains Mono', monospace;
       font-size: 12px;
-      color: var(--ok);
-      margin-bottom: 18px;
-    }
-
-    .contact-info .avail i {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: var(--ok);
-      box-shadow: 0 0 8px var(--ok);
-      animation: pulse 2s ease-in-out infinite;
-    }
-
-    .contact-info p {
-      color: var(--muted);
-      font-size: 14.5px;
-      margin: 0 0 22px;
-    }
-
-    .contact-email {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 14px;
-      color: var(--text);
-      margin-bottom: 24px;
+      color: var(--on-signal);
+      background: var(--signal);
+      padding: 4px 10px;
+      border-radius: 6px;
       direction: ltr;
-      text-align: left;
+      z-index: 2;
     }
 
-    .social-row {
-      display: flex;
-      gap: 10px;
-      margin-top: auto;
-    }
-
-    .social-btn {
+    .slider-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
       width: 40px;
       height: 40px;
-      border-radius: 9px;
+      border-radius: 50%;
       border: 1px solid var(--border);
+      background: var(--panel);
+      color: var(--text);
+      font-size: 18px;
       display: flex;
       align-items: center;
       justify-content: center;
-      transition: all .2s;
+      cursor: pointer;
+      z-index: 2;
+      transition: border-color .2s, color .2s;
     }
 
-    .social-btn:hover {
-      border-color: var(--signal);
-      color: var(--signal);
-      transform: translateY(-3px);
-    }
+    .slider-btn:hover { border-color: var(--signal); color: var(--signal); }
+    .slider-btn.prev { right: 12px; }
+    .slider-btn.next { left: 12px; }
 
-    .social-btn svg {
-      width: 16px;
-      height: 16px;
-    }
-
-    .contact-form {
-      padding: 26px;
-    }
-
-    .form-grid {
+    .slider-dots {
       display: flex;
-      flex-direction: column;
-      gap: 14px;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 16px;
     }
 
-    .form-row {
+    .slider-dots button {
+      width: 26px;
+      height: 6px;
+      border-radius: 4px;
+      border: none;
+      background: var(--border);
+      cursor: pointer;
+      transition: background .3s, width .3s;
+    }
+
+    .slider-dots button.active { background: var(--signal); width: 42px; }
+
+    .gh-note {
+      margin-top: 16px;
+      font-size: 13px;
+      color: var(--faint);
+    }
+
+    /* ================= CONTACT ================= */
+    .contact-cards {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
     }
 
-    @media (max-width:520px) {
-      .form-row {
-        grid-template-columns: 1fr;
-      }
-    }
+    @media (max-width: 760px) { .contact-cards { grid-template-columns: 1fr; } }
 
-    .field {
+    .contact-card {
+      padding: 26px 24px;
       display: flex;
       flex-direction: column;
-      gap: 7px;
+      gap: 14px;
+      transition: transform .25s, border-color .25s;
     }
 
-    .field label {
+    .contact-card:hover { transform: translateY(-3px); border-color: var(--signal-dim); }
+
+    .contact-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
+      background: var(--signal-soft);
+      border: 1px solid var(--signal-dim);
+      color: var(--signal);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .contact-icon svg { width: 18px; height: 18px; }
+
+    .contact-label {
       font-family: 'JetBrains Mono', monospace;
       font-size: 11px;
       color: var(--faint);
     }
 
-    .field input,
-    .field textarea {
-      background: var(--panel-2);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 11px 13px;
-      color: var(--text);
-      font-family: 'Vazirmatn';
+    .contact-value {
+      font-family: 'JetBrains Mono', monospace;
       font-size: 14px;
-      outline: none;
-      transition: border-color .2s, box-shadow .2s;
+      color: var(--text);
+      direction: ltr;
+      text-align: left;
+      word-break: break-all;
     }
 
-    .field input:focus,
-    .field textarea:focus {
-      border-color: var(--signal);
-      box-shadow: 0 0 0 3px var(--signal-soft);
-    }
-
-    .field textarea {
-      resize: vertical;
-      min-height: 100px;
+    .contact-card .go {
+      margin-top: auto;
+      font-size: 12.5px;
+      color: var(--signal);
+      font-family: 'JetBrains Mono', monospace;
+      direction: ltr;
+      text-align: left;
     }
 
     footer {
@@ -1833,9 +1348,115 @@
       transition: all .2s;
     }
 
-    .back-top:hover {
-      color: var(--signal);
-      border-color: var(--signal);
+    .back-top:hover { color: var(--signal); border-color: var(--signal); }
+
+    /* ================= PRINT / PDF ================= */
+    @media print {
+      @page { size: A4; margin: 14mm 12mm; }
+
+      :root, :root[data-theme="dark"], :root[data-theme="light"] {
+        --bg: #ffffff;
+        --panel: #ffffff;
+        --panel-2: #f5f5f2;
+        --border: #d6d6cf;
+        --border-soft: #e6e6e0;
+        --text: #14161a;
+        --muted: #3d4248;
+        --faint: #6b7176;
+        --signal: #b9480f;
+        --signal-dim: #f1d6c4;
+        --signal-soft: rgba(185, 72, 15, 0.06);
+        --data: #0a5f9e;
+        --data-dim: #cfe3f5;
+        --data-soft: rgba(10, 95, 158, 0.05);
+        --ok: #1a7a43;
+      }
+
+      html, body {
+        background: #ffffff !important;
+        color: #14161a !important;
+        font-size: 11pt;
+        line-height: 1.6;
+        overflow: visible;
+      }
+
+      .grid-overlay, .cursor-dot, .cursor-ring, .rail, .topbar,
+      .no-print, .hero-actions, .scroll-cue, .status-board,
+      .work-thumb, .gh-panel, .slider, .gh-note, footer,
+      .hero-side, .stack-strip, .btn, .placeholder-note {
+        display: none !important;
+      }
+
+      .main { margin-right: 0 !important; }
+
+      .wrap { max-width: 100%; padding: 0; }
+
+      [data-reveal], [data-reveal-group]>* {
+        opacity: 1 !important;
+        transform: none !important;
+      }
+
+      section {
+        border-top: none !important;
+        padding: 0 0 8mm;
+        page-break-inside: auto;
+      }
+
+      section + section { margin-top: 4mm; }
+
+      .panel-tag { border: none; padding: 0; margin-bottom: 4px; font-size: 9pt; }
+      .panel-title { font-size: 18pt; margin-bottom: 6px; }
+      .panel-lede { font-size: 10.5pt; margin-bottom: 14px; }
+
+      .bracket, .skill-card, .commit-card, .work-card, .contact-card, .readme {
+        border: 1px solid #d6d6cf !important;
+        background: #ffffff !important;
+        box-shadow: none !important;
+        transform: none !important;
+        page-break-inside: avoid;
+      }
+
+      .bracket::before, .bracket::after { display: none; }
+
+      .hero { padding-top: 0; }
+      .hero h1 { font-size: 22pt; margin-bottom: 10px; }
+      .hero h1 .word { opacity: 1 !important; transform: none !important; animation: none !important; }
+      .hero p.lede { font-size: 11pt; margin-bottom: 10px; }
+      .hero-top { margin-bottom: 14px; }
+      .hero-grid { display: block; }
+
+      .id-badge { display: flex; border: none !important; padding: 0; margin-bottom: 12px; }
+      .id-badge-photo { width: 64px; height: 80px; }
+
+      .skills-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+      .skill-card { padding: 12px 14px; }
+      .skill-card p { font-size: 9.5pt; margin-bottom: 8px; }
+      .gauge { display: none; }
+      .gauge-label { font-size: 8pt; }
+
+      .gitlog { padding-right: 16px; }
+      .gitlog::before, .gitlog::after { display: none; }
+      .commit { padding-bottom: 10px; }
+      .commit-dot { display: none; }
+      .commit-card { padding: 10px 12px; }
+      .commit-card h3 { font-size: 11pt; margin-bottom: 6px; }
+      .commit-card li { font-size: 9.5pt; margin-bottom: 4px; }
+
+      .work-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+      .work-card.featured { grid-column: 1 / -1; }
+      .work-card.featured .work-inner { display: block; }
+      .work-body { padding: 12px 14px; }
+      .work-body h3 { font-size: 11pt; margin-bottom: 6px; }
+      .work-card.featured .work-body { padding: 12px 14px; }
+      .work-body p { font-size: 9.5pt; margin-bottom: 8px; }
+      .work-index { margin-bottom: 4px; font-size: 8pt; }
+      .work-tags span { font-size: 8pt; }
+      .work-link { font-size: 9pt; margin-top: 6px; }
+
+      .contact-cards { grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
+      .contact-card { padding: 12px; gap: 6px; }
+      .contact-icon { display: none; }
+      .contact-card .go { display: none; }
     }
   </style>
 </head>
@@ -1851,10 +1472,10 @@
     <nav class="rail-nav">
       <a href="#about" data-nav><span class="mono">01</span><span class="tip">درباره من</span></a>
       <a href="#skills" data-nav><span class="mono">02</span><span class="tip">تخصص</span></a>
-      <a href="#log" data-nav><span class="mono">03</span><span class="tip">تجربه</span></a>
-      <a href="#education" data-nav><span class="mono">04</span><span class="tip">تحصیلات</span></a>
-      <a href="#work" data-nav><span class="mono">05</span><span class="tip">نمونه‌کار</span></a>
-      <a href="#contact" data-nav><span class="mono">06</span><span class="tip">تماس</span></a>
+      <a href="#log" data-nav><span class="mono">03</span><span class="tip">سوابق کاری</span></a>
+      <a href="#work" data-nav><span class="mono">04</span><span class="tip">نمونه‌کارها</span></a>
+      <a href="#github" data-nav><span class="mono">05</span><span class="tip">فعالیت گیت‌هاب</span></a>
+      <a href="#contact" data-nav><span class="mono">06</span><span class="tip">ارتباط</span></a>
     </nav>
     <div class="rail-progress"><i id="railProgress"></i></div>
     <div class="rail-bottom">
@@ -1891,10 +1512,10 @@
     <div class="topbar-inner">
       <a href="#about" data-nav>درباره</a>
       <a href="#skills" data-nav>تخصص</a>
-      <a href="#log" data-nav>تجربه</a>
-      <a href="#education" data-nav>تحصیلات</a>
-      <a href="#work" data-nav>نمونه‌کار</a>
-      <a href="#contact" data-nav>تماس</a>
+      <a href="#log" data-nav>سوابق</a>
+      <a href="#work" data-nav>نمونه‌کارها</a>
+      <a href="#github" data-nav>گیت‌هاب</a>
+      <a href="#contact" data-nav>ارتباط</a>
     </div>
   </div>
 
@@ -1903,20 +1524,21 @@
     <!-- ================= HERO ================= -->
     <header id="hero" class="hero wrap">
       <div class="hero-top">
-        <div class="hero-status-pill"><i></i> در دسترس برای همکاری بک‌اند / هوش مصنوعی</div>
+        <div class="hero-status-pill"><i></i> آماده برای همکاری در حوزه بک‌اند و هوش مصنوعی</div>
         <div class="hero-loc mono">TEHRAN, IRAN · UTC+3:30</div>
       </div>
 
       <div class="hero-grid">
         <div>
-          <h1 id="heroHeading">مدل‌های هوش مصنوعی را به سرویس‌هایی تبدیل می‌کنم که <span class="hl">واقعاً کار
-              می‌کنند</span></h1>
-          <p class="lede">توسعه‌دهندهٔ فول‌استک با تمرکز بر بک‌اند و هوش مصنوعی. از درک عمیق معماری‌های یادگیری عمیق تا
-            پیاده‌سازی APIهای پایدار، مقیاس‌پذیر و آمادهٔ تولید — همهٔ مسیر را برای تحویل یک محصول هوشمند طی می‌کنم.</p>
+          <h1 id="heroHeading">مدل‌های هوش مصنوعی را به سرویس‌هایی <span class="hl">پایدار و قابل‌اعتماد</span> تبدیل
+            می‌کنم</h1>
+          <p class="lede">توسعه‌دهندهٔ فول‌استک با تمرکز بر بک‌اند و هوش مصنوعی. از طراحی معماری و پیاده‌سازی مدل‌های
+            یادگیری عمیق تا توسعهٔ APIهای مقیاس‌پذیر و آمادهٔ بهره‌برداری، کل چرخهٔ تحویل یک محصول هوشمند را پوشش
+            می‌دهم.</p>
           <div class="hero-actions">
-            <a class="btn btn-primary" href="#work">دیدن نمونه‌کارها</a>
-            <a class="btn btn-ghost" href="https://github.com/yhyaa79" target="_blank" rel="noopener">گیت‌هاب من</a>
-            <a class="btn btn-ghost" href="resume.pdf" target="_blank" rel="noopener">دانلود رزومه</a>
+            <a class="btn btn-primary" href="#work">مشاهده نمونه‌کارها</a>
+            <a class="btn btn-ghost" href="https://github.com/yhyaa79" target="_blank" rel="noopener">گیت‌هاب</a>
+            <button class="btn btn-ghost no-print" type="button" onclick="window.print()">دریافت نسخهٔ PDF</button>
           </div>
           <div class="scroll-cue"><span class="ln"></span><span class="mono">SCROLL</span></div>
         </div>
@@ -1929,7 +1551,7 @@
             <div class="id-badge-info">
               <div class="id-badge-name">یحیی اسلامی</div>
               <div class="id-badge-role mono">AI / BACKEND ENGINEER</div>
-              <div class="id-badge-status mono"><i></i>ONLINE — TEHRAN</div>
+              <div class="id-badge-status mono"><i></i>ONLINE · TEHRAN</div>
             </div>
           </div>
 
@@ -1976,26 +1598,25 @@
     <!-- ================= ABOUT ================= -->
     <section id="about" class="wrap">
       <div class="panel-tag mono" data-reveal><i></i>SYS.01 / ABOUT</div>
-      <h2 class="panel-title" data-reveal>مسیری که از یادگیری عمیق شروع شد</h2>
+      <h2 class="panel-title" data-reveal>معرفی و مسیر حرفه‌ای</h2>
       <div class="readme bracket" data-reveal>
         <div class="readme-tab">
           <div class="file"><i></i>about.md</div>
         </div>
         <div class="readme-body">
-          <div class="readme-gutter mono">01<br>02<br>03<br>04<br>05<br>06<br>07<br>08<br>09<br>10<br>11<br><br>12<br>13
-          </div>
+          <div class="readme-gutter mono">01<br>02<br>03<br>04<br>05<br>06<br>07<br>08<br>09<br>10<br>11</div>
           <div class="readme-text">
-            <p>از سال <strong>۱۴۰۲</strong> با مطالعهٔ عمیق و آموزش منظم تئوری در حوزهٔ یادگیری عمیق، وارد دنیای
-              برنامه‌نویسی و هوش مصنوعی شدم. در این مسیر، <strong>بینایی کامپیوتر، پردازش زبان طبیعی، پردازش گفتار و
-                توسعهٔ بک‌اند</strong> را به‌صورت عملی و پروژه‌محور فرا گرفتم و همواره بر خلق راه‌حل‌های کاربردی متمرکز
-              بوده‌ام.</p>
-            <p>بیشتر پروژه‌هایی که ساخته‌ام، حاصل تلفیق دو توانمندی کلیدی است: <strong>درک عمیق از مدل‌های هوش
-                مصنوعی</strong> و <strong>توانایی تبدیل آن‌ها به سرویس‌های قابل‌اتکا و مقیاس‌پذیر</strong> — از تشخیص
-              دست در ویدیو تا موتور پیشنهاد کتاب و پلتفرم‌های یکپارچه‌سازی چندمدله. هر پروژه برایم فرصتی است برای
-              نزدیک‌تر شدن به فاصلهٔ میان تحقیق و تولید.</p>
-            <p>هدف نهایی من رسیدن به جایگاه یک <strong>Full-Stack AI Engineer</strong> است؛ کسی که هم مدل را می‌فهمد و
-              هم می‌داند چگونه آن را در بستر واقعی و با ترافیک بالا سرپا نگه دارد. به همین دلیل، همواره لایه‌های مختلف
-              یک سیستم — از دیتاست تا دیتابیس، از آموزش تا استقرار — را با دقت دنبال می‌کنم.</p>
+            <p>فعالیت حرفه‌ای من از سال <strong>۱۴۰۲</strong> با مطالعهٔ نظری و منظم یادگیری عمیق آغاز شد و به‌تدریج به
+              توسعهٔ عملی نرم‌افزار و هوش مصنوعی گسترش یافت. در این مسیر، <strong>بینایی کامپیوتر، پردازش زبان طبیعی،
+                پردازش گفتار و توسعهٔ بک‌اند</strong> را در قالب پروژه‌های عملی فرا گرفته‌ام و همواره بر ارائهٔ راه‌حل‌های
+              کاربردی تمرکز داشته‌ام.</p>
+            <p>بخش عمدهٔ پروژه‌های من حاصل تلفیق دو توانمندی اصلی است: <strong>درک عمیق از مدل‌های هوش مصنوعی</strong>
+              و <strong>توانایی تبدیل آن‌ها به سرویس‌های قابل‌اتکا و مقیاس‌پذیر</strong>. از سامانهٔ تشخیص حرکات دست در
+              ویدیو تا موتور پیشنهاد کتاب، پلتفرم یکپارچه‌سازی چندرسانه‌ای و سامانهٔ ساخت فروشگاه برای صفحات اینستاگرام،
+              همواره هدف، ایجاد پل میان پژوهش و بهره‌برداری واقعی بوده است.</p>
+            <p>هدف حرفه‌ای من رسیدن به جایگاه <strong>Full-Stack AI Engineer</strong> است؛ مهندسی که هم مدل را به‌درستی
+              درک می‌کند و هم می‌تواند آن را در محیط واقعی و تحت بار ترافیکی بالا پایدار نگه دارد. به همین دلیل، تمامی
+              لایه‌های یک سامانه، از داده و دیتابیس تا آموزش، ارزیابی و استقرار، را با دقت پیگیری می‌کنم.</p>
           </div>
         </div>
       </div>
@@ -2004,59 +1625,58 @@
     <!-- ================= SKILLS ================= -->
     <section id="skills" class="wrap">
       <div class="panel-tag mono" data-reveal><i></i>SYS.02 / EXPERTISE</div>
-      <h2 class="panel-title" data-reveal>جایی که مدل‌سازی و مهندسی به هم می‌رسند</h2>
-      <p class="panel-lede" data-reveal>هر بخش زیر، یک لایه از خط‌لوله‌ای است که برای رساندن یک مدل هوش مصنوعی از
-        دفترچهٔ تحقیق به دست کاربر واقعی طی می‌کنم. آشنایی کامل با هر مرحله، امکان عیب‌یابی و بهینه‌سازی کل سیستم را
-        برایم فراهم می‌کند.</p>
+      <h2 class="panel-title" data-reveal>تخصص‌ها</h2>
+      <p class="panel-lede" data-reveal>هر بخش زیر یکی از لایه‌های خط‌لولهٔ تبدیل یک مدل هوش مصنوعی از مرحلهٔ پژوهش به
+        محصول نهایی است. تسلط بر تمام این لایه‌ها امکان طراحی، عیب‌یابی و بهینه‌سازی کل سامانه را فراهم می‌کند.</p>
 
       <div class="skills-grid" data-reveal-group>
         <div class="skill-card bracket">
           <div class="skill-code mono">SYS.02.1</div>
           <h3>بینایی کامپیوتر</h3>
-          <p>تشخیص، ردیابی و طبقه‌بندی اشیاء در تصویر و ویدیو با معماری‌های نسل جدید YOLO. پیاده‌سازی پیش‌پردازش‌های
-            مناسب برای افزایش دقت در شرایط نوری و زاویه‌های مختلف.</p>
+          <p>طراحی و پیاده‌سازی سامانه‌های تشخیص، ردیابی و طبقه‌بندی اشیا و حرکات در تصویر و ویدیو با معماری‌های
+            YOLO. به‌کارگیری پیش‌پردازش‌های مناسب برای حفظ دقت در شرایط نوری و زاویه‌های متفاوت.</p>
           <div class="gauge"><i data-fill="88"></i></div>
-          <div class="gauge-label"><span>core skill</span><span>YOLOv5–v9</span></div>
+          <div class="gauge-label"><span>تخصص اصلی</span><span>YOLOv5–v9</span></div>
         </div>
         <div class="skill-card bracket">
           <div class="skill-code mono">SYS.02.2</div>
-          <h3>یادگیری عمیق و دنباله‌ها</h3>
-          <p>آموزش معماری‌های Transformer، RNN و LSTM برای داده‌های دنباله‌ای مانند متن، صدا و سری‌های زمانی. تسلط بر
-            مفاهیم Attention و Self-Attention برای مدل‌های زبانی بزرگ.</p>
+          <h3>یادگیری عمیق و مدل‌های دنباله‌ای</h3>
+          <p>آموزش و بهینه‌سازی معماری‌های Transformer، RNN و LSTM برای داده‌های دنباله‌ای نظیر متن، صوت و سری‌های
+            زمانی. تسلط بر مفاهیم Attention و Self-Attention در مدل‌های زبانی بزرگ.</p>
           <div class="gauge"><i data-fill="80"></i></div>
-          <div class="gauge-label"><span>core skill</span><span>Transformer</span></div>
+          <div class="gauge-label"><span>تخصص اصلی</span><span>Transformer</span></div>
         </div>
         <div class="skill-card bracket">
           <div class="skill-code mono">SYS.02.3</div>
-          <h3>گفتار و صوت</h3>
-          <p>پیاده‌سازی آفلاین و آنلاین Whisper برای تبدیل گفتار به متن در پروژه‌های چندزبانه. بهینه‌سازی تأخیر و دقت
-            برای کاربردهای هم‌زمان و ناهم‌زمان.</p>
+          <h3>پردازش گفتار و صوت</h3>
+          <p>پیاده‌سازی آفلاین و آنلاین Whisper برای تبدیل گفتار به متن در کاربردهای چندزبانه. بهینه‌سازی تأخیر و دقت
+            در سامانه‌های هم‌زمان و ناهم‌زمان، از جمله معماری STT → LLM → TTS.</p>
           <div class="gauge"><i data-fill="82"></i></div>
-          <div class="gauge-label"><span>core skill</span><span>Whisper</span></div>
+          <div class="gauge-label"><span>تخصص اصلی</span><span>Whisper</span></div>
         </div>
         <div class="skill-card bracket">
           <div class="skill-code mono">SYS.02.4</div>
-          <h3>یکپارچه‌سازی هوش مصنوعی</h3>
-          <p>اتصال و بهینه‌سازی APIهای مدل‌های متن، صوت و تصویر از چند ارائه‌دهنده هم‌زمان. مدیریت خطا، retry و کش کردن
-            برای کاهش هزینه و افزایش پایداری.</p>
+          <h3>یکپارچه‌سازی سرویس‌های هوش مصنوعی</h3>
+          <p>اتصال و بهینه‌سازی APIهای مدل‌های متنی، صوتی و تصویری از چند ارائه‌دهنده. مدیریت خطا، سازوکار retry و
+            کش‌سازی به‌منظور کاهش هزینه و افزایش پایداری سرویس.</p>
           <div class="gauge"><i data-fill="90"></i></div>
-          <div class="gauge-label"><span>daily use</span><span>OpenAI / Anthropic</span></div>
+          <div class="gauge-label"><span>استفادهٔ روزمره</span><span>OpenAI / Anthropic</span></div>
         </div>
         <div class="skill-card bracket">
           <div class="skill-code mono">SYS.02.5</div>
           <h3>بک‌اند و زیرساخت</h3>
-          <p>ساخت APIهای RESTful، مدیریت دیتابیس‌های رابط‌ای و غیررابط‌ای، پیاده‌سازی سیستم صورتحساب مبتنی بر مصرف توکن
-            و استقرار روی سرورهای لینوکسی با Docker و Nginx.</p>
+          <p>توسعهٔ APIهای RESTful، طراحی و مدیریت پایگاه‌داده‌های رابطه‌ای و غیررابطه‌ای، پیاده‌سازی سامانه‌های
+            صورتحساب مبتنی بر مصرف توکن و استقرار روی سرورهای لینوکسی با Docker و Nginx.</p>
           <div class="gauge"><i data-fill="92"></i></div>
-          <div class="gauge-label"><span>daily use</span><span>Flask / Django / MongoDB</span></div>
+          <div class="gauge-label"><span>استفادهٔ روزمره</span><span>Flask / Django / MongoDB</span></div>
         </div>
         <div class="skill-card bracket">
           <div class="skill-code mono">SYS.02.6</div>
           <h3>ربات و اتوماسیون</h3>
-          <p>طراحی ربات‌های تلگرامی حرفه‌ای با مدیریت حالت مکالمه، ذخیره‌سازی پیشینه و اتصال به سرویس‌های خارجی.
-            اتوماسیون فرایندهای تکراری با اسکریپت‌های پایتون.</p>
+          <p>طراحی ربات‌های تلگرامی با مدیریت وضعیت مکالمه، ذخیره‌سازی سابقه و اتصال به سرویس‌های خارجی. اتوماسیون
+            فرایندهای تکراری با اسکریپت‌های پایتون.</p>
           <div class="gauge"><i data-fill="75"></i></div>
-          <div class="gauge-label"><span>working</span><span>Python</span></div>
+          <div class="gauge-label"><span>در حال توسعه</span><span>Python</span></div>
         </div>
       </div>
 
@@ -2073,25 +1693,25 @@
       </div>
     </section>
 
-    <!-- ================= LOG (experience) ================= -->
+    <!-- ================= EXPERIENCE ================= -->
     <section id="log" class="wrap">
       <div class="panel-tag mono" data-reveal><i></i>SYS.03 / EXPERIENCE</div>
-      <h2 class="panel-title" data-reveal>لاگ مسیر شغلی</h2>
-      <p class="panel-lede" data-reveal>از پروژه‌های تحقیقاتی هوش مصنوعی شروع کردم و به سمت ساخت زیرساخت واقعی برای
-        اجرای مدل‌ها حرکت کردم. هر جایگاه، فرصتی برای عمیق‌تر شدن در یکی از لایه‌های توسعهٔ هوش مصنوعی بوده است.</p>
+      <h2 class="panel-title" data-reveal>سوابق کاری</h2>
+      <p class="panel-lede" data-reveal>سوابق من از پژوهش‌های کاربردی هوش مصنوعی آغاز شده و به سمت طراحی و توسعهٔ
+        زیرساخت‌های واقعی برای اجرای مدل‌ها و سرویس‌های هوشمند ادامه یافته است.</p>
 
       <div class="gitlog" id="gitlog">
         <div class="commit" data-reveal>
           <span class="commit-dot"></span>
           <div class="commit-card bracket">
             <div class="commit-meta"><span class="commit-hash mono">#a1f9c2</span><span
-                class="commit-year mono">1403</span></div>
-            <h3>عضو تیم فنی هوش مصنوعی — تشخیص و ترجمه زبان اشاره</h3>
+                class="commit-year mono">۱۴۰۳</span></div>
+            <h3>عضو تیم فنی هوش مصنوعی | تشخیص و ترجمهٔ زبان اشاره</h3>
             <ul>
               <li>پیاده‌سازی تشخیص و ردیابی دقیق دست‌ها در ویدیو با استفاده از YOLOv8 و بهینه‌سازی برای فریم‌های متوالی.
               </li>
-              <li>پردازش دنباله‌ای فریم‌ها با معماری Transformer به منظور شناسایی علائم زبان اشاره ایرانی و تبدیل به
-                متن.</li>
+              <li>پردازش توالی فریم‌ها با معماری Transformer به‌منظور شناسایی علائم زبان اشارهٔ فارسی و تبدیل آن به متن.
+              </li>
               <li>تمرکز بر کاربرد هوش مصنوعی در حوزهٔ سلامت و دسترسی‌پذیری برای افراد ناشنوا و کم‌شنوا.</li>
             </ul>
           </div>
@@ -2101,12 +1721,12 @@
           <span class="commit-dot"></span>
           <div class="commit-card bracket">
             <div class="commit-meta"><span class="commit-hash mono">#c74e0b</span><span
-                class="commit-year mono">1403</span></div>
-            <h3>توسعه‌دهنده فری‌لنس هوش مصنوعی — سیستم پیشنهاد کتاب هوشمند</h3>
+                class="commit-year mono">۱۴۰۳</span></div>
+            <h3>توسعه‌دهندهٔ مستقل هوش مصنوعی | سامانهٔ پیشنهاد کتاب</h3>
             <ul>
-              <li>ساخت و ساختاردهی دیتاست جامع کتاب‌ها و استخراج ویژگی‌های کلیدی برای هر عنوان.</li>
+              <li>گردآوری و ساختاردهی دیتاست جامع کتاب‌ها و استخراج ویژگی‌های کلیدی برای هر عنوان.</li>
               <li>طراحی موتور پیشنهاد کتاب مبتنی بر پردازش زبان طبیعی و مهندسی پرامپت برای شخصی‌سازی نتایج.</li>
-              <li>همکاری مستقیم با سرمایه‌گذار برای تبدیل ایدهٔ اولیه به یک محصول عملی و قابل عرضه.</li>
+              <li>همکاری مستقیم با سرمایه‌گذار در تبدیل ایدهٔ اولیه به محصولی عملیاتی و قابل عرضه.</li>
             </ul>
           </div>
         </div>
@@ -2115,14 +1735,14 @@
           <span class="commit-dot"></span>
           <div class="commit-card bracket">
             <div class="commit-meta"><span class="commit-hash mono">#f30d91</span><span
-                class="commit-year mono">1404</span></div>
-            <h3>توسعه‌دهنده بک‌اند هوش مصنوعی — پلتفرم loovi.ai</h3>
+                class="commit-year mono">۱۴۰۴</span></div>
+            <h3>توسعه‌دهندهٔ بک‌اند هوش مصنوعی | پلتفرم loovi.ai</h3>
             <ul>
               <li>یکپارچه‌سازی و بهینه‌سازی APIهای مدل‌های متن، صوت، تصویر و ویدیو از OpenAI، Anthropic و ElevenLabs در
                 یک پلتفرم واحد.</li>
-              <li>پیاده‌سازی سیستم صورتحساب مبتنی بر مصرف توکن با قابلیت گزارش‌گیری و مشاهدهٔ لحظه‌ای.</li>
-              <li>کار با MongoDB برای ذخیره‌سازی لاگ‌ها، تاریخچهٔ مکالمات و متادیتای کاربران.</li>
-              <li>مشارکت در توسعه و پایداری زیرساخت بک‌اند، عیب‌یابی و بهبود کارایی.</li>
+              <li>پیاده‌سازی سامانهٔ صورتحساب مبتنی بر مصرف توکن با قابلیت گزارش‌گیری و پایش لحظه‌ای.</li>
+              <li>طراحی و مدیریت ذخیره‌سازی لاگ‌ها، تاریخچهٔ مکالمات و متادیتای کاربران در MongoDB.</li>
+              <li>مشارکت در توسعه و پایداری زیرساخت بک‌اند، عیب‌یابی و بهبود کارایی سامانه.</li>
             </ul>
           </div>
         </div>
@@ -2131,97 +1751,122 @@
           <span class="commit-dot"></span>
           <div class="commit-card bracket">
             <div class="commit-meta"><span class="commit-hash mono">#b81e4a</span><span
-                class="commit-year mono">1405</span></div>
-            <h3>برنامه‌نویس ارشد فول‌استک — تیم اریوس</h3>
+                class="commit-year mono">۱۴۰۵</span></div>
+            <h3>برنامه‌نویس ارشد فول‌استک | تیم اریوس</h3>
             <ul>
-              <li>طراحی و پیاده‌سازی کامل پروژه با جنگو، از معماری تا استقرار روی سرور لینوکسی.</li>
-              <li>همکاری با یک متخصص هوش مصنوعی حرفه‌ای برای یکپارچه‌سازی مدل‌های سفارشی در پلتفرم.</li>
-              <li>مدیریت یک نیروی زیردست و هدایت او در انجام تسک‌های توسعه و رفع اشکال.</li>
-              <li>مسئولیت کامل مدیریت پنل‌های سرویس‌ها، نظارت بر عملکرد و اتصال دو دامنه به سرور.</li>
-              <li>راه‌اندازی محیط تولید، تنظیمات Nginx و Gunicorn و خودکارسازی فرایند استقرار.</li>
+              <li>طراحی و پیاده‌سازی کامل پروژه با Django، از معماری تا استقرار روی سرور لینوکسی.</li>
+              <li>همکاری با متخصص هوش مصنوعی برای یکپارچه‌سازی مدل‌های سفارشی در پلتفرم.</li>
+              <li>مدیریت و هدایت یک توسعه‌دهندهٔ هم‌تیمی در انجام وظایف توسعه و رفع اشکال.</li>
+              <li>مسئولیت کامل مدیریت پنل‌های سرویس، پایش عملکرد و اتصال دو دامنهٔ مستقل به سرور.</li>
+              <li>راه‌اندازی محیط تولید، پیکربندی Nginx و Gunicorn و خودکارسازی فرایند استقرار.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="commit data" data-reveal>
+          <span class="commit-dot"></span>
+          <div class="commit-card bracket">
+            <div class="commit-meta"><span class="commit-hash mono">#e7d3f2</span><span
+                class="commit-year mono">۱۴۰۵</span></div>
+            <h3>طراح و توسعه‌دهندهٔ اصلی | سامانهٔ ساخت فروشگاه برای پیج‌های اینستاگرام</h3>
+            <ul>
+              <li>طراحی و پیاده‌سازی سامانه‌ای که به صاحبان پیج‌های اینستاگرام امکان می‌دهد بدون نیاز به دامنه یا
+                زیرساخت اختصاصی، فروشگاه آنلاین خود را ایجاد کنند.</li>
+              <li>پیاده‌سازی فرایند انتخاب قالب، آپلود محصولات و ساخت لینک اختصاصی هر محصول برای قرارگیری در توضیحات
+                پیج.</li>
+              <li>طراحی داشبورد جداگانهٔ خریدار و فروشنده، صفحهٔ اکسپلورر محصولات و سامانهٔ پیگیری سفارش.</li>
+              <li>پیاده‌سازی مسیر پرداخت و انتقال خودکار وجوه به حساب فروشنده، به‌همراه مدیریت کامل سفارش‌ها.</li>
             </ul>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ================= EDUCATION ================= -->
-    <section id="education" class="wrap">
+    <!-- ================= EDUCATION (hidden for now) ================= -->
+    <section id="education" class="wrap is-hidden">
       <div class="panel-tag mono" data-reveal><i></i>SYS.04 / EDUCATION</div>
       <h2 class="panel-title" data-reveal>تحصیلات و گواهینامه‌ها</h2>
-      <p class="panel-lede" data-reveal>این بخش برای مدارک تحصیلی و دوره‌های تخصصی شماست.</p>
-      <div class="placeholder-note mono" data-reveal>PLACEHOLDER — با اطلاعات واقعی (نام مدرک، مؤسسه، سال) جایگزین شود
-      </div>
-
-      <div class="edu-grid" data-reveal-group>
-        <div class="edu-card bracket">
-          <div class="edu-mark">01</div>
-          <div>
-            <h3>[عنوان مدرک یا دوره]</h3>
-            <p class="edu-org">[نام دانشگاه یا مؤسسه]</p><span class="edu-year mono">[سال]</span>
-          </div>
-        </div>
-        <div class="edu-card bracket">
-          <div class="edu-mark">02</div>
-          <div>
-            <h3>[عنوان مدرک یا دوره]</h3>
-            <p class="edu-org">[نام دانشگاه یا مؤسسه]</p><span class="edu-year mono">[سال]</span>
-          </div>
-        </div>
-        <div class="edu-card bracket">
-          <div class="edu-mark">03</div>
-          <div>
-            <h3>[عنوان گواهینامه تخصصی]</h3>
-            <p class="edu-org">[نام ارائه‌دهنده دوره]</p><span class="edu-year mono">[سال]</span>
-          </div>
-        </div>
-        <div class="edu-card bracket">
-          <div class="edu-mark">04</div>
-          <div>
-            <h3>[عنوان گواهینامه تخصصی]</h3>
-            <p class="edu-org">[نام ارائه‌دهنده دوره]</p><span class="edu-year mono">[سال]</span>
-          </div>
-        </div>
-      </div>
+      <p class="panel-lede" data-reveal>این بخش برای مدارک تحصیلی و دوره‌های تخصصی در نظر گرفته شده است.</p>
+      <div class="placeholder-note mono" data-reveal>PLACEHOLDER</div>
     </section>
 
-    <!-- ================= WORK (projects) ================= -->
+    <!-- ================= WORK ================= -->
     <section id="work" class="wrap">
       <div class="panel-tag mono" data-reveal><i></i>SYS.05 / SELECTED WORK</div>
       <h2 class="panel-title" data-reveal>نمونه‌کارها</h2>
-      <p class="panel-lede" data-reveal>پروژه‌هایی که از ایده تا اجرا، طراحی و توسعه داده‌ام. هر کدام نمایندهٔ یکی از
-        مهارت‌های کلیدی من در حوزهٔ هوش مصنوعی و بک‌اند هستند.</p>
+      <p class="panel-lede" data-reveal>پروژه‌هایی که از ایده تا بهره‌برداری طراحی و توسعه داده‌ام. هر یک نمایندهٔ بخشی از
+        توانمندی‌های من در حوزهٔ هوش مصنوعی و بک‌اند است.</p>
 
       <div class="work-grid" data-reveal-group>
-        <div class="work-card bracket">
+
+        <!-- CASE 01: featured -->
+        <div class="work-card featured bracket">
           <div class="work-inner">
             <div class="work-thumb"><img src="/images/loovi1.png" alt="loovi.ai">
               <div class="scanline"></div>
             </div>
             <div class="work-body">
               <div class="work-index mono">CASE.01</div>
-              <h3>loovi.ai — پلتفرم یکپارچه هوش مصنوعی برای پردازش چندرسانه‌ای</h3>
+              <h3>loovi.ai | پلتفرم یکپارچهٔ هوش مصنوعی برای پردازش چندرسانه‌ای</h3>
               <p>پلتفرمی که خدمات پردازش متن، صوت، تصویر و ویدیو را با اتصال به مدل‌های OpenAI، Anthropic و ElevenLabs
-                یکپارچه ارائه می‌دهد؛ همراه با سیستم محاسبه هزینه مبتنی بر توکن، مدیریت کاربران و گزارش‌گیری پیشرفته.
-              </p>
-              <div class="work-tags-link">
-                <div class="work-tags">
-                  <span>OpenAI</span><span>Anthropic</span><span>ElevenLabs</span><span>MongoDB</span></div>
-                <a class="work-link" href="https://loovi.ai" target="_blank" rel="noopener">مشاهده آنلاین ↗</a>
+                در یک بستر واحد ارائه می‌دهد. این سامانه شامل محاسبهٔ هزینه بر اساس مصرف توکن، مدیریت کاربران و
+                گزارش‌گیری پیشرفته است.</p>
+              <div class="work-tags">
+                <span>OpenAI</span><span>Anthropic</span><span>ElevenLabs</span><span>MongoDB</span>
               </div>
+              <a class="work-link" href="https://loovi.ai" target="_blank" rel="noopener">loovi.ai ↗</a>
             </div>
           </div>
         </div>
 
+        <!-- CASE 02: featured -->
+        <div class="work-card featured bracket">
+          <div class="work-inner">
+            <div class="work-thumb"><img src="/images/ariuos.png" alt="Arius">
+              <div class="scanline"></div>
+            </div>
+            <div class="work-body">
+              <div class="work-index mono">CASE.02</div>
+              <h3>پروژهٔ اریوس | پلتفرم هوشمند با معماری فول‌استک</h3>
+              <p>پروژه‌ای که در نقش برنامه‌نویس ارشد فول‌استک آن را مدیریت کرده‌ام. توسعه با Django انجام شد و شامل
+                یکپارچه‌سازی با مدل‌های هوش مصنوعی سفارشی، مدیریت پنل‌های سرویس، استقرار روی سرور لینوکسی و اتصال دو
+                دامنهٔ مستقل بود. همکاری نزدیک با متخصص هوش مصنوعی و هدایت یک توسعه‌دهنده از دیگر مسئولیت‌های این پروژه
+                بوده است.</p>
+              <div class="work-tags"><span>Django</span><span>AI Integration</span><span>DevOps</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CASE 03: featured (new) -->
+        <div class="work-card featured bracket">
+          <div class="work-inner">
+            <div class="work-thumb"><img src="/images/store-builder.png" alt="سامانهٔ ساخت فروشگاه برای پیج‌های اینستاگرام">
+              <div class="scanline"></div>
+            </div>
+            <div class="work-body">
+              <div class="work-index mono">CASE.03</div>
+              <h3>سامانهٔ ساخت فروشگاه برای پیج‌های اینستاگرام</h3>
+              <p>سامانه‌ای برای صاحبان پیج‌های اینستاگرام که توان یا بودجهٔ ساخت وب‌سایت ندارند یا امکان مدیریت سفارش‌ها را
+                ندارند. کاربر در این سامانه قالب فروشگاه را انتخاب کرده، محصولات خود را بارگذاری می‌کند و لینک اختصاصی هر
+                محصول را در توضیحات پیج قرار می‌دهد. خریدار از طریق همین لینک مستقیماً به صفحهٔ محصول منتقل شده و خرید را
+                انجام می‌دهد. وجوه پرداختی پس از کسر سهم سامانه، به حساب فروشنده منتقل می‌شود. امکانات اصلی شامل اکسپلورر
+                محصولات، داشبورد جداگانهٔ خریدار و فروشنده و سامانهٔ پیگیری سفارش است.</p>
+              <div class="work-tags"><span>Instagram</span><span>E-commerce</span><span>Payment Routing</span><span>Order
+                  Tracking</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Smaller projects in columns -->
         <div class="work-card bracket">
           <div class="work-thumb"><img src="/images/BookWeb.png" alt="BookWeb">
             <div class="scanline"></div>
           </div>
           <div class="work-body">
-            <div class="work-index mono">CASE.02</div>
-            <h3>BookWeb — سیستم هوشمند پیشنهاددهنده کتاب</h3>
-            <p>پیشنهاد کتاب مبتنی بر پردازش زبان طبیعی، با دیتابیس جامع از کتاب‌های پرطرفدار و مهندسی پرامپت پیشرفته
-              برای شخصی‌سازی نتایج. طراحی شده برای وب‌سایت‌های فروش کتاب و کتابخانه‌های دیجیتال.</p>
+            <div class="work-index mono">CASE.04</div>
+            <h3>BookWeb | سامانهٔ هوشمند پیشنهاد کتاب</h3>
+            <p>پیشنهاد کتاب بر پایهٔ پردازش زبان طبیعی با پایگاه‌داده‌ای جامع از کتاب‌های پرطرفدار و مهندسی پرامپت پیشرفته
+              برای شخصی‌سازی نتایج. مناسب برای وب‌سایت‌های فروش کتاب و کتابخانه‌های دیجیتال.</p>
             <div class="work-tags"><span>NLP</span><span>Prompt Engineering</span></div>
           </div>
         </div>
@@ -2231,10 +1876,10 @@
             <div class="scanline"></div>
           </div>
           <div class="work-body">
-            <div class="work-index mono">CASE.03</div>
-            <h3>SubifyAI — تولید و ترجمه خودکار زیرنویس ویدیو</h3>
-            <p>استخراج زیرنویس دقیق از هر زبان و لهجه با مدل Whisper و ترجمه فوری به بیش از ۱۰۰ زبان همراه با ویرایشگر
-              حرفه‌ای زمان‌بندی و استایل. مناسب برای تولیدکنندگان محتوا و پلتفرم‌های آموزشی.</p>
+            <div class="work-index mono">CASE.05</div>
+            <h3>SubifyAI | تولید و ترجمهٔ خودکار زیرنویس ویدیو</h3>
+            <p>استخراج زیرنویس دقیق از زبان‌ها و لهجه‌های مختلف با مدل Whisper و ترجمهٔ فوری به بیش از ۱۰۰ زبان، همراه با
+              ویرایشگر زمان‌بندی و استایل. مناسب برای تولیدکنندگان محتوا و پلتفرم‌های آموزشی.</p>
             <div class="work-tags"><span>Whisper</span><span>STT</span></div>
           </div>
         </div>
@@ -2244,10 +1889,10 @@
             <div class="scanline"></div>
           </div>
           <div class="work-body">
-            <div class="work-index mono">CASE.04</div>
-            <h3>AI Talk — گفتار-به-گفتار در زمان واقعی</h3>
-            <p>مکالمه طبیعی و کم‌تأخیر بین زبان‌های مختلف با ترکیب Streaming در مسیر STT → LLM → TTS. پیاده‌سازی شده
-              برای مشاوره‌های آنلاین و مترجم‌های هوشمند.</p>
+            <div class="work-index mono">CASE.06</div>
+            <h3>AI Talk | گفتار به گفتار در زمان واقعی</h3>
+            <p>مکالمهٔ طبیعی و کم‌تأخیر میان زبان‌های مختلف با ترکیب Streaming در مسیر STT → LLM → TTS. کاربرد در
+              مشاوره‌های آنلاین و مترجم‌های هوشمند.</p>
             <div class="work-tags"><span>Streaming</span><span>LLM</span><span>TTS</span></div>
           </div>
         </div>
@@ -2257,10 +1902,10 @@
             <div class="scanline"></div>
           </div>
           <div class="work-body">
-            <div class="work-index mono">CASE.05</div>
-            <h3>Coin Tracker — ردیابی و پیش‌بینی قیمت کریپتوکارنسی</h3>
-            <p>نمایش لحظه‌ای بازار از CoinGecko، Binance و Coinglass به همراه مدل پیش‌بینی مبتنی بر LSTM/Transformer
-              برای قیمت بیت‌کوین. ابزاری برای معامله‌گران و تحلیل‌گران بازار.</p>
+            <div class="work-index mono">CASE.07</div>
+            <h3>Coin Tracker | پایش و پیش‌بینی قیمت ارزهای دیجیتال</h3>
+            <p>نمایش لحظه‌ای بازار با داده‌های CoinGecko، Binance و Coinglass، به همراه مدل پیش‌بینی مبتنی بر LSTM و
+              Transformer برای قیمت بیت‌کوین. ابزاری برای معامله‌گران و تحلیل‌گران بازار.</p>
             <div class="work-tags"><span>LSTM</span><span>MySQL</span></div>
           </div>
         </div>
@@ -2270,88 +1915,36 @@
             <div class="scanline"></div>
           </div>
           <div class="work-body">
-            <div class="work-index mono">CASE.06</div>
-            <h3>AI Web Design — تولید وب‌سایت با هوش مصنوعی</h3>
-            <p>تولید کد HTML، CSS و JavaScript از روی توصیف متنی، با پیش‌نمایش لحظه‌ای و امکان اصلاح هوشمند از طریق
-              گفت‌وگو. کاهش چشمگیر زمان طراحی رابط‌های کاربری.</p>
+            <div class="work-index mono">CASE.08</div>
+            <h3>AI Web Design | تولید وب‌سایت با هوش مصنوعی</h3>
+            <p>تولید کد HTML، CSS و JavaScript از روی توصیف متنی، با پیش‌نمایش لحظه‌ای و امکان اصلاح از طریق گفت‌وگو.
+              کاهش چشمگیر زمان طراحی رابط کاربری.</p>
             <div class="work-tags"><span>Code Generation</span><span>LLM</span></div>
           </div>
         </div>
 
-        <!-- ===== NEW WORK CARD 07 ===== -->
         <div class="work-card bracket">
           <div class="work-thumb"><img src="/images/web_advertising.png" alt="Web Advertising">
             <div class="scanline"></div>
           </div>
           <div class="work-body">
-            <div class="work-index mono">CASE.07</div>
-            <h3>Web Advertising — پلتفرم تبلیغات دیجیتال برای استارتاپ‌ها</h3>
-            <p>سایت جامع برای معرفی و فروش استارتاپ‌ها، پلتفرم‌ها و محصولات دیجیتال. تمام بخش‌های پروژه از جمله طراحی
-              پایگاه داده، پیاده‌سازی جنگو، تنظیمات سرور و اتصال دامنه به عهدهٔ من بوده است. امکان ثبت آگهی، جستجوی
-              پیشرفته و سیستم پیام‌رسانی داخلی از قابلیت‌های اصلی آن هستند.</p>
+            <div class="work-index mono">CASE.09</div>
+            <h3>Web Advertising | پلتفرم تبلیغات دیجیتال برای استارتاپ‌ها</h3>
+            <p>وب‌سایتی جامع برای معرفی و عرضهٔ استارتاپ‌ها، پلتفرم‌ها و محصولات دیجیتال. طراحی پایگاه‌داده، توسعه با
+              Django، پیکربندی سرور و اتصال دامنه بر عهدهٔ من بوده است. قابلیت‌های اصلی شامل ثبت آگهی، جستجوی پیشرفته و
+              سامانهٔ پیام‌رسانی داخلی است.</p>
             <div class="work-tags"><span>Django</span><span>PostgreSQL</span><span>Bootstrap</span></div>
           </div>
         </div>
 
-        <!-- ===== NEW WORK CARD 08 ===== -->
-        <div class="work-card bracket">
-          <div class="work-thumb"><img src="/images/ariuos.png" alt="Arius">
-            <div class="scanline"></div>
-          </div>
-          <div class="work-body">
-            <div class="work-index mono">CASE.08</div>
-            <h3>پروژه اریوس — پلتفرم هوشمند با معماری فول‌استک</h3>
-            <p>پروژه‌ای که در نقش برنامه‌نویس ارشد فول‌استک آن را مدیریت کردم. با جنگو توسعه داده شد و شامل یکپارچه‌سازی
-              با مدل‌های هوش مصنوعی سفارشی، مدیریت پنل‌های سرویس، استقرار روی سرور لینوکسی و اتصال دو دامنهٔ مستقل بود.
-              همکاری نزدیک با متخصص هوش مصنوعی و هدایت یک نیروی توسعه‌دهنده از دیگر مسئولیت‌های این پروژه بود.</p>
-            <div class="work-tags"><span>Django</span><span>AI Integration</span><span>DevOps</span></div>
-          </div>
-        </div>
       </div>
     </section>
 
-    <!-- ================= TESTIMONIALS ================= -->
-    <section id="testimonials" class="wrap">
+    <!-- ================= TESTIMONIALS (hidden for now) ================= -->
+    <section id="testimonials" class="wrap is-hidden">
       <div class="panel-tag mono" data-reveal><i></i>SYS.06 / TESTIMONIALS</div>
       <h2 class="panel-title" data-reveal>نظرات همکاران و کارفرمایان</h2>
-      <div class="placeholder-note mono" data-reveal>PLACEHOLDER — با نظرات واقعی جایگزین شود، در غیر این‌صورت بهتر است
-        حذف گردد</div>
-
-      <div class="testi-grid" data-reveal-group>
-        <div class="testi-card bracket">
-          <div class="testi-prompt mono">&gt; feedback --from=colleague</div>
-          <p class="testi-quote">«متن نظر همکار یا کارفرما دربارهٔ همکاری با شما در اینجا قرار می‌گیرد.»</p>
-          <div class="testi-person">
-            <div class="testi-avatar mono">?</div>
-            <div>
-              <div class="t-name">[نام فرد]</div>
-              <div class="t-role">[سمت / شرکت]</div>
-            </div>
-          </div>
-        </div>
-        <div class="testi-card bracket">
-          <div class="testi-prompt mono">&gt; feedback --from=client</div>
-          <p class="testi-quote">«متن نظر همکار یا کارفرما دربارهٔ همکاری با شما در اینجا قرار می‌گیرد.»</p>
-          <div class="testi-person">
-            <div class="testi-avatar mono">?</div>
-            <div>
-              <div class="t-name">[نام فرد]</div>
-              <div class="t-role">[سمت / شرکت]</div>
-            </div>
-          </div>
-        </div>
-        <div class="testi-card bracket">
-          <div class="testi-prompt mono">&gt; feedback --from=manager</div>
-          <p class="testi-quote">«متن نظر همکار یا کارفرما دربارهٔ همکاری با شما در اینجا قرار می‌گیرد.»</p>
-          <div class="testi-person">
-            <div class="testi-avatar mono">?</div>
-            <div>
-              <div class="t-name">[نام فرد]</div>
-              <div class="t-role">[سمت / شرکت]</div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <div class="placeholder-note mono" data-reveal>PLACEHOLDER</div>
     </section>
 
     <!-- ================= GITHUB ================= -->
@@ -2360,66 +1953,85 @@
       <h2 class="panel-title" data-reveal>فعالیت گیت‌هاب</h2>
       <div class="gh-panel bracket" data-reveal>
         <div class="gh-head">
-          <span class="mono" style="color:var(--muted); font-size:12.5px;">CONTRIBUTION HISTORY</span>
+          <span>CONTRIBUTION HISTORY</span>
           <a href="https://github.com/yhyaa79" target="_blank" rel="noopener">@yhyaa79 ↗</a>
         </div>
-        <div id="github-calendar">Loading GitHub contributions…</div>
+
+        <div class="slider" id="ghSlider">
+          <div class="slider-track">
+            <div class="slide active" data-year="2026">
+              <img src="/images/Screenshot1.png" alt="فعالیت گیت‌هاب در سال ۲۰۲۶">
+            </div>
+            <div class="slide" data-year="2025">
+              <img src="/images/Screenshot2.png" alt="فعالیت گیت‌هاب در سال ۲۰۲۵">
+            </div>
+            <div class="slide" data-year="2024">
+              <img src="/images/Screenshot3.png" alt="فعالیت گیت‌هاب در سال ۲۰۲۴">
+            </div>
+          </div>
+          <span class="slider-year mono" id="sliderYear">2026</span>
+          <button class="slider-btn prev" type="button" aria-label="قبلی">‹</button>
+          <button class="slider-btn next" type="button" aria-label="بعدی">›</button>
+        </div>
+
+        <div class="slider-dots" id="sliderDots">
+          <button type="button" class="active" aria-label="۲۰۲۶"></button>
+          <button type="button" aria-label="۲۰۲۵"></button>
+          <button type="button" aria-label="۲۰۲۴"></button>
+        </div>
+        <p class="gh-note">فعالیت مشارکت در مخازن عمومی و خصوصی به‌تفکیک سال.</p>
       </div>
     </section>
 
     <!-- ================= CONTACT ================= -->
     <section id="contact" class="wrap">
       <div class="panel-tag mono" data-reveal><i></i>SYS.08 / CONTACT</div>
-      <h2 class="panel-title" data-reveal>بیایید یک پروژه هوش مصنوعی بسازیم</h2>
-      <p class="panel-lede" data-reveal>برای همکاری، سوال دربارهٔ پروژه‌ها یا صرفاً یک گفت‌وگوی فنی، فرم زیر را پر کنید
-        یا مستقیم پیام دهید. مشتاقم ایده‌های جدید را بشنوم و به محصولی کاربردی تبدیل کنم.</p>
+      <h2 class="panel-title" data-reveal>ارتباط و همکاری</h2>
+      <p class="panel-lede" data-reveal>برای همکاری در پروژه‌های هوش مصنوعی و بک‌اند، پرسش دربارهٔ نمونه‌کارها یا مشورت
+        فنی، از یکی از مسیرهای زیر با من در ارتباط باشید. پاسخ‌گویی معمولاً ظرف ۴۸ ساعت انجام می‌شود.</p>
 
-      <div class="contact-grid">
-        <div class="contact-info bracket" data-reveal>
-          <div class="avail"><i></i>آماده برای همکاری جدید</div>
-          <p>پاسخ‌گویی معمولاً در کمتر از ۴۸ ساعت انجام می‌شود. ترجیحاً از طریق ایمیل یا پیام‌رسان‌های اجتماعی با من در
-            تماس باشید.</p>
-          <div class="contact-email mono">example@email.com</div>
-          <div class="social-row">
-            <a class="social-btn" href="https://github.com/yhyaa79" target="_blank" rel="noopener" aria-label="GitHub">
-              <svg viewBox="0 0 16 16" fill="currentColor">
-                <path
-                  d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" />
-              </svg>
-            </a>
-            <a class="social-btn" href="https://github.com/yhyaa79" target="_blank" rel="noopener"
-              aria-label="LinkedIn">
-              <svg viewBox="0 0 448 512" fill="currentColor">
-                <path
-                  d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z" />
-              </svg>
-            </a>
-            <a class="social-btn" href="mailto:example@email.com" aria-label="Email">
-              <svg viewBox="0 0 512 512" fill="currentColor">
-                <path
-                  d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z" />
-              </svg>
-            </a>
+      <div class="contact-cards" data-reveal-group>
+        <a class="contact-card bracket" href="mailto:example@email.com">
+          <div class="contact-icon">
+            <svg viewBox="0 0 512 512" fill="currentColor">
+              <path
+                d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z" />
+            </svg>
           </div>
-        </div>
+          <span class="contact-label">EMAIL</span>
+          <span class="contact-value">example@email.com</span>
+          <span class="go">send →</span>
+        </a>
 
-        <form class="contact-form bracket form-grid" action="mailto:example@email.com" method="get" data-reveal>
-          <div class="form-row">
-            <div class="field"><label for="f-name">نام</label><input id="f-name" name="name" type="text"
-                placeholder="نام شما"></div>
-            <div class="field"><label for="f-email">ایمیل</label><input id="f-email" name="email" type="email"
-                placeholder="you@example.com"></div>
+        <a class="contact-card bracket" href="https://github.com/yhyaa79" target="_blank" rel="noopener">
+          <div class="contact-icon">
+            <svg viewBox="0 0 16 16" fill="currentColor">
+              <path
+                d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.530-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" />
+            </svg>
           </div>
-          <div class="field"><label for="f-msg">پیام</label><textarea id="f-msg" name="body"
-              placeholder="پیام خود را بنویسید…"></textarea></div>
-          <button class="btn btn-primary" type="submit" style="width:fit-content;">ارسال پیام</button>
-        </form>
+          <span class="contact-label">GITHUB</span>
+          <span class="contact-value">github.com/yhyaa79</span>
+          <span class="go">open →</span>
+        </a>
+
+        <a class="contact-card bracket" href="https://t.me/username" target="_blank" rel="noopener">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M9.04 15.3 8.9 19.2c.45 0 .65-.2.88-.44l2.12-2.03 4.39 3.21c.8.44 1.37.21 1.58-.74l2.86-13.4c.29-1.2-.44-1.74-1.2-1.4L1.7 10.1c-1.17.46-1.15 1.12-.2 1.41l4.7 1.47L16.4 6.9c.5-.33.96-.15.58.18L9.04 15.3z" />
+            </svg>
+          </div>
+          <span class="contact-label">TELEGRAM</span>
+          <span class="contact-value">@username</span>
+          <span class="go">message →</span>
+        </a>
       </div>
     </section>
 
     <footer>
-      <span>© <span id="year"></span> Yahya Eslami — Built for AI, backend &amp; the systems between them.</span>
-      <a class="back-top" href="#hero">↑ back to top</a>
+      <span>© <span id="year"></span> یحیی اسلامی | توسعهٔ بک‌اند، هوش مصنوعی و سامانه‌های میان آن‌ها</span>
+      <a class="back-top no-print" href="#hero">↑ بازگشت به بالا</a>
     </footer>
   </main>
 
@@ -2436,21 +2048,13 @@
       root.setAttribute('data-theme', theme);
       btnDark.classList.toggle('active', theme === 'dark');
       btnLight.classList.toggle('active', theme === 'light');
-      try {
-        localStorage.setItem('theme', theme);
-      } catch (e) {}
+      try { localStorage.setItem('theme', theme); } catch (e) {}
     }
     let saved = 'dark';
-    try {
-      saved = localStorage.getItem('theme') || 'dark';
-    } catch (e) {}
+    try { saved = localStorage.getItem('theme') || 'dark'; } catch (e) {}
     setTheme(saved);
     btnDark.addEventListener('click', () => setTheme('dark'));
     btnLight.addEventListener('click', () => setTheme('light'));
-
-    if (window.GitHubCalendar) GitHubCalendar("#github-calendar", "yhyaa79", {
-      responsive: true
-    });
 
     /* rail progress */
     const railProgress = document.getElementById('railProgress');
@@ -2460,15 +2064,12 @@
       const scrolled = h.scrollTop / (h.scrollHeight - h.clientHeight);
       if (railProgress) railProgress.style.height = (Math.min(1, Math.max(0, scrolled)) * 100) + '%';
     }
-    document.addEventListener('scroll', updateProgress, {
-      passive: true
-    });
+    document.addEventListener('scroll', updateProgress, { passive: true });
     updateProgress();
 
-    /* active nav link (rail + mobile) */
+    /* active nav link */
     const navLinks = [...document.querySelectorAll('[data-nav]')];
-    const navSections = navLinks.map(l => document.querySelector(l.getAttribute('href'))).filter((v, i, a) => v && a
-      .findIndex(x => x === v) === i);
+    const navSections = [...new Set(navLinks.map(l => document.querySelector(l.getAttribute('href'))).filter(Boolean))];
     const navObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -2476,10 +2077,8 @@
           navLinks.forEach(l => l.classList.toggle('active', l.getAttribute('href') === id));
         }
       });
-    }, {
-      rootMargin: '-40% 0px -50% 0px'
-    });
-    navSections.forEach(s => s && navObserver.observe(s));
+    }, { rootMargin: '-40% 0px -50% 0px' });
+    navSections.forEach(s => navObserver.observe(s));
 
     /* custom cursor */
     const canHover = window.matchMedia('(hover:hover) and (pointer:fine)').matches;
@@ -2487,10 +2086,7 @@
     else {
       const dot = document.getElementById('cursorDot');
       const ring = document.getElementById('cursorRing');
-      let rx = 0,
-        ry = 0,
-        tx = 0,
-        ty = 0;
+      let rx = 0, ry = 0, tx = 0, ty = 0;
       document.addEventListener('mousemove', e => {
         dot.style.transform = `translate(${e.clientX}px, ${e.clientY}px) translate(-50%,-50%)`;
         tx = e.clientX;
@@ -2502,7 +2098,7 @@
         ring.style.transform = `translate(${rx}px, ${ry}px) translate(-50%,-50%)`;
         requestAnimationFrame(loop);
       })();
-      document.querySelectorAll('a, button, .work-card, .skill-card, input, textarea').forEach(el => {
+      document.querySelectorAll('a, button, .work-card, .skill-card, .contact-card').forEach(el => {
         el.addEventListener('mouseenter', () => ring.classList.add('hover'));
         el.addEventListener('mouseleave', () => ring.classList.remove('hover'));
       });
@@ -2515,17 +2111,25 @@
         if (entry.isIntersecting) {
           entry.target.classList.add('in');
           if (entry.target.classList.contains('skills-grid')) {
-            entry.target.querySelectorAll('.gauge i').forEach(g => {
-              g.style.width = g.dataset.fill + '%';
-            });
+            entry.target.querySelectorAll('.gauge i').forEach(g => { g.style.width = g.dataset.fill + '%'; });
           }
           revealObserver.unobserve(entry.target);
         }
       });
-    }, {
-      threshold: 0.12
-    });
+    }, { threshold: 0.12 });
     revealEls.forEach(el => revealObserver.observe(el));
+
+    /* skills gauges: fill when grid is revealed */
+    const skillsGrid = document.querySelector('.skills-grid');
+    const gaugeObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.querySelectorAll('.gauge i').forEach(g => { g.style.width = g.dataset.fill + '%'; });
+          gaugeObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.2 });
+    if (skillsGrid) gaugeObserver.observe(skillsGrid);
 
     /* hero heading word reveal */
     const heading = document.getElementById('heroHeading');
@@ -2556,7 +2160,7 @@
       heading.appendChild(frag);
     }
 
-    /* live uptime counter — since the author's AI/backend journey started (1402 → 2023-03-21) */
+    /* uptime since the start of the AI/backend journey (1402 → 2023-03-21) */
     const startDate = new Date('2023-03-21T00:00:00Z').getTime();
     const uptimeEl = document.getElementById('uptimeVal');
 
@@ -2565,12 +2169,12 @@
       const days = Math.floor(diff / 86400000);
       const hrs = Math.floor((diff % 86400000) / 3600000);
       const mins = Math.floor((diff % 3600000) / 60000);
-      uptimeEl.textContent = `${days}d ${String(hrs).padStart(2,'0')}h ${String(mins).padStart(2,'0')}m`;
+      uptimeEl.textContent = `${days}d ${String(hrs).padStart(2, '0')}h ${String(mins).padStart(2, '0')}m`;
     }
     updateUptime();
     setInterval(updateUptime, 30000);
 
-    /* fake but lively requests/sec ticker */
+    /* requests/sec indicator */
     const reqEl = document.getElementById('reqVal');
 
     function tickReq() {
@@ -2582,21 +2186,7 @@
     if (!reduced) setInterval(tickReq, 1400);
     else reqEl.textContent = '14';
 
-    /* sparkline drift */
-    const spark = document.getElementById('sparkline');
-
-    function randSpark() {
-      const pts = [];
-      let y = 20;
-      for (let i = 0; i <= 10; i++) {
-        y += (Math.random() - 0.5) * 14;
-        y = Math.max(6, Math.min(38, y));
-        pts.push(`${i*30},${y.toFixed(1)}`);
-      }
-      spark.setAttribute('points', pts.join(' '));
-    }
-    if (!reduced) setInterval(randSpark, 2200);
-
+    /* sparkline */
     const sparkline = document.getElementById('sparkline');
     const sparkArea = document.getElementById('sparkArea');
     const sparkDot = document.getElementById('sparkDot');
@@ -2612,23 +2202,19 @@
         pts.push(Math.max(6, Math.min(38, y)));
       }
       const step = 300 / (NUM_POINTS - 1);
-      let pointsStr = pts.map((y, i) => `${i * step},${y.toFixed(1)}`).join(' ');
+      const pointsStr = pts.map((y, i) => `${i * step},${y.toFixed(1)}`).join(' ');
       sparkline.setAttribute('points', pointsStr);
-      // مساحت زیر نمودار (area)
-      let areaPts = pointsStr + ` ${300},44 0,44`;
-      sparkArea.setAttribute('d', `M ${areaPts} Z`);
-      // نقطه‌ی انتهایی (نشانگر آخرین مقدار)
+      sparkArea.setAttribute('d', `M ${pointsStr} 300,44 0,44 Z`);
       sparkDot.setAttribute('cx', 300);
       sparkDot.setAttribute('cy', pts[pts.length - 1].toFixed(1));
     }
     if (!reduced) setInterval(updateSpark, 300);
     else {
-      // در حالت reduced یک خط ثابت نشان دهید
       sparkline.setAttribute('points', '0,22 300,22');
       sparkArea.setAttribute('d', 'M 0,22 300,22 300,44 0,44 Z');
     }
 
-    /* gitlog scroll progress */
+    /* experience timeline progress */
     const gitlog = document.getElementById('gitlog');
 
     function updateGitlog() {
@@ -2636,22 +2222,33 @@
       const rect = gitlog.getBoundingClientRect();
       const total = rect.height;
       const windowHeight = window.innerHeight;
-      // درصد پیشرفت: ۰٪ وقتی بالای عنصر تازه وارد viewport می‌شود، ۱۰۰٪ وقتی انتهای عنصر به بالای viewport می‌رسد
       const progress = Math.min(1, Math.max(0, (windowHeight - rect.top) / (total + windowHeight)));
       gitlog.style.setProperty('--log-progress', (progress * 100) + '%');
     }
-    document.addEventListener('scroll', updateGitlog, {
-      passive: true
-    });
+    document.addEventListener('scroll', updateGitlog, { passive: true });
     updateGitlog();
+
+    /* screenshot slider (GitHub activity) */
+    const slides = [...document.querySelectorAll('#ghSlider .slide')];
+    const dots = [...document.querySelectorAll('#sliderDots button')];
+    const yearLabel = document.getElementById('sliderYear');
+    let current = 0;
+
+    function showSlide(index) {
+      current = (index + slides.length) % slides.length;
+      slides.forEach((s, i) => s.classList.toggle('active', i === current));
+      dots.forEach((d, i) => d.classList.toggle('active', i === current));
+      yearLabel.textContent = slides[current].dataset.year;
+    }
+
+    document.querySelector('#ghSlider .prev').addEventListener('click', () => showSlide(current + 1));
+    document.querySelector('#ghSlider .next').addEventListener('click', () => showSlide(current - 1));
+    dots.forEach((d, i) => d.addEventListener('click', () => showSlide(i)));
 
     /* back to top */
     document.querySelector('.back-top').addEventListener('click', e => {
       e.preventDefault();
-      window.scrollTo({
-        top: 0,
-        behavior: reduced ? 'auto' : 'smooth'
-      });
+      window.scrollTo({ top: 0, behavior: reduced ? 'auto' : 'smooth' });
     });
   </script>
 </body>
